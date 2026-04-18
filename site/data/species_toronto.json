@@ -1,0 +1,193 @@
+{
+  "_meta": {
+    "source": "City of Toronto — Species planted on streets",
+    "url": "https://www.toronto.ca/services-payments/water-environment/trees/tree-planting/species-planted-on-streets/"
+  },
+  "acer nigrum": {
+    "common": "Black Maple", "native": "Native to Ontario",
+    "size": "Large · 20 m × 12 m", "growth": "Medium", "sensitivity": "Hardy", "wires": false,
+    "flowers": "Tiny green-yellow flowers in early spring",
+    "fall_color": "Yellow-orange", "fruit": "Winged seeds (keys)"
+  },
+  "acer rubrum": {
+    "common": "Red Maple", "native": "Native to Ontario",
+    "size": "Large · 15 m × 15 m", "growth": "Medium", "sensitivity": "Very sensitive", "wires": false,
+    "flowers": "Tiny red flowers in early spring",
+    "fall_color": "Red", "fruit": "Winged seeds (keys)"
+  },
+  "acer saccharinum": {
+    "common": "Silver Maple", "native": "Native to Ontario",
+    "size": "Large · 20 m × 14 m", "growth": "Fast", "sensitivity": "Very hardy", "wires": false,
+    "flowers": "Tiny red flowers in early spring",
+    "fall_color": "Yellow", "fruit": "Winged seeds (keys)"
+  },
+  "acer saccharum": {
+    "common": "Sugar Maple", "native": "Native to Ontario",
+    "size": "Large · 20 m × 15 m", "growth": "Medium", "sensitivity": "Sensitive", "wires": false,
+    "flowers": "Tiny green-yellow flowers in early spring",
+    "fall_color": "Yellow, orange, red", "fruit": "Winged seeds (keys)"
+  },
+  "acer freemanii": {
+    "common": "Freeman Maple 'Autumn Blaze'", "native": "Hybrid of Ontario natives",
+    "size": "Large · 16 m × 12 m", "growth": "Fast", "sensitivity": "Hardy", "wires": false,
+    "flowers": "Tiny red flowers in early spring",
+    "fall_color": "Orange-red", "fruit": "Winged seeds (keys)"
+  },
+  "aesculus carnea": {
+    "common": "Red Horsechestnut", "native": "Introduced (Europe)",
+    "size": "Medium · 10 m × 10 m", "growth": "Slow", "sensitivity": "Moderately hardy", "wires": true,
+    "flowers": "Showy red flowers in late spring",
+    "fall_color": "Yellow", "fruit": "Nut (conkers)",
+    "note": "Large, palmate leaves"
+  },
+  "aesculus flava": {
+    "common": "Yellow Buckeye", "native": "Native to North America",
+    "size": "Large · 15 m × 10 m", "growth": "Slow", "sensitivity": "Hardy", "wires": false,
+    "flowers": "Showy yellow flowers in late spring",
+    "fall_color": "Yellow with orange", "fruit": "Nut (buckeyes)",
+    "note": "Large, palmate leaves"
+  },
+  "aesculus glabra": {
+    "common": "Ohio Buckeye", "native": "Native to Ontario",
+    "size": "Medium · 10 m × 9 m", "growth": "Slow", "sensitivity": "Moderately hardy", "wires": true,
+    "flowers": "Showy cream flowers in late spring",
+    "fall_color": "Yellow with orange", "fruit": "Nut (buckeyes)",
+    "note": "Large, palmate leaves"
+  },
+  "aesculus hippocastanum": {
+    "common": "Common Horsechestnut", "native": "Introduced (Europe)",
+    "size": "Large · 18 m × 15 m", "growth": "Medium", "sensitivity": "Moderately hardy", "wires": false,
+    "flowers": "Showy white flowers in late spring",
+    "fall_color": "Yellow", "fruit": "Nut (conkers)",
+    "note": "Large, palmate leaves"
+  },
+  "catalpa speciosa": {
+    "common": "Northern Catalpa", "native": "Native to North America",
+    "size": "Large · 18 m × 15 m", "growth": "Medium", "sensitivity": "Hardy", "wires": true,
+    "flowers": "Showy white flowers in late spring",
+    "fall_color": "Yellow", "fruit": "Long bean-like hanging pods",
+    "note": "Large, heart-shaped leaves"
+  },
+  "celtis occidentalis": {
+    "common": "Hackberry", "native": "Native to Ontario",
+    "size": "Large · 16 m × 14 m", "growth": "Fast", "sensitivity": "Hardy", "wires": false,
+    "flowers": "Tiny greenish-white flowers",
+    "fall_color": "Yellow", "fruit": "Small round berry-like fruit",
+    "note": "Interesting bark"
+  },
+  "cercidiphyllum japonicum": {
+    "common": "Japanese Katsura", "native": "Introduced (Asia)",
+    "size": "Medium · 14 m × 7 m", "growth": "Medium", "sensitivity": "Sensitive", "wires": false,
+    "flowers": "Tiny red thread-like flowers",
+    "fall_color": "Orange, peach, yellow", "fruit": "Small seed pods"
+  },
+  "cladrastis kentukea": {
+    "common": "Yellowwood", "native": "Native to North America",
+    "size": "Medium · 14 m × 15 m", "growth": "Medium", "sensitivity": "Sensitive", "wires": true,
+    "flowers": "Clusters of fragrant white flowers in summer",
+    "fall_color": "Yellow", "fruit": "Flat seed pods",
+    "note": "Smooth grey bark"
+  },
+  "corylus colurna": {
+    "common": "Turkish Hazel", "native": "Introduced (Europe)",
+    "size": "Large · 15 m × 8 m", "growth": "Medium", "sensitivity": "Sensitive", "wires": false,
+    "flowers": "Tiny pink flowers (female) and catkins (male)",
+    "fall_color": "Yellow", "fruit": "Nut (hazelnut)",
+    "note": "Catkins in spring"
+  },
+  "fagus sylvatica": {
+    "common": "European Beech", "native": "Introduced (Europe)",
+    "size": "Large · 18 m × 15 m", "growth": "Slow", "sensitivity": "Sensitive", "wires": false,
+    "flowers": "Inconspicuous pinkish-green flowers",
+    "fall_color": "Bronze", "fruit": "Nut (beechnut)",
+    "note": "Smooth grey bark"
+  },
+  "ginkgo biloba": {
+    "common": "Ginkgo", "native": "Introduced (Asia)",
+    "size": "Large · 15 m × 10 m", "growth": "Slow", "sensitivity": "Hardy", "wires": true,
+    "flowers": "Inconspicuous green flowers",
+    "fall_color": "Bright yellow", "fruit": "Only non-fruiting male trees are planted by the City"
+  },
+  "gleditsia triacanthos": {
+    "common": "Honey Locust 'Skyline'", "native": "Native to Ontario",
+    "size": "Large · 17 m × 15 m", "growth": "Fast", "sensitivity": "Very hardy", "wires": true,
+    "flowers": "Inconspicuous green flowers",
+    "fall_color": "Yellow", "fruit": "Long flat bean-like pod",
+    "note": "Provides filtered shade"
+  },
+  "gymnocladus dioicus": {
+    "common": "Kentucky Coffeetree", "native": "Native to Ontario",
+    "size": "Large · 18 m × 13 m", "growth": "Slow", "sensitivity": "Very hardy", "wires": true,
+    "flowers": "Inconspicuous white flowers",
+    "fall_color": "Yellow", "fruit": "Large flat bean-like pod (male trees have none)"
+  },
+  "liriodendron tulipifera": {
+    "common": "Tulip Tree", "native": "Native to Ontario",
+    "size": "Large · 18 m × 12 m", "growth": "Medium", "sensitivity": "Sensitive", "wires": false,
+    "flowers": "Showy yellow-green flowers in late spring",
+    "fall_color": "Yellow", "fruit": "Winged seeds arranged in a cone"
+  },
+  "ostrya virginiana": {
+    "common": "Ironwood", "native": "Native to Ontario",
+    "size": "Medium · 10 m × 9 m", "growth": "Slow", "sensitivity": "Sensitive", "wires": true,
+    "flowers": "Inconspicuous green flowers (female) and catkins (male)",
+    "fall_color": "Yellow", "fruit": "Papery hop-like seed cover",
+    "note": "Interesting shaggy bark"
+  },
+  "platanus acerifolia": {
+    "common": "London Plane", "native": "Hybrid (North America × Asia)",
+    "size": "Large · 20 m × 18 m", "growth": "Medium", "sensitivity": "Moderately hardy", "wires": true,
+    "flowers": "Ball of inconspicuous tiny red flowers",
+    "fall_color": "Yellow", "fruit": "Small spherical seed cluster",
+    "note": "Interesting bark"
+  },
+  "quercus alba": {
+    "common": "White Oak", "native": "Native to Ontario",
+    "size": "Large · 20 m × 20 m", "growth": "Slow", "sensitivity": "Very sensitive",
+    "flowers": "Male catkins and inconspicuous female flowers",
+    "fall_color": "Red-brown", "fruit": "Nut (acorn)"
+  },
+  "quercus bicolor": {
+    "common": "Swamp White Oak", "native": "Native to Ontario",
+    "size": "Large · 15 m × 15 m", "growth": "Slow", "sensitivity": "Moderately hardy", "wires": true,
+    "flowers": "Male catkins and inconspicuous female flowers",
+    "fall_color": "Tan", "fruit": "Nut (acorn)",
+    "note": "Peeling bark"
+  },
+  "quercus macrocarpa": {
+    "common": "Bur Oak", "native": "Native to Ontario",
+    "size": "Large · 20 m × 18 m", "growth": "Slow", "sensitivity": "Hardy", "wires": true,
+    "flowers": "Male catkins and inconspicuous female flowers",
+    "fall_color": "Gold", "fruit": "Nut (acorn)"
+  },
+  "quercus rubra": {
+    "common": "Red Oak", "native": "Native to Ontario",
+    "size": "Large · 20 m × 15 m", "growth": "Slow", "sensitivity": "Hardy", "wires": true,
+    "flowers": "Male catkins and inconspicuous female flowers",
+    "fall_color": "Red", "fruit": "Nut (acorn)"
+  },
+  "quercus shumardii": {
+    "common": "Shumard Oak", "native": "Native to Ontario",
+    "size": "Large · 18 m × 14 m", "growth": "Slow", "sensitivity": "Very sensitive", "wires": true,
+    "flowers": "Male catkins and inconspicuous female flowers",
+    "fall_color": "Red-brown", "fruit": "Nut (acorn)"
+  },
+  "tilia americana": {
+    "common": "Basswood", "native": "Native to Ontario",
+    "size": "Large · 20 m × 10 m", "growth": "Medium", "sensitivity": "Moderately sensitive", "wires": false,
+    "flowers": "Small, fragrant, pale-yellow flowers in June",
+    "fall_color": "Yellow", "fruit": "Small round seed with a papery wing"
+  },
+  "tilia flavescens": {
+    "common": "Littleleaf Linden 'Glenleven'", "native": "Introduced (Europe)",
+    "size": "Large · 16 m × 12 m", "growth": "Medium", "sensitivity": "Hardy", "wires": false,
+    "flowers": "Small, fragrant, pale-yellow flowers in June",
+    "fall_color": "Yellow", "fruit": "Small round seed with a papery wing"
+  },
+  "ulmus americana": {
+    "common": "White Elm 'Valley Forge'", "native": "Native to Ontario",
+    "size": "Large · 20 m × 18 m", "growth": "Fast", "sensitivity": "Very hardy", "wires": false,
+    "flowers": "Inconspicuous reddish-green flowers",
+    "fall_color": "Yellow", "fruit": "Insignificant"
+  }
+}

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>torontotrees — what's the tree in front of your house?</title>
+<meta name="description" content="Search Toronto's 689,000 city-owned street trees by address. See the species, size, bloom time and fall color of every tree on your block.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="What's the tree in front of your house?">
+<meta property="og:description" content="Search Toronto's 689,000 street trees by address — species, size, bloom time and fall color for every tree on your block.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --fg: #1a1a1a;
+    --muted: #666;
+    --accent: #2b7a3d;
+    --accent-dark: #1e5b2d;
+    --bg: #faf7f2;
+    --card: #fff;
+    --border: #e2e2e2;
+    --hover: #eef3ed;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 2rem 1rem; background: var(--bg); color: var(--fg);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1 { font-size: 1.75rem; margin: 0 0 .25rem; }
+  p.tag { color: var(--muted); margin: 0 0 1.5rem; }
+
+  /* Combobox */
+  .cb { position: relative; margin-bottom: 1.5rem; }
+  .cb input {
+    width: 100%; padding: .75rem 1rem; font-size: 1.05rem;
+    border: 1px solid #ccc; border-radius: 8px;
+    background: var(--card);
+  }
+  .cb input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  .cb .suggest {
+    position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    max-height: 320px; overflow: auto; z-index: 10;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+  .cb .suggest[hidden] { display: none; }
+  .cb .suggest .item {
+    padding: .55rem .85rem; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: .5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .cb .suggest .item:last-child { border-bottom: 0; }
+  .cb .suggest .item:hover, .cb .suggest .item.sel { background: var(--hover); }
+  .cb .suggest .item .primary { flex: 1; }
+  .cb .suggest .item .meta { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+  .cb .hint { color: var(--muted); font-size: .85rem; margin-top: .35rem; }
+
+  /* Tree cards */
+  .addr {
+    margin: 1.5rem 0 .75rem; padding-bottom: .5rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.15rem; font-weight: 600;
+  }
+  .addr small { font-weight: 400; color: var(--muted); margin-left: .4rem; }
+  .tree {
+    display: flex; gap: 1rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1rem; margin-bottom: .75rem;
+    overflow: hidden;
+  }
+  .tree .thumb {
+    flex-shrink: 0; width: 96px; height: 96px; border-radius: 6px;
+    object-fit: cover; background: #f4f0e8;
+  }
+  .tree .thumb.placeholder { display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #c8c0af; }
+  .tree .body { flex: 1; min-width: 0; }
+  .tree h3 { margin: 0 0 .1rem; font-size: 1.05rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+  .tree .bot { color: var(--muted); font-style: italic; font-size: .92rem; }
+  .tree .meta { color: var(--muted); font-size: .88rem; margin-top: .4rem; }
+  .tree .extract { color: #333; font-size: .92rem; margin-top: .5rem; line-height: 1.45; }
+  .tree a { color: var(--accent-dark); }
+  .tree .links { margin-top: .5rem; font-size: .88rem; }
+  .tree .links a { margin-right: 1rem; }
+  .chip {
+    display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .02em;
+    padding: .15rem .5rem; border-radius: 999px; text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .chip.native-on { background: #e5f2e1; color: #2b6e2a; }
+  .chip.native-na { background: #f0f4df; color: #4a6220; }
+  .chip.introduced { background: #eee6db; color: #6b5530; }
+  .facts {
+    display: grid; grid-template-columns: auto 1fr; gap: .2rem .75rem;
+    margin-top: .6rem; font-size: .9rem;
+  }
+  .facts dt { color: var(--muted); }
+  .facts dd { margin: 0; color: #333; }
+
+  @media (max-width: 520px) {
+    body { padding: 1rem .75rem; }
+    h1 { font-size: 1.4rem; }
+    .tree { flex-direction: column; gap: .75rem; padding: .85rem; }
+    .tree .thumb { width: 100%; height: 180px; }
+    .facts { grid-template-columns: 1fr; gap: .05rem; }
+    .facts dt { margin-top: .25rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+  }
+
+  .error { color: #a00; }
+  .note { font-size: .8rem; color: var(--muted); margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  details summary { cursor: pointer; color: var(--accent); padding: .25rem 0; }
+  details[open] summary { margin-bottom: .5rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🌳 What's the tree in front of your house?</h1>
+  <p class="tag">Toronto's open street-tree inventory, searchable by address. 689,013 trees on city road allowances.</p>
+
+  <div class="cb">
+    <input id="q" type="text" placeholder="Type an address — e.g. 100 Bloor St W" autocomplete="off" spellcheck="false" inputmode="text">
+    <div id="suggest" class="suggest" role="listbox" hidden></div>
+    <div class="hint">Number + street works best. Hit Enter or click a suggestion.</div>
+  </div>
+
+  <div id="result"></div>
+
+  <p class="note">
+    Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, Open Government Licence — Toronto).
+    Covers <em>city-owned</em> trees on road allowances only — not private-property or park trees.
+    DBH = diameter at breast height (~1.3 m). Species info + images via Wikipedia.
+  </p>
+</div>
+
+<script>
+const SUGGEST_MAX = 8;
+let streets = [];                        // [{street, slug, n}]
+const streetSlug = new Map();            // STREET -> slug
+const streetCache = new Map();           // slug -> payload
+let species = {};                        // genus-species -> { wiki_url, thumb, extract, display_common }
+let speciesTO = {};                      // genus-species -> city of toronto planting attributes
+
+const $q = document.getElementById("q");
+const $sug = document.getElementById("suggest");
+const $result = document.getElementById("result");
+
+async function init() {
+  const [streetsResp, speciesResp, speciesTOResp] = await Promise.all([
+    fetch("data/streets.json"),
+    fetch("data/species.json"),
+    fetch("data/species_toronto.json"),
+  ]);
+  streets = await streetsResp.json();
+  for (const s of streets) streetSlug.set(s.street, s.slug);
+  species = await speciesResp.json();
+  speciesTO = await speciesTOResp.json();
+  // Apply any permalink from the URL hash
+  const fromHash = hashToQuery(location.hash);
+  if (fromHash) {
+    $q.value = fromHash;
+    doLookup(fromHash, { fromHash: true });
+  } else {
+    $q.focus();
+  }
+}
+init();
+
+// Support back/forward navigation
+window.addEventListener("hashchange", () => {
+  const q = hashToQuery(location.hash);
+  if (q && q.toUpperCase() !== $q.value.toUpperCase()) {
+    $q.value = q;
+    doLookup(q, { fromHash: true });
+  }
+});
+
+function queryToHash(input) {
+  // "100 Bloor St W" -> "#100-bloor-st-w"
+  return "#" + input.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+}
+
+function hashToQuery(h) {
+  if (!h || h.length < 2) return "";
+  return decodeURIComponent(h.slice(1)).replace(/-/g, " ").trim();
+}
+
+// --- Input parsing -----------------------------------------------------------
+// "100 Bloor St W"  -> { num: "100", rest: "BLOOR ST W" }
+// "bloor"           -> { num: "",    rest: "BLOOR" }
+// "100A Main"       -> { num: "100A", rest: "MAIN" }
+function parseQuery(raw) {
+  const up = raw.toUpperCase().replace(/\s+/g, " ").trim();
+  const m = up.match(/^(\d+[A-Z]?)\s+(.+)$/);
+  if (m) return { num: m[1], rest: m[2] };
+  if (/^\d+[A-Z]?$/.test(up)) return { num: up, rest: "" };
+  return { num: "", rest: up };
+}
+
+// --- Street matching ---------------------------------------------------------
+function matchStreets(q) {
+  if (!q) return [];
+  const pref = [];
+  const contains = [];
+  for (const s of streets) {
+    if (s.street.startsWith(q)) pref.push(s);
+    else if (s.street.includes(q)) contains.push(s);
+    if (pref.length >= SUGGEST_MAX) break;
+  }
+  return pref.concat(contains).slice(0, SUGGEST_MAX);
+}
+
+// --- Suggestions -------------------------------------------------------------
+let sugItems = [];   // parallel to DOM items
+let sugIdx = -1;
+
+function renderSuggest() {
+  if (!sugItems.length) { $sug.hidden = true; $sug.innerHTML = ""; return; }
+  $sug.innerHTML = sugItems.map((it, i) => `
+    <div class="item ${i === sugIdx ? "sel" : ""}" data-i="${i}">
+      <span class="primary">${it.label}</span>
+      <span class="meta">${it.meta}</span>
+    </div>
+  `).join("");
+  $sug.hidden = false;
+}
+
+function updateSuggestions() {
+  const { num, rest } = parseQuery($q.value);
+  if (!rest) {
+    sugItems = [];
+    sugIdx = -1;
+    renderSuggest();
+    return;
+  }
+  const matches = matchStreets(rest);
+  sugItems = matches.map(s => {
+    const label = num ? `${num} ${s.street}` : s.street;
+    const meta = num ? `${s.n.toLocaleString()} on street` : `${s.n.toLocaleString()} trees`;
+    return { label, meta, street: s.street, num };
+  });
+  sugIdx = -1;
+  renderSuggest();
+}
+
+$q.addEventListener("input", updateSuggestions);
+$q.addEventListener("focus", updateSuggestions);
+
+$q.addEventListener("keydown", (e) => {
+  if ($sug.hidden || !sugItems.length) {
+    if (e.key === "Enter") { e.preventDefault(); doLookup($q.value); }
+    return;
+  }
+  if (e.key === "ArrowDown") { e.preventDefault(); sugIdx = Math.min(sugIdx + 1, sugItems.length - 1); renderSuggest(); scrollSel(); }
+  else if (e.key === "ArrowUp") { e.preventDefault(); sugIdx = Math.max(sugIdx - 1, 0); renderSuggest(); scrollSel(); }
+  else if (e.key === "Enter") {
+    e.preventDefault();
+    const pick = sugIdx >= 0 ? sugItems[sugIdx] : sugItems[0];
+    selectSuggestion(pick);
+  }
+  else if (e.key === "Escape") { $sug.hidden = true; }
+});
+
+function scrollSel() {
+  const el = $sug.querySelector(".item.sel");
+  if (el) el.scrollIntoView({ block: "nearest" });
+}
+
+$sug.addEventListener("mousedown", (e) => {
+  // mousedown so it fires before blur
+  const d = e.target.closest(".item");
+  if (!d) return;
+  e.preventDefault();
+  selectSuggestion(sugItems[parseInt(d.dataset.i, 10)]);
+});
+
+document.addEventListener("click", (e) => {
+  if (!$sug.contains(e.target) && e.target !== $q) $sug.hidden = true;
+});
+
+function selectSuggestion(it) {
+  if (!it) return;
+  $q.value = it.label;
+  $sug.hidden = true;
+  doLookup(it.label);
+}
+
+// --- Lookup + render ---------------------------------------------------------
+function speciesKey(botanical_raw) {
+  if (!botanical_raw) return null;
+  let s = botanical_raw.toLowerCase().trim();
+  s = s.replace(/'[^']*'/g, "");
+  s = s.replace(/\b(f|var|subsp|ssp|cv|x)\.?\b/g, " ");
+  s = s.replace(/[^a-z\- ]+/g, " ");
+  s = s.replace(/\s+/g, " ").trim();
+  const parts = s.split(" ");
+  if (parts.length < 2) return parts[0] || null;
+  return parts[0] + " " + parts[1];
+}
+
+async function loadStreet(slug) {
+  if (streetCache.has(slug)) return streetCache.get(slug);
+  const r = await fetch(`data/street/${slug}.json`);
+  if (!r.ok) throw new Error(`street not found`);
+  const p = await r.json();
+  streetCache.set(slug, p);
+  return p;
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[c]));
+}
+
+function nativeChip(native) {
+  if (!native) return "";
+  const n = native.toLowerCase();
+  let cls = "introduced";
+  if (n.startsWith("native to ontario") || n.includes("hybrid of ontario")) cls = "native-on";
+  else if (n.includes("north america")) cls = "native-na";
+  return `<span class="chip ${cls}">${escapeHtml(native)}</span>`;
+}
+
+function renderFacts(to) {
+  if (!to) return "";
+  const rows = [
+    ["Blooms", to.flowers],
+    ["Fall color", to.fall_color],
+    ["Fruit", to.fruit],
+    ["Mature size", to.size],
+    ["Growth", to.growth],
+    to.wires !== undefined ? ["Under wires", to.wires ? "Yes" : "No"] : null,
+    to.note ? ["Note", to.note] : null,
+  ].filter(Boolean).filter(([, v]) => v);
+  if (!rows.length) return "";
+  return `<dl class="facts">` +
+    rows.map(([k, v]) => `<dt>${k}</dt><dd>${escapeHtml(v)}</dd>`).join("") +
+    `</dl>`;
+}
+
+function renderTrees(trees) {
+  return trees.map(t => {
+    const key = speciesKey(t.botanical);
+    const info = key ? species[key] : null;
+    const to = key ? speciesTO[key] : null;
+    const common = escapeHtml(t.common || "Unknown");
+    const bot = escapeHtml(t.botanical || "");
+    const dbh = t.dbh_cm ? `${t.dbh_cm} cm across` : "size not recorded";
+    const nbhd = t.nbhd ? ` · ${escapeHtml(t.nbhd)}` : "";
+    const mapsURL = `https://www.google.com/maps?q=${t.lat},${t.lon}`;
+    const thumb = info?.thumb
+      ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="${bot}" loading="lazy">`
+      : `<div class="thumb placeholder">🌳</div>`;
+    const extract = info?.extract
+      ? `<div class="extract">${escapeHtml(info.extract)}</div>`
+      : "";
+    const wikiLink = info?.wiki_url
+      ? `<a href="${escapeHtml(info.wiki_url)}" target="_blank" rel="noopener">Wikipedia</a>`
+      : "";
+    const inat = `<a href="https://www.inaturalist.org/search?q=${encodeURIComponent(t.botanical || t.common || "")}" target="_blank" rel="noopener">iNaturalist</a>`;
+    const mapsLink = `<a href="${mapsURL}" target="_blank" rel="noopener">View on map</a>`;
+    const linkParts = [wikiLink, inat, mapsLink].filter(Boolean);
+    return `<div class="tree">
+      ${thumb}
+      <div class="body">
+        <h3>${common} ${nativeChip(to?.native)}</h3>
+        <div class="bot">${bot}</div>
+        <div class="meta">${dbh}${nbhd}</div>
+        ${renderFacts(to)}
+        ${extract}
+        <div class="links">${linkParts.join(" · ")}</div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+async function doLookup(input, opts = {}) {
+  const { num, rest } = parseQuery(input);
+  const newHash = queryToHash(input);
+  if (!opts.fromHash && location.hash !== newHash) {
+    history.replaceState(null, "", newHash);
+  }
+  if (input.trim()) document.title = `${input.trim()} — torontotrees`;
+  // Pick the best matching street. Prefer exact match, then first suggestion.
+  let street = null;
+  if (streetSlug.has(rest)) street = rest;
+  else {
+    const ms = matchStreets(rest);
+    if (ms.length) street = ms[0].street;
+  }
+  if (!street) {
+    $result.innerHTML = `<p class="error">Couldn't find a street matching "<b>${escapeHtml(rest || input)}</b>". Try one of the suggestions.</p>`;
+    return;
+  }
+  const slug = streetSlug.get(street);
+  $result.innerHTML = `<p class="tag">Looking up ${escapeHtml(num ? num + " " : "")}${escapeHtml(street)}…</p>`;
+  let payload;
+  try { payload = await loadStreet(slug); }
+  catch { $result.innerHTML = `<p class="error">Couldn't load data for ${escapeHtml(street)}.</p>`; return; }
+
+  const addrs = payload.addresses;
+  if (num) {
+    if (addrs[num]) {
+      $result.innerHTML = `<div class="addr">${escapeHtml(num)} ${escapeHtml(street)}<small>${addrs[num].length} tree${addrs[num].length>1?"s":""}</small></div>` + renderTrees(addrs[num]);
+      return;
+    }
+    // nearest numeric neighbours
+    const target = parseInt(num, 10);
+    const near = Object.keys(addrs)
+      .map(k => ({ k, n: parseInt(k, 10) }))
+      .filter(x => Number.isFinite(x.n))
+      .sort((a,b) => Math.abs(a.n - target) - Math.abs(b.n - target))
+      .slice(0, 5);
+    $result.innerHTML = `<p class="error">No tree is recorded at <b>${escapeHtml(num)} ${escapeHtml(street)}</b>. Here are the closest house numbers on this street that do have trees:</p>` +
+      near.map(x => `<div class="addr">${escapeHtml(x.k)} ${escapeHtml(street)}<small>${addrs[x.k].length} tree${addrs[x.k].length>1?"s":""}</small></div>` + renderTrees(addrs[x.k])).join("");
+    return;
+  }
+  // No house number: summary + collapsible list
+  const total = Object.values(addrs).reduce((s, a) => s + a.length, 0);
+  const addrKeys = Object.keys(addrs).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+  $result.innerHTML = `<div class="addr">${escapeHtml(street)}<small>${total.toLocaleString()} trees across ${addrKeys.length} addresses</small></div>
+    <details><summary>Show every address on ${escapeHtml(street)}</summary>` +
+    addrKeys.map(k => `<div class="addr">${escapeHtml(k)} ${escapeHtml(street)}<small>${addrs[k].length} tree${addrs[k].length>1?"s":""}</small></div>` + renderTrees(addrs[k])).join("") +
+    `</details>`;
+}
+</script>
+</body>
+</html>
