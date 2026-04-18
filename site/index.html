@@ -365,13 +365,10 @@ function renderTrees(trees) {
     const bot = escapeHtml(t.botanical || "");
     const dbh = t.dbh_cm ? `${t.dbh_cm} cm across` : "size not recorded";
     const nbhd = t.nbhd ? ` · ${escapeHtml(t.nbhd)}` : "";
-    // Prefer address-search for Street View: Google's geocoder resolves to the
-    // house facade and orients the camera toward it. Falls back to coords if
-    // the tree lacks an address label.
-    const addr = t._addr ? encodeURIComponent(`${t._addr}, Toronto, ON, Canada`) : null;
-    const svURL = addr
-      ? `https://www.google.com/maps?q=${addr}&layer=c`
-      : `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    // Street View: use the tree's exact coordinates. Google picks the nearest
+    // panorama; the default heading isn't always aimed at the tree, but at
+    // least imagery always exists. Users can pan.
+    const svURL = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
     const mapsURL = `https://www.google.com/maps?q=${t.lat},${t.lon}`;
     const thumb = info?.thumb
       ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="${bot}" loading="lazy">`
@@ -492,9 +489,7 @@ function initMap(trees) {
     });
     const common = (t.common || "Unknown tree").replace(/</g, "&lt;");
     const bot = (t.botanical || "").replace(/</g, "&lt;");
-    const sv = t._addr
-      ? `https://www.google.com/maps?q=${encodeURIComponent(t._addr + ", Toronto, ON, Canada")}&layer=c`
-      : `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    const sv = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
     m.bindPopup(
       `<b>${common}</b><br>` +
       `<i>${bot}</i><br>` +
