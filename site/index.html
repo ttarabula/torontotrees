@@ -365,10 +365,10 @@ function renderTrees(trees) {
     const bot = escapeHtml(t.botanical || "");
     const dbh = t.dbh_cm ? `${t.dbh_cm} cm across` : "size not recorded";
     const nbhd = t.nbhd ? ` · ${escapeHtml(t.nbhd)}` : "";
-    // Street View: use the tree's exact coordinates. Google picks the nearest
-    // panorama; the default heading isn't always aimed at the tree, but at
-    // least imagery always exists. Users can pan.
-    const svURL = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    // Street View: viewpoint at the tree, heading (precomputed from the
+    // street's local bearing via PCA) pointing from the road toward the tree.
+    const h = Number.isFinite(t.h) ? `&heading=${t.h}` : "";
+    const svURL = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}${h}`;
     const mapsURL = `https://www.google.com/maps?q=${t.lat},${t.lon}`;
     const thumb = info?.thumb
       ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="${bot}" loading="lazy">`
@@ -489,7 +489,8 @@ function initMap(trees) {
     });
     const common = (t.common || "Unknown tree").replace(/</g, "&lt;");
     const bot = (t.botanical || "").replace(/</g, "&lt;");
-    const sv = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    const h = Number.isFinite(t.h) ? `&heading=${t.h}` : "";
+    const sv = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}${h}`;
     m.bindPopup(
       `<b>${common}</b><br>` +
       `<i>${bot}</i><br>` +
