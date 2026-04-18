@@ -365,7 +365,13 @@ function renderTrees(trees) {
     const bot = escapeHtml(t.botanical || "");
     const dbh = t.dbh_cm ? `${t.dbh_cm} cm across` : "size not recorded";
     const nbhd = t.nbhd ? ` · ${escapeHtml(t.nbhd)}` : "";
-    const svURL = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    // Prefer address-search for Street View: Google's geocoder resolves to the
+    // house facade and orients the camera toward it. Falls back to coords if
+    // the tree lacks an address label.
+    const addr = t._addr ? encodeURIComponent(`${t._addr}, Toronto, ON, Canada`) : null;
+    const svURL = addr
+      ? `https://www.google.com/maps?q=${addr}&layer=c`
+      : `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
     const mapsURL = `https://www.google.com/maps?q=${t.lat},${t.lon}`;
     const thumb = info?.thumb
       ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="${bot}" loading="lazy">`
@@ -420,11 +426,13 @@ async function doLookup(input, opts = {}) {
 
   const addrs = payload.addresses;
   const mapDiv = `<div class="map" id="map"></div>`;
+  const tag = (trees, label) => trees.map(t => ({ ...t, _addr: label }));
   if (num) {
     if (addrs[num]) {
+      const tagged = tag(addrs[num], `${num} ${street}`);
       $result.innerHTML = mapDiv +
-        `<div class="addr">${escapeHtml(num)} ${escapeHtml(street)}<small>${addrs[num].length} tree${addrs[num].length>1?"s":""}</small></div>` + renderTrees(addrs[num]);
-      initMap(addrs[num].map(t => ({ ...t, _addr: `${num} ${street}` })));
+        `<div class="addr">${escapeHtml(num)} ${escapeHtml(street)}<small>${tagged.length} tree${tagged.length>1?"s":""}</small></div>` + renderTrees(tagged);
+      initMap(tagged);
       return;
     }
     // nearest numeric neighbours
@@ -436,8 +444,11 @@ async function doLookup(input, opts = {}) {
       .slice(0, 5);
     $result.innerHTML = mapDiv +
       `<p class="error">No tree is recorded at <b>${escapeHtml(num)} ${escapeHtml(street)}</b>. Here are the closest house numbers on this street that do have trees:</p>` +
-      near.map(x => `<div class="addr">${escapeHtml(x.k)} ${escapeHtml(street)}<small>${addrs[x.k].length} tree${addrs[x.k].length>1?"s":""}</small></div>` + renderTrees(addrs[x.k])).join("");
-    const nearTrees = near.flatMap(x => addrs[x.k].map(t => ({ ...t, _addr: `${x.k} ${street}` })));
+      near.map(x => {
+        const tagged = tag(addrs[x.k], `${x.k} ${street}`);
+        return `<div class="addr">${escapeHtml(x.k)} ${escapeHtml(street)}<small>${tagged.length} tree${tagged.length>1?"s":""}</small></div>` + renderTrees(tagged);
+      }).join("");
+    const nearTrees = near.flatMap(x => tag(addrs[x.k], `${x.k} ${street}`));
     initMap(nearTrees);
     return;
   }
@@ -448,9 +459,12 @@ async function doLookup(input, opts = {}) {
   $result.innerHTML = mapDiv +
     `<div class="addr">${escapeHtml(street)}<small>${total.toLocaleString()} trees across ${addrKeys.length} addresses</small></div>
     <details${autoOpen ? " open" : ""}><summary>Every address on ${escapeHtml(street)}</summary>` +
-    addrKeys.map(k => `<div class="addr">${escapeHtml(k)} ${escapeHtml(street)}<small>${addrs[k].length} tree${addrs[k].length>1?"s":""}</small></div>` + renderTrees(addrs[k])).join("") +
+    addrKeys.map(k => {
+      const tagged = tag(addrs[k], `${k} ${street}`);
+      return `<div class="addr">${escapeHtml(k)} ${escapeHtml(street)}<small>${tagged.length} tree${tagged.length>1?"s":""}</small></div>` + renderTrees(tagged);
+    }).join("") +
     `</details>`;
-  const allTrees = addrKeys.flatMap(k => addrs[k].map(t => ({ ...t, _addr: `${k} ${street}` })));
+  const allTrees = addrKeys.flatMap(k => tag(addrs[k], `${k} ${street}`));
   initMap(allTrees);
 }
 
@@ -478,7 +492,9 @@ function initMap(trees) {
     });
     const common = (t.common || "Unknown tree").replace(/</g, "&lt;");
     const bot = (t.botanical || "").replace(/</g, "&lt;");
-    const sv = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    const sv = t._addr
+      ? `https://www.google.com/maps?q=${encodeURIComponent(t._addr + ", Toronto, ON, Canada")}&layer=c`
+      : `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
     m.bindPopup(
       `<b>${common}</b><br>` +
       `<i>${bot}</i><br>` +
