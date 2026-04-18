@@ -425,8 +425,9 @@ async function doLookup(input, opts = {}) {
   // No house number: summary + collapsible list
   const total = Object.values(addrs).reduce((s, a) => s + a.length, 0);
   const addrKeys = Object.keys(addrs).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
+  const autoOpen = addrKeys.length <= 60;
   $result.innerHTML = `<div class="addr">${escapeHtml(street)}<small>${total.toLocaleString()} trees across ${addrKeys.length} addresses</small></div>
-    <details><summary>Show every address on ${escapeHtml(street)}</summary>` +
+    <details${autoOpen ? " open" : ""}><summary>Every address on ${escapeHtml(street)}</summary>` +
     addrKeys.map(k => `<div class="addr">${escapeHtml(k)} ${escapeHtml(street)}<small>${addrs[k].length} tree${addrs[k].length>1?"s":""}</small></div>` + renderTrees(addrs[k])).join("") +
     `</details>`;
 }
