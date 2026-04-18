@@ -38,14 +38,17 @@
   article a { color: var(--accent-dark); }
   article strong { color: #111; }
 
-  /* Full-bleed hero image */
+  /* Capped "hero" images for the big maps */
   .fullbleed {
-    margin: 1rem calc(50% - 50vw) 2rem;
-    background: #0b0d10;
-    border-top: 1px solid #000; border-bottom: 1px solid #000;
+    max-width: 960px; margin: 1rem auto 2rem;
+    padding: 0 1rem;
   }
-  .fullbleed img { display: block; width: 100%; height: auto; }
-  .fullbleed figcaption { max-width: 740px; margin: 0 auto; padding: .6rem 1.25rem .8rem; color: #bbb1a0; font-size: .9rem; text-align: center; }
+  .fullbleed img {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--rule); border-radius: 8px;
+    background: #0b0d10;
+  }
+  .fullbleed figcaption { padding-top: .5rem; color: var(--muted); font-size: .9rem; text-align: center; }
 
   figure { margin: 1.5rem 0; }
   figure img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
@@ -100,7 +103,7 @@
   <p>Here's the same map, except only one species is highlighted:</p>
 
   <figure class="fullbleed">
-    <img src="../../charts/dotmap_norway.png" alt="Same Toronto map, but only Norway maples are highlighted in red; every other tree is a dim gray. The red dots form a thick cloud across most of residential Toronto, thinning out in the downtown core, industrial waterfront, and newest-built suburbs.">
+    <img src="../../charts/dotmap_norway.png" alt="Same Toronto map, but only Norway maples are highlighted in red; every other tree is a dim gray. The red dots form a thick cloud across most of residential Toronto, thinning out in the downtown core, industrial waterfront, and newest-built suburbs." loading="lazy">
     <figcaption>Just the Norway maples (<em>Acer platanoides</em>) — 69,563 of them, 10% of the entire street-tree canopy.</figcaption>
   </figure>
 
