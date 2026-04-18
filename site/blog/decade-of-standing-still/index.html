@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A decade of standing still — how Toronto's canopy survived the ash catastrophe | torontotrees</title>
+<meta name="description" content="Between 2008 and 2018, Toronto lost an estimated 80,000 mature ash trees to emerald ash borer. Over the same decade, citywide canopy cover went from 25.84% to 25.89%. Here's who paid the bill and who got the gain.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="A decade of standing still — how Toronto's canopy survived the ash catastrophe">
+<meta property="og:description" content="Emerald ash borer killed ~90% of Toronto's street ashes. Canopy stayed flat anyway. Here's where the invisible work got done.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ttarabula.github.io/torontotrees/charts/canopy_change_map.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; }
+  header.site .inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site .tag { color: var(--muted); font-size: .9rem; }
+
+  article { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  article h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin: .25rem 0 .5rem; }
+  article .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  article h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  article p { margin: 0 0 1.1em; }
+  article a { color: var(--accent-dark); }
+  article strong { color: #111; }
+  article em { color: #333; }
+
+  .hero { max-width: 960px; margin: 1rem auto 2rem; padding: 0 1rem; }
+  .hero img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); }
+
+  figure { margin: 1.5rem 0; }
+  figure img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+  figcaption { color: var(--muted); font-size: .88rem; margin-top: .5rem; text-align: center; }
+
+  article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  article th, article td { padding: .55rem .75rem; text-align: left; border-bottom: 1px solid var(--border); }
+  article tr:last-child td { border-bottom: 0; }
+  article th { background: #f3efe4; color: #4a3e1f; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+  article td.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  article td.neg { color: #b02020; font-weight: 600; }
+  article td.pos { color: #1e5b2d; font-weight: 600; }
+
+  .callout {
+    background: #e7efe4; border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0;
+    font-size: 1rem;
+  }
+
+  .cta { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 2rem 0; text-align: center; }
+  .cta a { display: inline-block; padding: .6rem 1.2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: .5rem; }
+
+  footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer.site a { color: var(--muted); }
+
+  @media (max-width: 520px) { article { padding: 1.25rem 1rem 2rem; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../">🌳 torontotrees</a>
+    <span class="tag">Toronto's street-tree inventory</span>
+  </div>
+</header>
+
+<article>
+  <div class="subhead">April 2026 · sequel to <a href="../beyond-the-curb/">Beyond the curb</a></div>
+  <h1>A decade of standing still — how Toronto's canopy survived the ash catastrophe</h1>
+
+  <p>Between 2008 and 2018, Toronto lost an estimated <strong>80,000 mature ash trees</strong> to the emerald ash borer. The street-tree inventory went from about 90,000 ashes pre-EAB to <strong>9,966 today</strong> — an ~89% reduction. Mature ash crowns average 10-15 metres wide; that's on the order of <strong>15 km² of canopy</strong> silently falling out of the city over a decade.</p>
+
+  <p>Over the same decade, Toronto's overall tree canopy cover went from <strong>25.84%</strong> to <strong>25.89%</strong>.</p>
+
+  <p>That's not a typo. Citywide canopy was essentially flat — it grew by five one-hundredths of a percentage point while a catastrophe the size of Rosedale's entire canopy quietly happened. Which means, somewhere, other neighbourhoods did enormous compensating work. The 2018 LiDAR land-cover data reveals who.</p>
+</article>
+
+<div class="hero">
+  <img src="../../charts/canopy_change_map.png" alt="Choropleth map of Toronto by change in tree canopy cover between 2008 and 2018. Most of the city is pale yellow (little change). Scattered deep red patches show the largest losses in North York (Bathurst Manor), Scarborough (Scarborough Village, West Rouge), east-end (O'Connor-Parkview), and near the Don Valley (Bridle Path). Bright green gains are concentrated in an east-of-downtown band (Leaside-Bennington, Old East York) and a few scattered NIAs.">
+</div>
+
+<article style="padding-top: 0;">
+
+  <h2>The losers</h2>
+
+  <p>The ten neighbourhoods that lost the most canopy between 2008 and 2018:</p>
+
+  <table>
+    <thead><tr><th>Neighbourhood</th><th>2008</th><th>2018</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Scarborough Village</td><td class="num">54.2%</td><td class="num">38.4%</td><td class="num neg">−15.8</td></tr>
+      <tr><td>Bridle Path-Sunnybrook-York Mills</td><td class="num">69.5%</td><td class="num">54.2%</td><td class="num neg">−15.3</td></tr>
+      <tr><td>Bathurst Manor</td><td class="num">44.7%</td><td class="num">32.9%</td><td class="num neg">−11.8</td></tr>
+      <tr><td>West Rouge</td><td class="num">50.8%</td><td class="num">40.1%</td><td class="num neg">−10.7</td></tr>
+      <tr><td>O'Connor-Parkview</td><td class="num">50.1%</td><td class="num">39.7%</td><td class="num neg">−10.4</td></tr>
+      <tr><td>Flemingdon Park</td><td class="num">47.2%</td><td class="num">37.1%</td><td class="num neg">−10.1</td></tr>
+      <tr><td>Thistletown-Beaumond Heights</td><td class="num">47.8%</td><td class="num">40.0%</td><td class="num neg">−7.8</td></tr>
+      <tr><td>Rexdale-Kipling</td><td class="num">33.4%</td><td class="num">27.1%</td><td class="num neg">−6.4</td></tr>
+      <tr><td>Bendale South</td><td class="num">33.7%</td><td class="num">27.7%</td><td class="num neg">−6.0</td></tr>
+      <tr><td>Rosedale-Moore Park</td><td class="num">57.8%</td><td class="num">52.5%</td><td class="num neg">−5.3</td></tr>
+    </tbody>
+  </table>
+
+  <p>The biggest loser in absolute terms is <strong>Bridle Path-Sunnybrook-York Mills</strong>, which was already our <a href="../beyond-the-curb/">canopy king</a>. It lost 15.3 percentage points over the decade — from nearly 70% down to 54%. Rosedale-Moore Park, our #2 canopy neighbourhood, also lost 5.3 points.</p>
+
+  <p>The pattern on the map is striking: <strong>most of the losses cluster in North York and Scarborough</strong>. These are post-war residential neighbourhoods, built in the 1950s-70s when ash was a favourite municipal planting — tough, fast-growing, forgiving of urban conditions. Fifty-year-old ashes were exactly the kind of mature tree that EAB preferentially attacked; they had big enough trunks to host huge beetle populations and insufficient evolutionary resistance (ash from Asia coexists with EAB; North American species don't).</p>
+
+  <p>Bridle Path's loss is partly about ash too, but also about ravine die-off. The polygon runs down into the Don Valley, where ash was a dominant native species. When those ravine ash forests went, so did a substantial chunk of Bridle Path's canopy number.</p>
+
+  <h2>The gainers</h2>
+
+  <p>Meanwhile, other neighbourhoods posted gains bigger than I expected:</p>
+
+  <table>
+    <thead><tr><th>Neighbourhood</th><th>2008</th><th>2018</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Westminster-Branson</td><td class="num">14.6%</td><td class="num">32.4%</td><td class="num pos">+17.8</td></tr>
+      <tr><td>Old East York</td><td class="num">17.8%</td><td class="num">32.8%</td><td class="num pos">+15.0</td></tr>
+      <tr><td>Victoria Village</td><td class="num">15.9%</td><td class="num">27.5%</td><td class="num pos">+11.7</td></tr>
+      <tr><td>Leaside-Bennington</td><td class="num">31.5%</td><td class="num">43.2%</td><td class="num pos">+11.6</td></tr>
+      <tr><td>Oakridge</td><td class="num">21.0%</td><td class="num">30.9%</td><td class="num pos">+9.9</td></tr>
+      <tr><td>Cliffcrest</td><td class="num">28.9%</td><td class="num">36.8%</td><td class="num pos">+7.9</td></tr>
+      <tr><td>Lawrence Park South</td><td class="num">36.6%</td><td class="num">44.1%</td><td class="num pos">+7.5</td></tr>
+      <tr><td>Humbermede</td><td class="num">12.2%</td><td class="num">19.4%</td><td class="num pos">+7.2</td></tr>
+      <tr><td>Centennial Scarborough</td><td class="num">22.4%</td><td class="num">29.5%</td><td class="num pos">+7.1</td></tr>
+      <tr><td>Highland Creek</td><td class="num">22.4%</td><td class="num">29.5%</td><td class="num pos">+7.1</td></tr>
+    </tbody>
+  </table>
+
+  <p>Westminster-Branson, a mid-density North York neighbourhood, more than doubled its canopy in a decade. Old East York gained 15 points. Victoria Village — a formal Neighbourhood Improvement Area — gained nearly 12. These are large changes for a decade. The obvious explanations:</p>
+
+  <ul>
+    <li><strong>Active replanting outpacing loss.</strong> After EAB was identified in Toronto around 2007, the city launched <em>aggressive</em> ash-replacement programs. LEAF (Local Enhancement and Appreciation of Forests) handed out subsidized backyard trees. Councillors' ward budgets were redirected to replanting. New boulevard plantings shifted to honey locust, Kentucky coffeetree, and hackberry.</li>
+    <li><strong>Background canopy growth.</strong> Trees planted in the 1990s-2000s were hitting their canopy-expansion years in the 2010s. A 20-year-old maple has a much bigger crown than a 10-year-old one. Some of this is just the city growing up.</li>
+    <li><strong>Methodology differences.</strong> The 2008 study used aerial imagery classification; 2018 used LiDAR. LiDAR is better at distinguishing large shrubs from low trees, and can catch crowns the 2008 method missed. Some of the "gain" in neighbourhoods starting at low 2008 numbers may be classification improvement, not real growth.</li>
+  </ul>
+
+  <h2>The scatter</h2>
+
+  <figure>
+    <img src="../../charts/canopy_change_scatter.png" alt="Scatter plot of 2008 canopy % against 2018 canopy % for each Toronto neighbourhood. Most points cluster near the diagonal. Red-labelled outliers below the line: Scarborough Village, Bridle Path-Sunnybrook-York Mills, Bathurst Manor, West Rouge. Green-labelled outliers above the line: Westminster-Branson, Old East York, Victoria Village, Leaside-Bennington.">
+    <figcaption>Each point is one of Toronto's 158 neighbourhoods. Dashed line = no change. Below the line = lost canopy, above = gained.</figcaption>
+  </figure>
+
+  <p>The diagonal tells the story: most neighbourhoods are <em>near</em> the line. The city-wide result is flat not because nothing happened but because gains and losses balanced. About 40% of neighbourhoods moved by more than 2 percentage points in either direction.</p>
+
+  <h2>The NIA picture</h2>
+
+  <figure>
+    <img src="../../charts/canopy_change_nia.png" alt="Bar chart showing 2008 and 2018 canopy percentages by neighbourhood classification. Not NIA/Emerging: 26.87% vs 26.98%. Emerging: 19.60% vs 21.24%. NIA: 24.25% vs 24.08%.">
+  </figure>
+
+  <p>By classification bucket, the picture is also flatter than the original <a href="../beyond-the-curb/">equity post</a> might suggest:</p>
+
+  <ul>
+    <li><strong>Emerging neighbourhoods</strong> (mostly recently-built or redeveloping): +1.64 points on average. Consistent with young plantings maturing.</li>
+    <li><strong>Non-NIA neighbourhoods</strong>: +0.10 points on average. Essentially flat.</li>
+    <li><strong>Neighbourhood Improvement Areas</strong>: −0.17 points on average. Essentially flat, slightly negative.</li>
+  </ul>
+
+  <p>So the canopy equity gap didn't widen over the decade. Against the ash catastrophe that disproportionately hit postwar-planted neighbourhoods (many of them NIAs), staying flat is actually an achievement. It suggests the city's replanting effort was distributed more evenly than the losses.</p>
+
+  <div class="callout">
+    Which flips the usual equity-story structure. In <a href="../beyond-the-curb/">Beyond the curb</a> we saw that the NIA canopy gap was 11% below the city average. This post shows that over the EAB decade, that gap was <em>held steady</em> — wealthier neighbourhoods with ravine adjacency absorbed most of the biggest losses, while planting programs kept NIAs roughly even. Not narrowing the gap, but not widening it either, during a decade you might have expected it to widen significantly.
+  </div>
+
+  <h2>The coming decade</h2>
+
+  <p>Toronto's <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/ravines-natural-parklands/forestry/strategic-forest-management-plan/">Strategic Forest Management Plan</a> targets 40% canopy by 2050. If the 2008-2018 record is a guide, that's extremely ambitious. Staying at 26% during the ash decade took heroic replanting effort. Getting from 26% to 40% would require a net gain of 14 percentage points — <em>roughly twice</em> the mass of the canopy we just lost to EAB, and over a similar timeframe.</p>
+
+  <p>Two things stand in the way:</p>
+
+  <ol>
+    <li><strong>The next pest.</strong> Asian longhorned beetle is already in Ontario (contained so far). It attacks maples — and maples are 27% of Toronto's street-tree inventory. A successful ALB establishment would make EAB look mild. Honey locust is the other monoculture risk we <a href="../honey-locust/">wrote about earlier</a>.</li>
+    <li><strong>Built-form densification.</strong> As we saw in <a href="../two-victorians/">Cabbagetown vs. Trinity-Bellwoods</a>, infill and backyard densification cost canopy faster than street-planting can offset. Laneway suites, fourplexes, and rear-yard coach houses — all desirable for housing supply — are also slow attrition on private-land canopy.</li>
+  </ol>
+
+  <p>So: the 2008-2018 decade was a stalemate in the middle of a biological crisis. The 2018-2028 decade is starting with a more stable tree population, but with two open threats (the next pest, the next densification wave) that could push the next net loss deeper than the ash era managed.</p>
+
+  <h2>Methodology notes</h2>
+
+  <p>A few data caveats:</p>
+
+  <ul>
+    <li>Both studies use the same 8-class land-cover scheme. Tree canopy is the same class in both.</li>
+    <li>2008 is based on aerial imagery classification. 2018 uses LiDAR. This likely makes 2018 slightly more accurate for distinguishing trees from large shrubs, but the difference is small.</li>
+    <li>For consistency, I used the 2018 pre-dissolved per-neighbourhood polygons as the denominator for both years. The 2008 raw file has a quirk where Toronto's entire road network is encoded as a single ~56 km² polygon — I excluded it rather than mis-attribute it to whichever neighbourhood its centroid fell in.</li>
+    <li>Neighbourhood polygons are the current 158-model. Neighbourhood boundaries did change during this period (Toronto moved from 140 to 158 neighbourhoods around 2020). For this analysis, I re-sliced both years using current boundaries.</li>
+  </ul>
+
+  <div class="cta">
+    <p style="margin: 0 0 .25rem"><strong>See the trees on your own block.</strong></p>
+    <a href="../../">Look up an address →</a>
+  </div>
+
+</article>
+
+<footer class="site">
+  <p>
+    Data: <a href="https://open.toronto.ca/dataset/forest-and-land-cover/">Forest and Land Cover</a> (2008 + 2018), <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a>, <a href="https://open.toronto.ca/dataset/neighbourhood-profiles/">Neighbourhood Profiles 2021</a> — all City of Toronto, OGL-Toronto.<br>
+    Source: <a href="https://github.com/ttarabula/torontotrees">github.com/ttarabula/torontotrees</a>
+  </p>
+</footer>
+
+</body>
+</html>
