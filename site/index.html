@@ -10,6 +10,11 @@
 <meta property="og:description" content="Search Toronto's 689,000 street trees by address — species, size, bloom time and fall color for every tree on your block.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="torontotrees blog" href="blog/rss.xml">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
   :root {
     --fg: #1a1a1a;
@@ -86,6 +91,13 @@
   .tree a { color: var(--accent-dark); }
   .tree .links { margin-top: .5rem; font-size: .88rem; }
   .tree .links a { margin-right: 1rem; }
+  .map {
+    height: 320px; border-radius: 10px;
+    border: 1px solid var(--border); overflow: hidden;
+    margin-bottom: 1rem; background: #eef3ed;
+  }
+  .map .leaflet-popup-content { margin: .4rem .6rem; font-size: .9rem; }
+  .map .leaflet-popup-content b { color: var(--fg); }
   .chip {
     display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .02em;
     padding: .15rem .5rem; border-radius: 999px; text-transform: uppercase;
@@ -131,11 +143,10 @@
   <div id="result"></div>
 
   <p class="note">
-    Read: <a href="blog/"><strong>Stories from Toronto's street-tree data</strong></a> — essays and visualizations.<br>
+    <a href="blog/"><strong>Read the blog</strong></a> · <a href="about/">About</a> · <a href="blog/rss.xml">RSS</a> · <a href="https://github.com/ttarabula/torontotrees">GitHub</a><br>
     Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, Open Government Licence — Toronto).
     Covers <em>city-owned</em> trees on road allowances only — not private-property or park trees.
     DBH = diameter at breast height (~1.3 m). Species info + images via Wikipedia.
-    <a href="https://github.com/ttarabula/torontotrees">Source on GitHub</a>.
   </p>
 </div>
 
@@ -354,6 +365,7 @@ function renderTrees(trees) {
     const bot = escapeHtml(t.botanical || "");
     const dbh = t.dbh_cm ? `${t.dbh_cm} cm across` : "size not recorded";
     const nbhd = t.nbhd ? ` · ${escapeHtml(t.nbhd)}` : "";
+    const svURL = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
     const mapsURL = `https://www.google.com/maps?q=${t.lat},${t.lon}`;
     const thumb = info?.thumb
       ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="${bot}" loading="lazy">`
@@ -365,8 +377,9 @@ function renderTrees(trees) {
       ? `<a href="${escapeHtml(info.wiki_url)}" target="_blank" rel="noopener">Wikipedia</a>`
       : "";
     const inat = `<a href="https://www.inaturalist.org/search?q=${encodeURIComponent(t.botanical || t.common || "")}" target="_blank" rel="noopener">iNaturalist</a>`;
-    const mapsLink = `<a href="${mapsURL}" target="_blank" rel="noopener">View on map</a>`;
-    const linkParts = [wikiLink, inat, mapsLink].filter(Boolean);
+    const svLink = `<a href="${svURL}" target="_blank" rel="noopener">Street View</a>`;
+    const mapsLink = `<a href="${mapsURL}" target="_blank" rel="noopener">Map</a>`;
+    const linkParts = [svLink, wikiLink, inat, mapsLink].filter(Boolean);
     return `<div class="tree">
       ${thumb}
       <div class="body">
@@ -406,9 +419,12 @@ async function doLookup(input, opts = {}) {
   catch { $result.innerHTML = `<p class="error">Couldn't load data for ${escapeHtml(street)}.</p>`; return; }
 
   const addrs = payload.addresses;
+  const mapDiv = `<div class="map" id="map"></div>`;
   if (num) {
     if (addrs[num]) {
-      $result.innerHTML = `<div class="addr">${escapeHtml(num)} ${escapeHtml(street)}<small>${addrs[num].length} tree${addrs[num].length>1?"s":""}</small></div>` + renderTrees(addrs[num]);
+      $result.innerHTML = mapDiv +
+        `<div class="addr">${escapeHtml(num)} ${escapeHtml(street)}<small>${addrs[num].length} tree${addrs[num].length>1?"s":""}</small></div>` + renderTrees(addrs[num]);
+      initMap(addrs[num].map(t => ({ ...t, _addr: `${num} ${street}` })));
       return;
     }
     // nearest numeric neighbours
@@ -418,18 +434,61 @@ async function doLookup(input, opts = {}) {
       .filter(x => Number.isFinite(x.n))
       .sort((a,b) => Math.abs(a.n - target) - Math.abs(b.n - target))
       .slice(0, 5);
-    $result.innerHTML = `<p class="error">No tree is recorded at <b>${escapeHtml(num)} ${escapeHtml(street)}</b>. Here are the closest house numbers on this street that do have trees:</p>` +
+    $result.innerHTML = mapDiv +
+      `<p class="error">No tree is recorded at <b>${escapeHtml(num)} ${escapeHtml(street)}</b>. Here are the closest house numbers on this street that do have trees:</p>` +
       near.map(x => `<div class="addr">${escapeHtml(x.k)} ${escapeHtml(street)}<small>${addrs[x.k].length} tree${addrs[x.k].length>1?"s":""}</small></div>` + renderTrees(addrs[x.k])).join("");
+    const nearTrees = near.flatMap(x => addrs[x.k].map(t => ({ ...t, _addr: `${x.k} ${street}` })));
+    initMap(nearTrees);
     return;
   }
   // No house number: summary + collapsible list
   const total = Object.values(addrs).reduce((s, a) => s + a.length, 0);
   const addrKeys = Object.keys(addrs).sort((a, b) => parseInt(a, 10) - parseInt(b, 10));
   const autoOpen = addrKeys.length <= 60;
-  $result.innerHTML = `<div class="addr">${escapeHtml(street)}<small>${total.toLocaleString()} trees across ${addrKeys.length} addresses</small></div>
+  $result.innerHTML = mapDiv +
+    `<div class="addr">${escapeHtml(street)}<small>${total.toLocaleString()} trees across ${addrKeys.length} addresses</small></div>
     <details${autoOpen ? " open" : ""}><summary>Every address on ${escapeHtml(street)}</summary>` +
     addrKeys.map(k => `<div class="addr">${escapeHtml(k)} ${escapeHtml(street)}<small>${addrs[k].length} tree${addrs[k].length>1?"s":""}</small></div>` + renderTrees(addrs[k])).join("") +
     `</details>`;
+  const allTrees = addrKeys.flatMap(k => addrs[k].map(t => ({ ...t, _addr: `${k} ${street}` })));
+  initMap(allTrees);
+}
+
+let _leafletMap = null;
+function initMap(trees) {
+  const el = document.getElementById("map");
+  if (!el || !trees.length) return;
+  if (typeof L === "undefined") {
+    // Leaflet still loading (deferred) — retry once it arrives
+    window.addEventListener("load", () => initMap(trees), { once: true });
+    return;
+  }
+  if (_leafletMap) { _leafletMap.remove(); _leafletMap = null; }
+  _leafletMap = L.map(el, { scrollWheelZoom: false, attributionControl: true });
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
+    maxZoom: 19,
+  }).addTo(_leafletMap);
+
+  // One marker per tree
+  const markers = trees.map(t => {
+    const m = L.circleMarker([t.lat, t.lon], {
+      radius: Math.max(4, Math.min(10, (t.dbh_cm || 10) / 8)),
+      color: "#2b7a3d", weight: 1.5, fillColor: "#4a9860", fillOpacity: 0.8,
+    });
+    const common = (t.common || "Unknown tree").replace(/</g, "&lt;");
+    const bot = (t.botanical || "").replace(/</g, "&lt;");
+    const sv = `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${t.lat},${t.lon}`;
+    m.bindPopup(
+      `<b>${common}</b><br>` +
+      `<i>${bot}</i><br>` +
+      `${t._addr || ""}${t.dbh_cm ? " · " + t.dbh_cm + " cm" : ""}<br>` +
+      `<a href="${sv}" target="_blank" rel="noopener">Street View ↗</a>`
+    );
+    return m;
+  });
+  const group = L.featureGroup(markers).addTo(_leafletMap);
+  _leafletMap.fitBounds(group.getBounds().pad(0.3), { maxZoom: 19 });
 }
 </script>
 </body>

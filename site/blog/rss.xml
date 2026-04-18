@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>torontotrees</title>
+    <link>https://ttarabula.github.io/torontotrees/</link>
+    <atom:link href="https://ttarabula.github.io/torontotrees/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Essays and visualizations built on Toronto's open street-tree data.</description>
+    <language>en-CA</language>
+    <lastBuildDate>Sat, 18 Apr 2026 20:23:03 +0000</lastBuildDate>
+    <item>
+      <title>A tale of two Victorians — Cabbagetown vs. Trinity-Bellwoods</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/two-victorians/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/two-victorians/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Two old downtown Toronto neighbourhoods, same era, same rowhouse DNA, same gentrification arc. One has 45% canopy. The other has 20%. Here</description>
+    </item>
+    <item>
+      <title>The west-end cherry belt — where to see cherry blossoms in Toronto</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/cherry-blossoms/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/cherry-blossoms/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>High Park is famous for cherry blossoms. But the data says Oakwood Village has more — and nine times as many cherries line the west-end blocks around St Clair.</description>
+    </item>
+    <item>
+      <title>The honey locust — Toronto&#x27;s civic workhorse</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/honey-locust/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/honey-locust/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Gleditsia triacanthos is Toronto</description>
+    </item>
+    <item>
+      <title>Beyond the curb — Toronto&#x27;s actual canopy</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/beyond-the-curb/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/beyond-the-curb/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Toronto</description>
+    </item>
+    <item>
+      <title>Every street tree in Toronto, as a dot</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/every-tree/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/every-tree/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>A pointillist portrait of Toronto: 689,013 city-owned street trees, coloured by genus. Plus a map showing just the 69,563 Norway maples — and why that matters.</description>
+    </item>
+    <item>
+      <title>Toronto&#x27;s rarest street trees — a pilgrimage guide</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/rare-trees/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/rare-trees/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Seven tree species have exactly one specimen in all of Toronto</description>
+    </item>
+    <item>
+      <title>The black locust — Toronto&#x27;s 2,943 Robinia pseudoacacia</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/black-locust/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/black-locust/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Black locust is one of Toronto</description>
+    </item>
+    <item>
+      <title>A decade of standing still — how Toronto&#x27;s canopy survived the ash catastrophe</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/decade-of-standing-still/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/decade-of-standing-still/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Between 2008 and 2018, Toronto lost an estimated 80,000 mature ash trees to emerald ash borer. Over the same decade, citywide canopy cover went from 25.84% to 25.89%. Here</description>
+    </item>
+    <item>
+      <title>Toronto&#x27;s canopy is unequally shared — torontotrees</title>
+      <link>https://ttarabula.github.io/torontotrees/blog/canopy-equity/</link>
+      <guid isPermaLink="true">https://ttarabula.github.io/torontotrees/blog/canopy-equity/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Four findings from an afternoon with Toronto</description>
+    </item>
+  </channel>
+</rss>

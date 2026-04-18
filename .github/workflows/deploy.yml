@@ -39,6 +39,9 @@ jobs:
       - name: Export per-street JSON for the site
         run: uv run scripts/export_site.py
 
+      - name: Generate blog RSS feed
+        run: uv run scripts/rss.py
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
