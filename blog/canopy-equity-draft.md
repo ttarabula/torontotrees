@@ -12,13 +12,13 @@ That's the kind of thing that jumps out when you sit down with the inventory. He
 
 If you plot each of Toronto's 158 neighbourhoods with median household income on one axis and street-tree **density** (trees per km²) on the other, you get a loose positive slope. Correlation: **r = 0.27**. Real, but not dramatic. You'd be forgiven for concluding Toronto does okay on canopy equity.
 
-![Trees per km² vs income](../charts/income_vs_density.png)
+![Trees per km² vs income](../site/charts/income_vs_density.png)
 
 But trees-per-km² is the wrong lens. A tight downtown block has short streets, and short streets have a lot of boulevard trees crammed into a small polygon. That makes Thorncliffe Park (median income $67k, a Neighbourhood Improvement Area) look denser than Bridle Path (median $222k), simply because Thorncliffe is physically smaller.
 
 Switch to **trees per capita** and the picture changes sharply. Correlation jumps to **r = 0.67**. The Neighbourhood Improvement Areas — the city's formal list of historically under-invested neighbourhoods — cluster in the bottom left:
 
-![Trees per capita vs income](../charts/income_vs_percapita.png)
+![Trees per capita vs income](../site/charts/income_vs_percapita.png)
 
 Average trees per capita:
 - Non-NIA neighbourhoods: **0.28**
@@ -47,7 +47,7 @@ Both of those are fair. But neither explains away the NIA gap in the main scatte
 
 ## 3. Toronto's #1 street tree is one the city no longer plants
 
-![Top 15 species](../charts/top_species_bar.png)
+![Top 15 species](../site/charts/top_species_bar.png)
 
 Norway maple (*Acer platanoides*) is **10.1%** of all Toronto's city-owned street trees — 69,563 of them. The next most-common species is honey locust at 4%, then Colorado blue spruce, red oak, and littleleaf linden. Five species make up a quarter of the entire canopy.
 
@@ -59,7 +59,7 @@ If you've noticed more "mystery cultivar" maples and honey locusts going in on y
 
 For each neighbourhood, the Shannon diversity index (H) captures how "even" the species mix is. Higher is more varied.
 
-![Shannon diversity map](../charts/map_shannon.png)
+![Shannon diversity map](../site/charts/map_shannon.png)
 
 The downtown core has the **lowest** diversity in the city:
 
@@ -87,7 +87,7 @@ Those are the three things I'd most want next. The city publishes [LiDAR-based c
 
 ## What's on your block?
 
-I built a small companion site — type your address and see what's in front of your house, with species, Wikipedia photos, bloom times and fall color. It's at **[torontotrees.ca](https://torontotrees.ca)** *(placeholder until I decide on a domain)*.
+I built a small companion site — type your address and see what's in front of your house, with species, Wikipedia photos, bloom times and fall color. It's at **[ttarabula.github.io/torontotrees](https://ttarabula.github.io/torontotrees/)**.
 
 ---
 
