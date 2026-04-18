@@ -18,7 +18,7 @@ TREES = ROOT / "data" / "processed" / "trees.parquet"
 OUT = ROOT / "site" / "data" / "species.json"
 CACHE = ROOT / "data" / "processed" / "_wiki_cache.json"
 
-UA = "torontotrees/0.1 (tyler.tarabula@gmail.com) open-data civic project"
+UA = "torontotrees/0.1 (https://github.com/ttarabula/torontotrees) open-data civic project"
 API = "https://en.wikipedia.org/api/rest_v1/page/summary/{title}"
 
 
