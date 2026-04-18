@@ -28,7 +28,11 @@
     min-height: 100vh;
   }
   .wrap { max-width: 780px; margin: 0 auto; }
-  h1 { font-size: 1.75rem; margin: 0 0 .25rem; }
+  .kicker {
+    color: var(--accent-dark); font-size: .92rem; font-weight: 600;
+    letter-spacing: .01em; margin: 0 0 .45rem;
+  }
+  h1 { font-size: 1.75rem; margin: 0 0 .25rem; line-height: 1.2; }
   p.tag { color: var(--muted); margin: 0 0 1.5rem; }
 
   /* Combobox */
@@ -114,8 +118,9 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>🌳 What's the tree in front of your house?</h1>
-  <p class="tag">Toronto's open street-tree inventory, searchable by address. 689,013 trees on city road allowances.</p>
+  <p class="kicker">🌳 Toronto is a city in a forest. These are its trees.</p>
+  <h1>What's the tree in front of your house?</h1>
+  <p class="tag">Search 689,013 city-owned street trees by address.</p>
 
   <div class="cb">
     <input id="q" type="text" placeholder="Type an address — e.g. 100 Bloor St W" autocomplete="off" spellcheck="false" inputmode="text">
