@@ -1,0 +1,40 @@
+name: Monthly blog post prompt
+
+# Opens a GitHub Issue on the 1st of each month with a topic menu for
+# that month's blog post. Even months = species spotlight, odd months =
+# miscellaneous post, per Tyler's spec.
+#
+# Manual trigger also available via the Actions UI (workflow_dispatch).
+
+on:
+  schedule:
+    # 13:00 UTC = 09:00 EDT (summer) / 08:00 EST (winter) on the 1st of each month
+    - cron: '0 13 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  open-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Render and open issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/next_post_topic.py > /tmp/prompt.txt
+          title=$(head -n 1 /tmp/prompt.txt)
+          tail -n +3 /tmp/prompt.txt > /tmp/body.txt
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$title" \
+            --body-file /tmp/body.txt
