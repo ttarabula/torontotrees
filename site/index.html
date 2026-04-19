@@ -138,6 +138,17 @@
 
   .error { color: #a00; }
   .note { font-size: .8rem; color: var(--muted); margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .actions {
+    display: flex; gap: .5rem; flex-wrap: wrap; margin: -.25rem 0 1.5rem;
+    font-size: .88rem;
+  }
+  .actions button {
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+    padding: .4rem .75rem; cursor: pointer; color: var(--accent-dark);
+    font: inherit; font-size: .88rem;
+  }
+  .actions button:hover { background: var(--hover); border-color: var(--accent); }
+  .actions button:disabled { opacity: 0.5; cursor: default; }
   details summary { cursor: pointer; color: var(--accent); padding: .25rem 0; }
   details[open] summary { margin-bottom: .5rem; }
 </style>
@@ -152,6 +163,10 @@
     <input id="q" type="text" placeholder="address, street, or species — e.g. 100 Bloor St W, Wellesley St E, Ginkgo" autocomplete="off" spellcheck="false" inputmode="text">
     <div id="suggest" class="suggest" role="listbox" hidden></div>
     <div class="hint">Tip: skip the house number to see a whole street, or type a species name for a city-wide map.</div>
+  </div>
+  <div class="actions">
+    <button type="button" id="btn-near">📍 Near me</button>
+    <button type="button" id="btn-random">🎲 Surprise me</button>
   </div>
 
   <div id="result"></div>
@@ -538,12 +553,12 @@ async function doLookup(input, opts = {}) {
 }
 
 let _leafletMap = null;
-function initMap(trees) {
+function initMap(trees, opts = {}) {
   const el = document.getElementById("map");
   if (!el || !trees.length) return;
   if (typeof L === "undefined") {
     // Leaflet still loading (deferred) — retry once it arrives
-    window.addEventListener("load", () => initMap(trees), { once: true });
+    window.addEventListener("load", () => initMap(trees, opts), { once: true });
     return;
   }
   if (_leafletMap) { _leafletMap.remove(); _leafletMap = null; }
@@ -571,7 +586,14 @@ function initMap(trees) {
     );
     return m;
   });
-  const group = L.featureGroup(markers).addTo(_leafletMap);
+  const layers = [...markers];
+  if (opts.userLoc) {
+    const u = L.circleMarker([opts.userLoc.lat, opts.userLoc.lon], {
+      radius: 8, color: "#1e5bd6", weight: 3, fillColor: "#5587ff", fillOpacity: 0.9,
+    }).bindPopup("<b>You are here</b>");
+    layers.push(u);
+  }
+  const group = L.featureGroup(layers).addTo(_leafletMap);
   _leafletMap.fitBounds(group.getBounds().pad(0.3), { maxZoom: 19 });
 }
 
@@ -650,6 +672,124 @@ async function doSpeciesLookup(slug, displayName, opts = {}) {
   }));
   initMap(markerData);
 }
+
+// --- Near me ----------------------------------------------------------------
+// Grid matches export_grid.py
+const GRID = { lat0: 43.5, lon0: -79.7, dlat: 0.01, dlon: 0.014 };
+const TOR_BBOX = { minLat: 43.58, maxLat: 43.86, minLon: -79.65, maxLon: -79.11 };
+
+async function doNearMe() {
+  if (!navigator.geolocation) {
+    $result.innerHTML = `<p class="error">Your browser doesn't support geolocation.</p>`;
+    return;
+  }
+  const btn = document.getElementById("btn-near");
+  btn.disabled = true; btn.textContent = "📍 Locating…";
+  $result.innerHTML = `<p class="tag">Asking your browser for your location…</p>`;
+
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    btn.disabled = false; btn.textContent = "📍 Near me";
+    const lat = pos.coords.latitude, lon = pos.coords.longitude;
+    if (lat < TOR_BBOX.minLat || lat > TOR_BBOX.maxLat || lon < TOR_BBOX.minLon || lon > TOR_BBOX.maxLon) {
+      $result.innerHTML = `<p class="error">Your location is outside Toronto — this tool only has Toronto's data.</p>`;
+      return;
+    }
+    const ilat = Math.floor((lat - GRID.lat0) / GRID.dlat);
+    const ilon = Math.floor((lon - GRID.lon0) / GRID.dlon);
+    // Fetch 3x3 cells around the user
+    const cellPromises = [];
+    for (let dla = -1; dla <= 1; dla++) {
+      for (let dlo = -1; dlo <= 1; dlo++) {
+        cellPromises.push(
+          fetch(`data/near/${ilat+dla}_${ilon+dlo}.json`)
+            .then(r => r.ok ? r.json() : null)
+            .catch(() => null)
+        );
+      }
+    }
+    const cells = (await Promise.all(cellPromises)).filter(Boolean);
+    const candidates = cells.flatMap(c => c.trees);
+    if (!candidates.length) {
+      $result.innerHTML = `<p class="error">No trees nearby in our inventory. Might be in a park or industrial area.</p>`;
+      return;
+    }
+    // Distance in meters (flat-earth approximation)
+    const latDeg2m = 111320;
+    const lonDeg2m = 111320 * Math.cos(lat * Math.PI / 180);
+    for (const t of candidates) {
+      const dy = (t.lat - lat) * latDeg2m;
+      const dx = (t.lon - lon) * lonDeg2m;
+      t._dist = Math.hypot(dx, dy);
+    }
+    candidates.sort((a, b) => a._dist - b._dist);
+    const nearest = candidates.slice(0, 8).map(t => ({
+      ...t,
+      _addr: `${t.num} ${t.street}`,
+    }));
+    const closestM = Math.round(nearest[0]._dist);
+
+    const mapDiv = `<div class="map" id="map"></div>`;
+    $result.innerHTML = mapDiv +
+      `<div class="addr">Nearest ${nearest.length} trees<small>closest is ${closestM} m away${nearest[0].nbhd ? " · " + escapeHtml(nearest[0].nbhd) : ""}</small></div>` +
+      renderTrees(nearest);
+    // Mark the user's own location on the map too
+    initMap(nearest, { userLoc: { lat, lon } });
+
+    // Update URL hash to #near-me (non-shareable; intentionally resets on next action)
+    const newHash = "#near-me";
+    if (location.hash !== newHash) history.replaceState(null, "", newHash);
+    document.title = `Near me — torontotrees`;
+  }, (err) => {
+    btn.disabled = false; btn.textContent = "📍 Near me";
+    const msg = err.code === 1 ? "You denied location access. Enable it in your browser settings to use this feature."
+              : err.code === 2 ? "Couldn't determine your location."
+              : err.code === 3 ? "Location request timed out."
+              : "Something went wrong getting your location.";
+    $result.innerHTML = `<p class="error">${msg}</p>`;
+  }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
+}
+
+// --- Surprise me -----------------------------------------------------------
+async function doRandomTree() {
+  // Weight random-street pick by tree count so coverage is even.
+  // streets is already sorted by name; need cumulative for weighted pick.
+  const total = streets.reduce((s, x) => s + x.n, 0);
+  let target = Math.random() * total;
+  let picked = streets[0];
+  for (const s of streets) {
+    target -= s.n;
+    if (target <= 0) { picked = s; break; }
+  }
+  let payload;
+  try {
+    if (streetCache.has(picked.slug)) payload = streetCache.get(picked.slug);
+    else {
+      const r = await fetch(`data/street/${picked.slug}.json`);
+      payload = await r.json();
+      streetCache.set(picked.slug, payload);
+    }
+  } catch {
+    return doRandomTree(); // try again
+  }
+  const addrKeys = Object.keys(payload.addresses);
+  const addr = addrKeys[Math.floor(Math.random() * addrKeys.length)];
+  const trees = payload.addresses[addr].map(t => ({ ...t, _addr: `${addr} ${picked.street}` }));
+  const tree = trees[Math.floor(Math.random() * trees.length)];
+
+  const mapDiv = `<div class="map" id="map"></div>`;
+  $result.innerHTML = mapDiv +
+    `<div class="addr">${escapeHtml(addr)} ${escapeHtml(picked.street)}<small>a random tree from Toronto's inventory</small></div>` +
+    renderTrees([tree]);
+  initMap([tree]);
+
+  // Put it in the URL so users can share the specific random tree they got
+  const newHash = queryToHash(`${addr} ${picked.street}`);
+  history.replaceState(null, "", newHash);
+  document.title = `${addr} ${picked.street} — torontotrees`;
+}
+
+document.getElementById("btn-near").addEventListener("click", doNearMe);
+document.getElementById("btn-random").addEventListener("click", doRandomTree);
 </script>
 </body>
 </html>

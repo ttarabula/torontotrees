@@ -11,4 +11,5 @@ site/data/street/
 site/data/streets.json
 site/data/species/
 site/data/species_index.json
+site/data/near/
 .DS_Store

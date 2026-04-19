@@ -42,6 +42,9 @@ jobs:
       - name: Export per-species JSON for the site
         run: uv run scripts/export_species.py
 
+      - name: Export grid cells for "near me" search
+        run: uv run scripts/export_grid.py
+
       - name: Generate blog RSS feed
         run: uv run scripts/rss.py
 
