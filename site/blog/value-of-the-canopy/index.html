@@ -69,6 +69,19 @@
     article { padding: 1.25rem 1rem 2rem; }
     .stats { grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* Site nav — added by scripts/add_nav.py */
+  header.site .inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  header.site a.home { text-decoration: none; }
+  header.site a.home::before { content: "← "; opacity: 0.55; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site nav.mainnav { display: flex; gap: 1.1rem; font-size: .9rem; flex-wrap: wrap; }
+  header.site nav.mainnav a { color: #666; text-decoration: none; }
+  header.site nav.mainnav a:hover { color: #1e5b2d; text-decoration: underline; }
+  @media (max-width: 520px) {
+    header.site nav.mainnav { font-size: .82rem; gap: .8rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -76,7 +89,7 @@
 <header class="site">
   <div class="inner">
     <a class="home" href="../../">🌳 torontotrees</a>
-    <span class="tag">Toronto's street-tree inventory</span>
+    <nav class="mainnav"><a href="../../blog/">Blog</a><a href="../../calendar/">Calendar</a><a href="../../walks/">Walks</a><a href="../../about/">About</a></nav>
   </div>
 </header>
 
