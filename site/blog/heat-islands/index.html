@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toronto's heat islands aren't where you'd expect | torontotrees</title>
+<meta name="description" content="An impervious-minus-canopy heat proxy maps the city's hottest and coolest neighbourhoods. The hottest are the financial-district condo core — not the income-vulnerable neighbourhoods the equity narrative predicts.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="Toronto's heat islands aren't where you'd expect">
+<meta property="og:description" content="Yonge-Bay Corridor is the hottest place in Toronto. Bridle Path is the coolest. Neither maps onto the equity story you'd expect.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ttarabula.github.io/torontotrees/charts/heat_map.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+    --warm: #c43c3c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; }
+  header.site .inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site .tag { color: var(--muted); font-size: .9rem; }
+
+  article { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  article h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin: .25rem 0 .5rem; }
+  article .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  article h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  article p { margin: 0 0 1.1em; }
+  article a { color: var(--accent-dark); }
+  article strong { color: #111; }
+  article em { color: #333; }
+
+  .hero { max-width: 960px; margin: 1rem auto 2rem; padding: 0 1rem; }
+  .hero img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); }
+
+  figure { margin: 1.5rem 0; }
+  figure img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+  figcaption { color: var(--muted); font-size: .88rem; margin-top: .5rem; text-align: center; }
+
+  article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  article th, article td { padding: .55rem .75rem; text-align: left; border-bottom: 1px solid var(--border); }
+  article tr:last-child td { border-bottom: 0; }
+  article th { background: #f3efe4; color: #4a3e1f; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+  article td.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  article td.hot { color: var(--warm); font-weight: 600; }
+  article td.cool { color: var(--accent-dark); font-weight: 600; }
+
+  .callout { background: #fdecec; border-left: 4px solid var(--warm); padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; font-size: 1rem; }
+
+  .cta { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 2rem 0; text-align: center; }
+  .cta a { display: inline-block; padding: .6rem 1.2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: .5rem; }
+
+  footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer.site a { color: var(--muted); }
+
+  @media (max-width: 520px) { article { padding: 1.25rem 1rem 2rem; } article table { font-size: .86rem; } article th, article td { padding: .4rem .5rem; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../">🌳 torontotrees</a>
+    <span class="tag">Toronto's street-tree inventory</span>
+  </div>
+</header>
+
+<article>
+  <div class="subhead">April 2026 · pavement, canopy, and who gets what</div>
+  <h1>Toronto's heat islands aren't where you'd expect</h1>
+
+  <p>The intuitive version of the urban-heat-island story is: rich neighbourhoods are cool because they have trees, poor neighbourhoods are hot because they don't. It's the kind of thing that shows up in every equity-and-climate article, including the <a href="https://ici.radio-canada.ca/info/2022/07/ilots-chaleur-villes-inegalites-injustice-changements-climatiques/en">Radio-Canada analysis of 17 Canadian metros</a>. And in the aggregate, for most cities, it's roughly true.</p>
+
+  <p>It's also only about half the Toronto story. The hottest neighbourhoods in Toronto, by any sensible proxy for surface temperature, are not poor. They're <em>downtown</em>.</p>
+
+  <p>Specifically, they're the financial-district condo core — <strong>Yonge-Bay Corridor, Wellington Place, Harbourfront-CityPlace, Downtown Yonge East</strong>. 90%+ of their ground is concrete, asphalt, or glass. Less than 10% is canopy. These places are thermal infernos in July, and they also have median household incomes of $60–90k with professional renters living mostly in AC-equipped high-rises. The people who experience the heat there aren't the residents. They're the gig workers, the transit commuters, the unhoused, and the building service staff.</p>
+</article>
+
+<div class="hero">
+  <img src="../../charts/heat_map.png" alt="Choropleth map of Toronto by heat-risk proxy (impervious minus canopy). Deep red in downtown core (Yonge-Bay, Harbourfront, Wellington Place), Etobicoke City Centre, and Downsview. Deep green in Bridle Path, Rosedale, Lambton Baby Point, and High Park.">
+</div>
+
+<article style="padding-top: 0;">
+
+  <h2>The method, briefly</h2>
+
+  <p>This analysis doesn't use satellite thermal imagery — getting that down to neighbourhood resolution for Toronto requires Earth Engine setup that wasn't worth the friction for a blog post. Instead, I use a well-established proxy from the urban-heat-island literature: <strong>impervious surface % minus tree canopy %</strong>, per neighbourhood, from the city's own 2018 LiDAR-derived land-cover data. Pavement heats cities. Canopy cools them. The difference ranks neighbourhoods by relative heat load with correlation to actual land-surface temperature typically above 0.85 in published studies.</p>
+
+  <p>It's a relative metric, not an absolute one. It won't tell you how many degrees hotter Yonge-Bay is than Bridle Path. It will tell you — correctly, robustly — that it <em>is</em> hotter.</p>
+
+  <h2>The hottest ten</h2>
+
+  <table>
+    <thead><tr><th>Neighbourhood</th><th>Impervious</th><th>Canopy</th><th>Heat proxy</th><th>Median income</th></tr></thead>
+    <tbody>
+      <tr><td>Yonge-Bay Corridor</td><td class="num">94.6%</td><td class="num">4.3%</td><td class="num hot">+90</td><td class="num">$68,500</td></tr>
+      <tr><td>Wellington Place</td><td class="num">93.9%</td><td class="num">5.4%</td><td class="num hot">+89</td><td class="num">$90,000</td></tr>
+      <tr><td>Harbourfront-CityPlace</td><td class="num">90.4%</td><td class="num">4.9%</td><td class="num hot">+86</td><td class="num">$90,000</td></tr>
+      <tr><td>Etobicoke City Centre</td><td class="num">87.6%</td><td class="num">7.1%</td><td class="num hot">+80</td><td class="num">$83,000</td></tr>
+      <tr><td>Downtown Yonge East</td><td class="num">89.3%</td><td class="num">9.5%</td><td class="num hot">+80</td><td class="num">$69,500</td></tr>
+      <tr><td>North Toronto</td><td class="num">84.8%</td><td class="num">11.1%</td><td class="num hot">+74</td><td class="num">$70,000</td></tr>
+      <tr><td>Briar Hill-Belgravia</td><td class="num">82.6%</td><td class="num">10.2%</td><td class="num hot">+72</td><td class="num">$81,000</td></tr>
+      <tr><td>Yorkdale-Glen Park</td><td class="num">81.6%</td><td class="num">9.4%</td><td class="num hot">+72</td><td class="num">$79,000</td></tr>
+      <tr><td>Humber Summit</td><td class="num">82.6%</td><td class="num">11.2%</td><td class="num hot">+71</td><td class="num">$80,000</td></tr>
+      <tr><td>Yonge-Doris</td><td class="num">83.4%</td><td class="num">12.4%</td><td class="num hot">+71</td><td class="num">$71,000</td></tr>
+    </tbody>
+  </table>
+
+  <p>Four of the top five are new-ish high-rise cores. Their "residents" are mostly absent during July heatwaves — commuters, condo residents in AC towers. The people who physically <em>live in the heat</em> are different populations, mostly invisible in the census columns.</p>
+
+  <h2>The coolest ten</h2>
+
+  <table>
+    <thead><tr><th>Neighbourhood</th><th>Impervious</th><th>Canopy</th><th>Heat proxy</th><th>Median income</th></tr></thead>
+    <tbody>
+      <tr><td>Bridle Path-Sunnybrook-York Mills</td><td class="num">33.0%</td><td class="num">54.2%</td><td class="num cool">−21</td><td class="num">$222,000</td></tr>
+      <tr><td>High Park-Swansea</td><td class="num">38.3%</td><td class="num">48.7%</td><td class="num cool">−10</td><td class="num">$101,000</td></tr>
+      <tr><td>Rosedale-Moore Park</td><td class="num">42.5%</td><td class="num">52.5%</td><td class="num cool">−10</td><td class="num">$122,000</td></tr>
+      <tr><td>Lambton Baby Point</td><td class="num">39.1%</td><td class="num">48.8%</td><td class="num cool">−10</td><td class="num">$103,000</td></tr>
+      <tr><td>Lansing-Westgate</td><td class="num">39.8%</td><td class="num">46.2%</td><td class="num cool">−6</td><td class="num">$98,000</td></tr>
+      <tr><td>Edenbridge-Humber Valley</td><td class="num">39.8%</td><td class="num">44.7%</td><td class="num cool">−5</td><td class="num">$100,000</td></tr>
+      <tr><td>Morningside Heights</td><td class="num">32.2%</td><td class="num">34.0%</td><td class="num cool">−2</td><td class="num">$117,000</td></tr>
+      <tr><td>Kingsway South</td><td class="num">45.4%</td><td class="num">46.9%</td><td class="num cool">−1</td><td class="num">$184,000</td></tr>
+      <tr><td>Morningside</td><td class="num">43.3%</td><td class="num">43.4%</td><td class="num cool">0</td><td class="num">$85,000</td></tr>
+      <tr><td>Cabbagetown-South St.James Town</td><td class="num">47.5%</td><td class="num">45.3%</td><td class="num cool">+2</td><td class="num">$76,500</td></tr>
+    </tbody>
+  </table>
+
+  <p>Almost exactly what you'd predict: wealthy ravine-adjacent neighbourhoods with big lots and mature canopy. Bridle Path sits at −21 — there's <em>more canopy than impervious surface</em> across its polygon. That's effectively a forest with some houses in it.</p>
+
+  <p>Two surprises on the cool list:</p>
+
+  <ul>
+    <li><strong>Morningside (NIA)</strong> at heat proxy 0. This is the only Neighbourhood Improvement Area in the cool top ten. It's in east Scarborough, adjacent to the Rouge River valley and several institutional properties (U of T Scarborough, Morningside Park). The ravine drags the land-cover mix green.</li>
+    <li><strong>Cabbagetown-South St. James Town</strong> at +2. We've <a href="../two-victorians/">written about Cabbagetown's anomalous canopy before</a> — the Heritage Conservation District holds the built form down, and the ravine edge adds green. Middle income, yet it lands near the cool end.</li>
+  </ul>
+
+  <h2>The scatter</h2>
+
+  <figure>
+    <img src="../../charts/heat_vs_income.png" alt="Scatter of heat proxy vs household income for 158 neighbourhoods. Downtown condo cores (Yonge-Bay, Wellington Place, Harbourfront) top the chart at +80 to +90 heat proxy, in the middle income range. Bridle Path at the far right ($222k income) is the clear cool outlier at -21. NIAs (red) cluster at low-to-middle income with heat proxy mostly 30-70.">
+    <figcaption>r = −0.48 between heat proxy and income. Real but modest. The scatter is messier than canopy alone suggested.</figcaption>
+  </figure>
+
+  <p>A few things the scatter reveals that the tables hide:</p>
+
+  <ul>
+    <li>The top of the heat ranking has <em>very high variance on income</em>. Downtown condos cluster in the $60–90k median range (young professional renters), but the top-10 hot list also includes $79k Yorkdale-Glen Park and $80k Humber Summit — suburban density with almost no canopy.</li>
+    <li>Bridle Path's −21 heat proxy is an outlier in two dimensions (very cool, very rich). Without it, the trend line flattens further.</li>
+    <li>Most NIA neighbourhoods sit in the 40-60 heat-proxy range. Hot, but nothing like the condo core.</li>
+  </ul>
+
+  <h2>By classification</h2>
+
+  <table>
+    <thead><tr><th>Bucket</th><th>n</th><th>Heat proxy</th><th>Impervious</th><th>Canopy</th><th>Income</th></tr></thead>
+    <tbody>
+      <tr><td>Not NIA / Not Emerging</td><td class="num">115</td><td class="num">36</td><td class="num">63%</td><td class="num">27%</td><td class="num">$94k</td></tr>
+      <tr><td>Emerging</td><td class="num">10</td><td class="num">45</td><td class="num">66%</td><td class="num">21%</td><td class="num">$81k</td></tr>
+      <tr><td>NIA</td><td class="num">33</td><td class="num">39</td><td class="num">63%</td><td class="num">24%</td><td class="num">$72k</td></tr>
+    </tbody>
+  </table>
+
+  <p>Emerging neighbourhoods are hotter on average than NIAs (45 vs 39). That's unexpected, and it shakes up a usual framing. Emerging is the city's classification for neighbourhoods that are below standard on composite well-being measures but not NIA-bad yet. In land-cover terms, they look like: old industrial cores redeveloping into density with incomplete tree canopy, recent suburban tower growth, or high-density pockets within wealthier wards. They are, by the numbers, the most heat-exposed class of Toronto neighbourhood.</p>
+
+  <div class="callout">
+    <strong>The implication:</strong> "tree planting for climate equity" is the right instinct, but the targeting needs nuance. Planting <em>more trees in NIAs</em> addresses one piece of the problem. Planting <em>more green infrastructure in high-rise cores</em> — parks, plazas, green roofs, street trees on reconstructed boulevards — addresses the other piece. And the Emerging-neighbourhood thermal gap suggests we should worry about neighbourhoods <em>before</em> they hit NIA status, not just after.
+  </div>
+
+  <h2>The canopy-vs-pavement shape</h2>
+
+  <figure>
+    <img src="../../charts/heat_canopy_vs_impervious.png" alt="Scatter of canopy % (x-axis) vs impervious % (y-axis) for each neighbourhood, coloured by heat proxy. Most neighbourhoods fall along a diagonal where impervious and canopy sum to around 70-85% of total area. Outliers: Yonge-Bay, Wellington, Harbourfront at top-left (high impervious, low canopy). Bridle Path at bottom-right (low impervious, very high canopy).">
+    <figcaption>The diagonal lines show constant heat proxy. Most neighbourhoods fall in a band; the top-left corner is downtown concrete and the bottom-right is Bridle Path's forest.</figcaption>
+  </figure>
+
+  <p>Something I find genuinely interesting in this view: most neighbourhoods cluster in a band where impervious + canopy ≈ 70–85% of total land. That leaves about 15–30% for grass, bare ground, shrub, and water — residential lawns, parks, institutional grass. The band is surprisingly tight. Toronto's neighbourhoods have a characteristic impervious-to-canopy tradeoff that's almost linear: for every extra 10 points of canopy, you give up about 10 points of impervious.</p>
+
+  <p>The outliers are the interesting places. Bridle Path's ravine polygon breaks the ceiling on canopy. The downtown condo cores break the floor on canopy. The question for planting policy is whether any neighbourhood can move diagonally on this chart — more canopy without giving up built density. Green roofs and larger tree pits in reconstructed streets are the answer the city's urban-forestry staff would give. Whether those measures can actually shift a condo-core neighbourhood from +90 toward 0 in any reasonable time is an open question.</p>
+
+  <h2>What this analysis can't see</h2>
+
+  <p>A few important gaps in this proxy that a real thermal study would catch:</p>
+
+  <ul>
+    <li><strong>Vertical heat.</strong> Downtown neighbourhoods have glass-and-steel walls that re-radiate sunlight. A 2D land-cover analysis doesn't capture that. Actual thermal imagery would show downtown core even hotter than this proxy suggests.</li>
+    <li><strong>Building materials.</strong> Concrete, asphalt, and dark roofs have different albedo and thermal mass. This proxy treats them the same.</li>
+    <li><strong>Canopy health and leaf density.</strong> A neighbourhood with 30% canopy of newly-planted 2 cm saplings cools much less than 30% mature crown. The inventory can tell us which is which (via DBH distribution) — I haven't layered that in here yet.</li>
+    <li><strong>Time of day and season.</strong> Concrete urban cores peak hottest at 3pm; ravine-edge neighbourhoods peak hottest overnight via radiative retention. This proxy is an average over all that.</li>
+    <li><strong>Vulnerability exposure.</strong> As already noted: the people who experience heat in a neighbourhood are not always the residents. Commuters, workers, transit-dependent people, unhoused individuals. Mapping surface temperature and mapping lived heat exposure are different projects.</li>
+  </ul>
+
+  <p>A proper land-surface-temperature dataset from MODIS or Landsat would address the first two. The third is doable with our own data and worth a follow-up. The fourth and fifth are research projects.</p>
+
+  <div class="cta">
+    <p style="margin: 0 0 .25rem"><strong>Cool down on your own block.</strong></p>
+    <p style="margin: 0; color: var(--muted); font-size: .95rem">Search any Toronto address and see the trees between your sidewalk and the road.</p>
+    <a href="../../">Look up an address →</a>
+  </div>
+
+</article>
+
+<footer class="site">
+  <p>
+    Data: <a href="https://open.toronto.ca/dataset/forest-and-land-cover/">Forest and Land Cover</a> (2018), <a href="https://open.toronto.ca/dataset/neighbourhood-profiles/">Neighbourhood Profiles 2021</a> — all City of Toronto, OGL-Toronto.<br>
+    Heat proxy methodology inspired by: Zhou &amp; Wang (2011), Deilami et al. (2018), and the EPA's urban-heat-island research program.<br>
+    Source: <a href="https://github.com/ttarabula/torontotrees">github.com/ttarabula/torontotrees</a>
+  </p>
+</footer>
+
+</body>
+</html>
