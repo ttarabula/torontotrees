@@ -93,6 +93,13 @@
   .tree .bot { color: var(--muted); font-style: italic; font-size: .92rem; }
   .tree .meta { color: var(--muted); font-size: .88rem; margin-top: .4rem; }
   .tree .extract { color: #333; font-size: .92rem; margin-top: .5rem; line-height: 1.45; }
+  .tree .lineage {
+    color: #3a3a3a; font-size: .92rem; margin-top: .55rem; line-height: 1.5;
+    padding: .5rem .7rem;
+    background: #f3efe4; border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+  .tree .lineage::before { content: "Toronto history — "; color: var(--accent-dark); font-weight: 600; }
   .tree a { color: var(--accent-dark); }
   .tree .links { margin-top: .5rem; font-size: .88rem; }
   .tree .links a { margin-right: 1rem; }
@@ -220,6 +227,7 @@ const streetCache = new Map();           // slug -> payload
 let species = {};                        // genus-species -> { wiki_url, thumb, extract, display_common }
 let speciesTO = {};                      // genus-species -> city of toronto planting attributes
 let speciesIdx = [];                     // [{key, common, botanical, n, slug}] — for autocomplete
+let speciesLineage = {};                 // genus-species -> one-line planting history
 const speciesCache = new Map();          // slug -> payload
 
 const $q = document.getElementById("q");
@@ -227,17 +235,19 @@ const $sug = document.getElementById("suggest");
 const $result = document.getElementById("result");
 
 async function init() {
-  const [streetsResp, speciesResp, speciesTOResp, speciesIdxResp] = await Promise.all([
+  const [streetsResp, speciesResp, speciesTOResp, speciesIdxResp, lineageResp] = await Promise.all([
     fetch("data/streets.json"),
     fetch("data/species.json"),
     fetch("data/species_toronto.json"),
     fetch("data/species_index.json"),
+    fetch("data/species_lineage.json"),
   ]);
   streets = await streetsResp.json();
   for (const s of streets) streetSlug.set(s.street, s.slug);
   species = await speciesResp.json();
   speciesTO = await speciesTOResp.json();
   speciesIdx = await speciesIdxResp.json();
+  speciesLineage = await lineageResp.json();
   // Apply any permalink from the URL hash
   const fromHash = hashToQuery(location.hash);
   if (fromHash) {
@@ -496,6 +506,9 @@ function renderTrees(trees) {
     const extract = info?.extract
       ? `<div class="extract">${escapeHtml(info.extract)}</div>`
       : "";
+    const lineage = (key && typeof speciesLineage[key] === "string")
+      ? `<div class="lineage">${escapeHtml(speciesLineage[key])}</div>`
+      : "";
     const wikiLink = info?.wiki_url
       ? `<a href="${escapeHtml(info.wiki_url)}" target="_blank" rel="noopener">Wikipedia</a>`
       : "";
@@ -510,6 +523,7 @@ function renderTrees(trees) {
         <div class="bot">${bot}</div>
         <div class="meta">${dbh}${nbhd}</div>
         ${renderFacts(to)}
+        ${lineage}
         ${extract}
         <div class="links">${linkParts.join(" · ")}</div>
       </div>
@@ -659,6 +673,9 @@ async function doSpeciesLookup(slug, displayName, opts = {}) {
     ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="" loading="lazy">`
     : `<div class="thumb placeholder">🌳</div>`;
   const extract = info?.extract ? `<div class="extract">${escapeHtml(info.extract)}</div>` : "";
+  const lineage = (typeof speciesLineage[payload.key] === "string")
+    ? `<div class="lineage">${escapeHtml(speciesLineage[payload.key])}</div>`
+    : "";
   const wikiLink = info?.wiki_url
     ? `<a href="${escapeHtml(info.wiki_url)}" target="_blank" rel="noopener">Wikipedia</a>`
     : "";
@@ -688,6 +705,7 @@ async function doSpeciesLookup(slug, displayName, opts = {}) {
         <div class="bot">${escapeHtml(payload.botanical)}</div>
         <div class="meta">${statsLine}</div>
         ${factsHtml}
+        ${lineage}
         ${extract}
         <div class="links">${[wikiLink, inat].filter(Boolean).join(" · ")}</div>
       </div>
