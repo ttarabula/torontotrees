@@ -15,7 +15,7 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 BLOG = ROOT / "site" / "blog"
-BASE = "https://ttarabula.github.io/torontotrees"
+BASE = "https://treeto.ca"
 
 MONTHS = {m: i for i, m in enumerate(
     ["January","February","March","April","May","June",

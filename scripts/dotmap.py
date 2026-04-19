@@ -70,7 +70,7 @@ def add_titles(ax, title, subtitle, bg=BG_DARK):
             ha="left", va="bottom", fontsize=32, color="white", weight="bold")
     ax.text(0.015, 1.005, subtitle, transform=ax.transAxes,
             ha="left", va="bottom", fontsize=14, color="#a8a39a")
-    ax.text(0.985, -0.01, "Data: City of Toronto Street Tree Data (OGL-Toronto)  ·  ttarabula.github.io/torontotrees",
+    ax.text(0.985, -0.01, "Data: City of Toronto Street Tree Data (OGL-Toronto)  ·  treeto.ca",
             transform=ax.transAxes, ha="right", va="top", fontsize=10, color="#6a655a")
 
 

@@ -71,7 +71,7 @@ ax.text(0.015, 1.005,
         transform=ax.transAxes, ha="left", va="bottom",
         fontsize=14, color="#c2b5a6")
 ax.text(0.985, -0.01,
-        "Data: City of Toronto Street Tree Data  ·  ttarabula.github.io/torontotrees",
+        "Data: City of Toronto Street Tree Data  ·  treeto.ca",
         transform=ax.transAxes, ha="right", va="top",
         fontsize=10, color="#7a6e5f")
 out = OUT / "cherry_citywide.png"

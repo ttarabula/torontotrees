@@ -91,7 +91,7 @@ ax.text(0.015, 1.005,
         transform=ax.transAxes, ha="left", va="bottom",
         fontsize=13, color="#b5b0a5")
 ax.text(0.985, -0.01,
-        "Data: City of Toronto Street Tree Data  ·  ttarabula.github.io/torontotrees",
+        "Data: City of Toronto Street Tree Data  ·  treeto.ca",
         transform=ax.transAxes, ha="right", va="top",
         fontsize=10, color="#6a655a")
 
