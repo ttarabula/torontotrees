@@ -190,6 +190,9 @@ def page_head(title, desc, depth):
   table.ranking th {{ background: #f3efe4; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; user-select: none; }}
   table.ranking th:hover {{ background: #e9dfc9; }}
   table.ranking th .arrow {{ color: var(--muted); font-size: .7rem; }}
+  table.ranking th .info {{ color: var(--muted); font-size: .75rem; margin-left: .15rem; opacity: .6; }}
+  table.ranking th[title]:hover .info {{ opacity: 1; color: var(--accent-dark); }}
+  .stat .label[title] {{ cursor: help; border-bottom: 1px dotted #bbb; display: inline-block; }}
   table.ranking td.num {{ text-align: right; font-variant-numeric: tabular-nums; }}
   table.ranking td a {{ color: var(--accent-dark); text-decoration: none; font-weight: 500; }}
   table.ranking td a:hover {{ text-decoration: underline; }}
@@ -360,18 +363,24 @@ def nbhd_page_html(row, species_rows, big_row, ranks):
     # Stats grid
     stats = []
 
-    def stat(label, val, rank=None, total=None, suffix=""):
+    def stat(label, val, rank=None, total=None, suffix="", tooltip=None):
         rank_html = f"<div class='rank'>{ordinal(int(rank))} of {total}</div>" if rank else ""
-        return f"<div class='stat'><div class='label'>{label}</div><div class='val'>{val}{suffix}</div>{rank_html}</div>"
+        title_attr = f' title="{html.escape(tooltip)}"' if tooltip else ""
+        return f"<div class='stat'><div class='label'{title_attr}>{label}</div><div class='val'>{val}{suffix}</div>{rank_html}</div>"
 
     total = ranks["total"]
-    stats.append(stat("Street trees", fmt_int(row["tree_count"]), ranks["count_rank"], total))
-    stats.append(stat("Trees per km²", fmt_int(row["trees_per_km2"]), ranks["density_rank"], total))
+    stats.append(stat("Street trees", fmt_int(row["tree_count"]), ranks["count_rank"], total,
+        tooltip="Total count of city-owned street trees in the neighbourhood. Does not include trees in parks, ravines, or on private property."))
+    stats.append(stat("Trees per km²", fmt_int(row["trees_per_km2"]), ranks["density_rank"], total,
+        tooltip="Street trees per square kilometre of neighbourhood area. A measure of how thick the boulevard canopy is."))
     if row.get("canopy_pct") and row["canopy_pct"] == row["canopy_pct"]:
-        stats.append(stat("Canopy coverage", fmt_pct(row["canopy_pct"]), ranks["canopy_rank"], total))
-    stats.append(stat("Species variety", f"{row['shannon_h']:.2f}", ranks["shannon_rank"], total))
+        stats.append(stat("Canopy coverage", fmt_pct(row["canopy_pct"]), ranks["canopy_rank"], total,
+            tooltip="Percentage of the neighbourhood's total land area covered by tree crowns, from the City of Toronto's 2018 LiDAR study. Includes street, park, ravine, and private-property trees."))
+    stats.append(stat("Species variety", f"{row['shannon_h']:.2f}", ranks["shannon_rank"], total,
+        tooltip="Shannon diversity index H. Measures how evenly the trees are spread across species. 3.5 is good, 4.2+ is excellent. A pure monoculture would score 0."))
     if row.get("total_usd") and row["total_usd"] == row["total_usd"]:
-        stats.append(stat("Annual canopy value", f"${fmt_int(row['total_usd'])}", None, None, "/yr"))
+        stats.append(stat("Annual canopy value", f"${fmt_int(row['total_usd'])}", None, None, "/yr",
+            tooltip="Estimated dollar value per year of the ecosystem services (stormwater interception, air quality, carbon storage, energy savings) provided by the neighbourhood's street trees, using the i-Tree Eco formula."))
 
     stats_html = f'<div class="stats">{"".join(stats)}</div>'
 
@@ -465,10 +474,10 @@ def build_index_page(df):
     <thead>
       <tr>
         <th data-sort="text">Neighbourhood <span class="arrow">↕</span></th>
-        <th data-sort="num">Trees <span class="arrow">↕</span></th>
-        <th data-sort="num">per km² <span class="arrow">↕</span></th>
-        <th data-sort="num">Canopy <span class="arrow">↕</span></th>
-        <th data-sort="num">Species variety <span class="arrow">↕</span></th>
+        <th data-sort="num" title="Total count of city-owned street trees in the neighbourhood. Does not include trees in parks, ravines, or on private property.">Trees <span class="info">ⓘ</span> <span class="arrow">↕</span></th>
+        <th data-sort="num" title="Street trees per square kilometre of neighbourhood area. A measure of how thick the boulevard canopy is.">per km² <span class="info">ⓘ</span> <span class="arrow">↕</span></th>
+        <th data-sort="num" title="Percentage of the neighbourhood's total land area covered by tree crowns, measured from the City of Toronto's 2018 LiDAR study. Includes street, park, ravine, and private-property trees.">Canopy <span class="info">ⓘ</span> <span class="arrow">↕</span></th>
+        <th data-sort="num" title="Shannon diversity index H. Measures how evenly the neighbourhood's trees are spread across species. 3.5 is good, 4.2+ is excellent. A pure monoculture would score 0.">Species variety <span class="info">ⓘ</span> <span class="arrow">↕</span></th>
       </tr>
     </thead>
     <tbody>

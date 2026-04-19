@@ -926,7 +926,6 @@ document.getElementById("btn-random").addEventListener("click", doRandomTree);
   const top = picks.slice(0, 5);
   const verb = { bloom: "flowering", fall: "turning colour" };
   const $el = document.getElementById("peaking");
-  $el.hidden = false;
   const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   const monthStr = monthNames[now.getMonth()];
   $el.innerHTML =
@@ -941,6 +940,21 @@ document.getElementById("btn-random").addEventListener("click", doRandomTree);
       </div>`;
     }).join("") +
     `<div class="more"><a href="calendar/">See the full year →</a></div>`;
+
+  // Show only when the user hasn't searched for anything yet. A URL hash
+  // means a specific query is incoming — skip showing the widget at all.
+  // For button-triggered lookups, hide on the first $result mutation.
+  if (location.hash && location.hash.length > 1) {
+    return;
+  }
+  $el.hidden = false;
+  const hideOnResult = new MutationObserver(() => {
+    if ($result.innerHTML.trim().length > 0) {
+      $el.hidden = true;
+      hideOnResult.disconnect();
+    }
+  });
+  hideOnResult.observe($result, { childList: true, subtree: true });
 })();
 </script>
 </body>

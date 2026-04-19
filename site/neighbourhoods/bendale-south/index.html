@@ -60,6 +60,9 @@
   table.ranking th { background: #f3efe4; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; user-select: none; }
   table.ranking th:hover { background: #e9dfc9; }
   table.ranking th .arrow { color: var(--muted); font-size: .7rem; }
+  table.ranking th .info { color: var(--muted); font-size: .75rem; margin-left: .15rem; opacity: .6; }
+  table.ranking th[title]:hover .info { opacity: 1; color: var(--accent-dark); }
+  .stat .label[title] { cursor: help; border-bottom: 1px dotted #bbb; display: inline-block; }
   table.ranking td.num { text-align: right; font-variant-numeric: tabular-nums; }
   table.ranking td a { color: var(--accent-dark); text-decoration: none; font-weight: 500; }
   table.ranking td a:hover { text-decoration: underline; }
@@ -81,7 +84,7 @@
   <h1>Bendale South</h1>
   <p class="subhead">2,354 street trees · 0.66 km² · pop. 10,725</p>
 
-  <div class="stats"><div class='stat'><div class='label'>Street trees</div><div class='val'>2,354</div><div class='rank'>118th of 158</div></div><div class='stat'><div class='label'>Trees per km²</div><div class='val'>3,560</div><div class='rank'>120th of 158</div></div><div class='stat'><div class='label'>Canopy coverage</div><div class='val'>27.7%</div><div class='rank'>68th of 158</div></div><div class='stat'><div class='label'>Species variety</div><div class='val'>4.07</div><div class='rank'>88th of 158</div></div><div class='stat'><div class='label'>Annual canopy value</div><div class='val'>$65,503/yr</div></div></div>
+  <div class="stats"><div class='stat'><div class='label' title="Total count of city-owned street trees in the neighbourhood. Does not include trees in parks, ravines, or on private property.">Street trees</div><div class='val'>2,354</div><div class='rank'>118th of 158</div></div><div class='stat'><div class='label' title="Street trees per square kilometre of neighbourhood area. A measure of how thick the boulevard canopy is.">Trees per km²</div><div class='val'>3,560</div><div class='rank'>120th of 158</div></div><div class='stat'><div class='label' title="Percentage of the neighbourhood&#x27;s total land area covered by tree crowns, from the City of Toronto&#x27;s 2018 LiDAR study. Includes street, park, ravine, and private-property trees.">Canopy coverage</div><div class='val'>27.7%</div><div class='rank'>68th of 158</div></div><div class='stat'><div class='label' title="Shannon diversity index H. Measures how evenly the trees are spread across species. 3.5 is good, 4.2+ is excellent. A pure monoculture would score 0.">Species variety</div><div class='val'>4.07</div><div class='rank'>88th of 158</div></div><div class='stat'><div class='label' title="Estimated dollar value per year of the ecosystem services (stormwater interception, air quality, carbon storage, energy savings) provided by the neighbourhood&#x27;s street trees, using the i-Tree Eco formula.">Annual canopy value</div><div class='val'>$65,503/yr</div></div></div>
 
   <h2>What the numbers say</h2>
   

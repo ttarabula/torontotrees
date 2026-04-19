@@ -60,6 +60,9 @@
   table.ranking th { background: #f3efe4; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; user-select: none; }
   table.ranking th:hover { background: #e9dfc9; }
   table.ranking th .arrow { color: var(--muted); font-size: .7rem; }
+  table.ranking th .info { color: var(--muted); font-size: .75rem; margin-left: .15rem; opacity: .6; }
+  table.ranking th[title]:hover .info { opacity: 1; color: var(--accent-dark); }
+  .stat .label[title] { cursor: help; border-bottom: 1px dotted #bbb; display: inline-block; }
   table.ranking td.num { text-align: right; font-variant-numeric: tabular-nums; }
   table.ranking td a { color: var(--accent-dark); text-decoration: none; font-weight: 500; }
   table.ranking td a:hover { text-decoration: underline; }
@@ -81,7 +84,7 @@
   <h1>Junction-Wallace Emerson</h1>
   <p class="subhead">3,188 street trees · 0.57 km² · pop. 23,180</p>
 
-  <div class="stats"><div class='stat'><div class='label'>Street trees</div><div class='val'>3,188</div><div class='rank'>103rd of 158</div></div><div class='stat'><div class='label'>Trees per km²</div><div class='val'>5,624</div><div class='rank'>58th of 158</div></div><div class='stat'><div class='label'>Canopy coverage</div><div class='val'>12.0%</div><div class='rank'>143rd of 158</div></div><div class='stat'><div class='label'>Species variety</div><div class='val'>4.31</div><div class='rank'>8th of 158</div></div><div class='stat'><div class='label'>Annual canopy value</div><div class='val'>$89,195/yr</div></div></div>
+  <div class="stats"><div class='stat'><div class='label' title="Total count of city-owned street trees in the neighbourhood. Does not include trees in parks, ravines, or on private property.">Street trees</div><div class='val'>3,188</div><div class='rank'>103rd of 158</div></div><div class='stat'><div class='label' title="Street trees per square kilometre of neighbourhood area. A measure of how thick the boulevard canopy is.">Trees per km²</div><div class='val'>5,624</div><div class='rank'>58th of 158</div></div><div class='stat'><div class='label' title="Percentage of the neighbourhood&#x27;s total land area covered by tree crowns, from the City of Toronto&#x27;s 2018 LiDAR study. Includes street, park, ravine, and private-property trees.">Canopy coverage</div><div class='val'>12.0%</div><div class='rank'>143rd of 158</div></div><div class='stat'><div class='label' title="Shannon diversity index H. Measures how evenly the trees are spread across species. 3.5 is good, 4.2+ is excellent. A pure monoculture would score 0.">Species variety</div><div class='val'>4.31</div><div class='rank'>8th of 158</div></div><div class='stat'><div class='label' title="Estimated dollar value per year of the ecosystem services (stormwater interception, air quality, carbon storage, energy savings) provided by the neighbourhood&#x27;s street trees, using the i-Tree Eco formula.">Annual canopy value</div><div class='val'>$89,195/yr</div></div></div>
 
   <h2>What the numbers say</h2>
   
@@ -91,7 +94,7 @@
 
 
   <h2>Most common species here</h2>
-  <table class='species'><thead><tr><th>Species</th><th class='num'>Trees</th><th class='num'>Share</th></tr></thead><tbody><tr><td>Norway Maple <span class='bot'>acer platanoides</span></td><td class='num'>272</td><td class='num'><span class='bar' style='width:50.0px'></span> 8.5%</td></tr><tr><td>Honey Locust <span class='bot'>gleditsia triacanthos</span></td><td class='num'>143</td><td class='num'><span class='bar' style='width:26.5px'></span> 4.5%</td></tr><tr><td>Littleleaf Linden <span class='bot'>tilia cordata</span></td><td class='num'>107</td><td class='num'><span class='bar' style='width:19.5px'></span> 3.4%</td></tr><tr><td>Red Oak <span class='bot'>quercus rubra</span></td><td class='num'>101</td><td class='num'><span class='bar' style='width:18.5px'></span> 3.2%</td></tr><tr><td>Silver Maple <span class='bot'>acer saccharinum</span></td><td class='num'>101</td><td class='num'><span class='bar' style='width:18.5px'></span> 3.2%</td></tr></tbody></table>
+  <table class='species'><thead><tr><th>Species</th><th class='num'>Trees</th><th class='num'>Share</th></tr></thead><tbody><tr><td>Norway Maple <span class='bot'>acer platanoides</span></td><td class='num'>272</td><td class='num'><span class='bar' style='width:50.0px'></span> 8.5%</td></tr><tr><td>Honey Locust <span class='bot'>gleditsia triacanthos</span></td><td class='num'>143</td><td class='num'><span class='bar' style='width:26.5px'></span> 4.5%</td></tr><tr><td>Littleleaf Linden <span class='bot'>tilia cordata</span></td><td class='num'>107</td><td class='num'><span class='bar' style='width:19.5px'></span> 3.4%</td></tr><tr><td>Silver Maple <span class='bot'>acer saccharinum</span></td><td class='num'>101</td><td class='num'><span class='bar' style='width:18.5px'></span> 3.2%</td></tr><tr><td>Red Oak <span class='bot'>quercus rubra</span></td><td class='num'>101</td><td class='num'><span class='bar' style='width:18.5px'></span> 3.2%</td></tr></tbody></table>
 
   <h2>The biggest tree on record</h2><p>A <strong>Norway Maple</strong> (<em>acer platanoides</em>) at <strong>111 GEARY AVE</strong> — <strong>152 cm DBH</strong>, the largest of the 3,188 street trees here. · <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.6704752391986,-79.433741155255" target="_blank" rel="noopener">Street View</a></p>
 
