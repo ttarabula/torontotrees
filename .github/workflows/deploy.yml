@@ -45,6 +45,15 @@ jobs:
       - name: Export grid cells for "near me" search
         run: uv run scripts/export_grid.py
 
+      - name: Generate per-neighbourhood hero maps
+        run: uv run scripts/nbhd_maps.py
+
+      - name: Generate per-neighbourhood HTML pages
+        run: uv run scripts/generate_neighbourhoods.py
+
+      - name: Generate canopy-timeline binary
+        run: uv run scripts/timeline_data.py
+
       - name: Generate blog RSS feed
         run: uv run scripts/rss.py
 
