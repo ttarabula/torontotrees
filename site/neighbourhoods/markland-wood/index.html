@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markland Wood — street trees — torontotrees</title>
+<meta name="description" content="3,903 street trees across 0.7 km² — top species, canopy %, density, and how Markland Wood ranks in Toronto.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="Markland Wood — street trees">
+<meta property="og:description" content="3,903 street trees across 0.7 km² — top species, canopy %, density, and how Markland Wood ranks in Toronto.">
+<meta property="og:type" content="article">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; background: var(--bg); }
+  header.site .inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site .mainnav a { color: var(--accent-dark); text-decoration: none; margin-left: 1rem; font-size: .95rem; }
+  header.site .mainnav a:hover { text-decoration: underline; }
+  main { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  main .kicker { color: var(--accent-dark); font-weight: 600; font-size: .9rem; letter-spacing: .02em; text-transform: uppercase; margin: 0 0 .4rem; }
+  main h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); line-height: 1.15; margin: 0 0 .4rem; }
+  main .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  main h2 { font-size: 1.25rem; margin: 2.2rem 0 .75rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  main p { margin: 0 0 1.1em; }
+  main a { color: var(--accent-dark); }
+  main strong { color: #111; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .75rem; margin: 1.5rem 0; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem; }
+  .stat .label { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+  .stat .val { font-size: 1.3rem; font-weight: 600; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+  .stat .rank { color: var(--muted); font-size: .82rem; margin-top: .15rem; }
+  .species { border-collapse: collapse; width: 100%; margin: .75rem 0 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .species th, .species td { padding: .5rem .8rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+  .species tr:last-child td { border-bottom: 0; }
+  .species th { background: #f3efe4; color: #4a3e1f; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+  .species td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .species .bar { display: inline-block; height: .55rem; background: var(--accent); border-radius: 2px; vertical-align: middle; }
+  .species .bot { font-style: italic; color: var(--muted); font-size: .88rem; }
+  .chip { display: inline-block; background: #eef3ed; color: var(--accent-dark); padding: .15rem .55rem; border-radius: 999px; font-size: .78rem; margin-right: .3rem; }
+  .chip.warn { background: #fdecd6; color: #8a4b0b; }
+  .note { color: var(--muted); font-size: .86rem; margin-top: 2rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+  .crosslinks { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .5rem; }
+  .crosslinks a { background: var(--card); border: 1px solid var(--border); padding: .5rem .8rem; border-radius: 8px; text-decoration: none; }
+  .crosslinks a:hover { background: #eef3ed; border-color: var(--accent); }
+  table.ranking { width: 100%; border-collapse: collapse; font-size: .95rem; margin-top: 1rem; }
+  table.ranking th, table.ranking td { padding: .55rem .65rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+  table.ranking th { background: #f3efe4; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; user-select: none; }
+  table.ranking th:hover { background: #e9dfc9; }
+  table.ranking th .arrow { color: var(--muted); font-size: .7rem; }
+  table.ranking td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.ranking td a { color: var(--accent-dark); text-decoration: none; font-weight: 500; }
+  table.ranking td a:hover { text-decoration: underline; }
+  .filter { margin: 1rem 0; }
+  .filter input { width: 100%; max-width: 400px; padding: .5rem .8rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../">🌳 torontotrees</a>
+    <nav class="mainnav"><a href="../../blog/">Blog</a><a href="../../calendar/">Calendar</a><a href="../../walks/">Walks</a><a href="../../neighbourhoods/">Neighbourhoods</a><a href="../../about/">About</a></nav>
+  </div>
+</header>
+
+<main>
+
+  <p class="kicker">Neighbourhood · #012</p>
+  <h1>Markland Wood</h1>
+  <p class="subhead">3,903 street trees · 0.74 km² · pop. 10,365</p>
+
+  <div class="stats"><div class='stat'><div class='label'>Street trees</div><div class='val'>3,903</div><div class='rank'>81st of 158</div></div><div class='stat'><div class='label'>Trees per km²</div><div class='val'>5,247</div><div class='rank'>68th of 158</div></div><div class='stat'><div class='label'>Canopy coverage</div><div class='val'>32.2%</div><div class='rank'>48th of 158</div></div><div class='stat'><div class='label'>Median household income</div><div class='val'>$105,000</div><div class='rank'>21st of 158</div></div><div class='stat'><div class='label'>Species diversity (H)</div><div class='val'>4.09</div><div class='rank'>83rd of 158</div></div><div class='stat'><div class='label'>Annual canopy value</div><div class='val'>$125,479/yr</div></div></div>
+
+  <h2>What the numbers say</h2>
+  
+<p><strong>Markland Wood</strong> is middle-of-the-pack for street trees (68th of 158), with <strong>3,903</strong> city-owned street trees across <strong>0.74 km²</strong> — 5,247 per km². Median household income here is <strong>$105,000</strong> (21st of 158).</p>
+<p>Tree canopy covers <strong>32.2%</strong> of the neighbourhood (48th of 158) — essentially unchanged since 2008. (This includes all trees — street, park, and private — from the 2018 land-cover raster.) </p>
+<p>Across <strong>174</strong> distinct species (Shannon diversity 4.09, 83rd of 158), the most common is <em>acer platanoides</em> at <strong>12.1%</strong> of the trees.</p>
+
+
+  <h2>Most common species here</h2>
+  <table class='species'><thead><tr><th>Species</th><th class='num'>Trees</th><th class='num'>Share</th></tr></thead><tbody><tr><td>Norway Maple <span class='bot'>acer platanoides</span></td><td class='num'>473</td><td class='num'><span class='bar' style='width:50.0px'></span> 12.1%</td></tr><tr><td>Sargents Apple <span class='bot'>malus sargentii</span></td><td class='num'>213</td><td class='num'><span class='bar' style='width:22.5px'></span> 5.5%</td></tr><tr><td>Honey Locust <span class='bot'>gleditsia triacanthos</span></td><td class='num'>193</td><td class='num'><span class='bar' style='width:20.5px'></span> 4.9%</td></tr><tr><td>Linden <span class='bot'>tilia</span></td><td class='num'>192</td><td class='num'><span class='bar' style='width:20.5px'></span> 4.9%</td></tr><tr><td>Colorado Blue Spruce <span class='bot'>picea pungens</span></td><td class='num'>162</td><td class='num'><span class='bar' style='width:17.0px'></span> 4.2%</td></tr></tbody></table>
+
+  <h2>The biggest tree on record</h2><p>A <strong>Silver Maple</strong> (<em>acer saccharinum</em>) at <strong>42 BEARBURY DR</strong> — <strong>160 cm DBH</strong>, the largest of the 3,903 street trees here. · <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.6347956799137,-79.5740007176321" target="_blank" rel="noopener">Street View</a></p>
+
+  <h2>Explore</h2>
+  <div class="crosslinks"><a href="../../blog/canopy-equity/">Canopy equity post →</a><a href="../">← All neighbourhoods</a></div>
+
+  <p class="note">
+    Tree counts and species from the City of Toronto Street Tree dataset (city-owned trees in the
+    road allowance only — not parks or private property). Canopy % and heat proxy derive from the
+    2018 land-cover raster. Income and population are 2021 census figures, joined by the
+    158-neighbourhood model.
+  </p>
+
+</main>
+</body>
+</html>
