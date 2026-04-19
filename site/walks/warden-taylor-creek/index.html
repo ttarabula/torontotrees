@@ -154,7 +154,9 @@ function init() {
   L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     attribution: "&copy; OpenStreetMap contributors &copy; CARTO", maxZoom: 19,
   }).addTo(map);
-  L.polyline(ROUTE, { color: "#3a7d3a", weight: 4, opacity: 0.9, dashArray: "8,6" }).addTo(map);
+  // Numbered pins only — ravine trails don't route cleanly on the street
+  // network, so we omit a connecting line rather than draw a misleading one.
+  // Narrative stops below describe which trail to follow between pins.
   STOPS.forEach(s => {
     const icon = L.divIcon({
       className: "stop-marker",
