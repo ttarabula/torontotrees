@@ -29,8 +29,13 @@
   * { box-sizing: border-box; }
   body {
     font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    margin: 0; padding: 2rem 1rem; background: var(--bg); color: var(--fg);
+    margin: 0; padding: 2rem 1rem; color: var(--fg);
     min-height: 100vh;
+    /* Canopy-dot pattern: a scatter of small green dots, echoing the
+       dot-map visualization of every street tree. At 6% opacity so it
+       reads as texture, not decoration. */
+    background-color: var(--bg);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'><g fill='%232b7a3d' fill-opacity='0.06'><circle cx='11' cy='17' r='3.2'/><circle cx='38' cy='9' r='2.4'/><circle cx='66' cy='21' r='2.8'/><circle cx='78' cy='50' r='2.2'/><circle cx='54' cy='42' r='3.4'/><circle cx='24' cy='36' r='2.6'/><circle cx='6' cy='54' r='2.2'/><circle cx='30' cy='66' r='3'/><circle cx='60' cy='74' r='2.4'/><circle cx='46' cy='60' r='1.8'/></g></svg>");
   }
   .wrap { max-width: 780px; margin: 0 auto; }
   .kicker {
