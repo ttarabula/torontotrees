@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toronto's canopy through time — torontotrees</title>
+<meta name="description" content="Drag a slider across 125 years of estimated planting dates and watch Toronto's 689,013 street trees appear.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="Toronto's canopy through time">
+<meta property="og:description" content="Watch Toronto's 689,013 street trees appear as you scrub a slider from 1900 to 2026.">
+<meta property="og:type" content="article">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+    --canvas-bg: #0b0d10;
+    --dot: #6bb76b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; background: var(--bg); }
+  header.site .inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home::before { content: "← "; opacity: 0.55; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site nav.mainnav { display: flex; gap: 1.1rem; font-size: .9rem; flex-wrap: wrap; }
+  header.site nav.mainnav a { color: #666; text-decoration: none; }
+  header.site nav.mainnav a:hover { color: #1e5b2d; text-decoration: underline; }
+  @media (max-width: 520px) {
+    header.site nav.mainnav { font-size: .82rem; gap: .8rem; }
+  }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  .kicker { color: var(--accent-dark); font-weight: 600; font-size: .9rem; letter-spacing: .02em; text-transform: uppercase; margin: 0 0 .4rem; }
+  h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); line-height: 1.15; margin: 0 0 .4rem; }
+  .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; max-width: 720px; }
+
+  .scrubber {
+    display: grid; grid-template-columns: auto 1fr auto; gap: .75rem 1rem;
+    align-items: center;
+    background: #12161a; padding: 1rem 1.25rem; border-radius: 10px 10px 0 0;
+    color: #dbe3d9; font-variant-numeric: tabular-nums;
+  }
+  .scrubber .year {
+    font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700;
+    color: #e8efde; letter-spacing: -.01em; min-width: 3.5em;
+  }
+  .scrubber .count { font-size: .9rem; color: #8a9688; text-align: right; min-width: 10em; }
+  .scrubber input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 8px;
+    background: linear-gradient(to right, #2a3530, #3c5a40, #5f8c4d);
+    border-radius: 4px; outline: none;
+    grid-column: 1 / -1;
+  }
+  .scrubber input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #e8efde; border: 2px solid #2b7a3d; cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  .scrubber input[type="range"]::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #e8efde; border: 2px solid #2b7a3d; cursor: pointer;
+  }
+
+  .canvas-wrap {
+    background: var(--canvas-bg);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    line-height: 0;
+  }
+  canvas {
+    display: block; width: 100%; height: auto;
+    image-rendering: pixelated; image-rendering: crisp-edges;
+  }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-top: 1rem; font-size: .9rem; color: var(--muted);
+  }
+  .legend .item { display: inline-flex; align-items: center; gap: .35rem; }
+  .legend .swatch { width: .8rem; height: .8rem; border-radius: 2px; background: var(--dot); display: inline-block; }
+
+  .caveat {
+    margin: 1.5rem 0; padding: 1rem 1.25rem;
+    background: #fdf3e0; border-left: 4px solid #c68a2d; border-radius: 0 6px 6px 0;
+    color: #5c4008; font-size: .94rem; line-height: 1.55;
+  }
+  .caveat strong { color: #3d2b05; }
+
+  p { margin: 0 0 1.1em; max-width: 720px; }
+  p a { color: var(--accent-dark); }
+  .loading { padding: 2rem; text-align: center; color: var(--muted); }
+  .buttons {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+    margin-top: 1rem;
+  }
+  .buttons button {
+    background: var(--card); border: 1px solid var(--border);
+    padding: .4rem .9rem; border-radius: 6px;
+    font-size: .92rem; cursor: pointer; color: var(--fg);
+  }
+  .buttons button:hover { background: #eef3ed; border-color: var(--accent); }
+  .buttons button:disabled { opacity: .4; cursor: default; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../">🌳 torontotrees</a>
+    <nav class="mainnav"><a href="../blog/">Blog</a><a href="../calendar/">Calendar</a><a href="../walks/">Walks</a><a href="../neighbourhoods/">Neighbourhoods</a><a href="../about/">About</a></nav>
+  </div>
+</header>
+
+<main>
+  <p class="kicker">Timeline</p>
+  <h1>Toronto's canopy through time</h1>
+  <p class="subhead">Drag the slider across 125 years. Watch the city's 689,013 street trees accumulate, decade by decade, from a handful of 19th-century veterans through the post-war suburban wave to today's 50,000-tree-per-year planting programs.</p>
+
+  <div class="scrubber">
+    <span class="year" id="year">2026</span>
+    <span class="count" id="count">689,013 trees</span>
+    <input type="range" id="slider" min="1900" max="2026" step="1" value="2026">
+  </div>
+  <div class="canvas-wrap">
+    <div id="loading" class="loading">Loading 4 MB of tree data…</div>
+    <canvas id="map" hidden></canvas>
+  </div>
+
+  <div class="buttons">
+    <button type="button" data-year="1900">1900</button>
+    <button type="button" data-year="1950">1950</button>
+    <button type="button" data-year="1970">1970</button>
+    <button type="button" data-year="1990">1990</button>
+    <button type="button" data-year="2010">2010</button>
+    <button type="button" data-year="2026">Today</button>
+    <button type="button" id="play">▶ Play</button>
+  </div>
+
+  <div class="legend">
+    <span class="item"><span class="swatch"></span> Street tree (estimated planted year ≤ slider)</span>
+  </div>
+
+  <div class="caveat">
+    <strong>Big caveat.</strong> The City of Toronto's dataset doesn't record when each tree was planted — only its trunk diameter today. So each tree's "planting year" here is <em>estimated</em> by dividing its DBH by a typical urban-tree growth rate (0.5 cm/yr for slow species like oak and ginkgo; 0.75 cm/yr default; 1.0+ cm/yr for fast species like silver maple and London plane). Individual estimates can easily be off by 10–20 years, but city-scale patterns (the post-war suburbia build-out, the 1990s Norway-maple wave, the big post-2010 planting program) are real and visible.
+  </div>
+
+  <h2 style="font-size: 1.25rem; margin-top: 2.5rem;">What to look for</h2>
+  <p><strong>Before 1950</strong> — only the big veterans survive. Rosedale's bur oaks, Cabbagetown's American elms, the London planes along University Avenue. Everything else is either gone or planted later.</p>
+  <p><strong>1950s–1960s</strong> — Toronto's first suburbs (Don Mills, Leaside, North York) fill in. Norway maples everywhere — the city planted tens of thousands of them before learning they'd become invasive.</p>
+  <p><strong>1970s–1990s</strong> — after Dutch elm disease clears most of the elms, honey locust becomes the go-to replacement. The straight-line "Skyline" and "Shademaster" cultivars you see everywhere downtown date to this era.</p>
+  <p><strong>2000s–2010s</strong> — the big post-EAB replanting. 200,000+ new trees in the 2010s alone. Freeman maple ('Autumn Blaze'), Kentucky coffeetree, hackberry, serviceberry — the diversification that Toronto's planting program has been chasing.</p>
+  <p><strong>2020s</strong> — the saplings. Most of these dots are trees under 5 cm DBH: the program still plants ~40–50K new trees a year.</p>
+
+  <p><a href="../blog/every-tree/">← Every tree, as a dot (the static version)</a></p>
+</main>
+
+<script>
+const SLIDER = document.getElementById('slider');
+const YEAR_LABEL = document.getElementById('year');
+const COUNT_LABEL = document.getElementById('count');
+const CANVAS = document.getElementById('map');
+const LOADING = document.getElementById('loading');
+const PLAY_BTN = document.getElementById('play');
+
+const HEADER_SIZE = 26;
+const DOT_COLOR = 0xFF6BB76B;   // ABGR little-endian: (107, 183, 107)
+const BG_COLOR  = 0xFF100D0B;   // dark canvas bg
+
+let WIDTH, HEIGHT, EARLIEST, LATEST;
+let yearOff, xs, ys;            // Uint16Array views, parallel arrays
+let cumCount = null;             // cumCount[year - EARLIEST] = # trees with est year <= year
+let ctx, imgData, pixels32;
+let lastYear = null;
+
+async function init() {
+  const r = await fetch('../data/timeline.bin');
+  const buf = await r.arrayBuffer();
+  const view = new DataView(buf);
+  WIDTH = view.getUint16(2, true);
+  HEIGHT = view.getUint16(4, true);
+  EARLIEST = view.getUint16(22, true);
+  LATEST = view.getUint16(24, true);
+  const flat = new Uint16Array(buf, HEADER_SIZE);
+  const n = flat.length / 3;
+  yearOff = new Uint16Array(n);
+  xs = new Uint16Array(n);
+  ys = new Uint16Array(n);
+  for (let i = 0; i < n; i++) {
+    yearOff[i] = flat[i*3];
+    xs[i] = flat[i*3 + 1];
+    ys[i] = flat[i*3 + 2];
+  }
+
+  // Precompute cumulative counts: cumCount[i] = # trees with year <= EARLIEST+i
+  const years = LATEST - EARLIEST + 1;
+  cumCount = new Uint32Array(years + 1);
+  let idx = 0;
+  for (let y = 0; y < years; y++) {
+    while (idx < n && yearOff[idx] <= y) idx++;
+    cumCount[y] = idx;
+  }
+  cumCount[years] = idx; // final
+
+  // Slider bounds
+  SLIDER.min = String(EARLIEST);
+  SLIDER.max = String(LATEST);
+  SLIDER.value = String(LATEST);
+
+  // Set up canvas
+  CANVAS.width = WIDTH;
+  CANVAS.height = HEIGHT;
+  CANVAS.hidden = false;
+  LOADING.remove();
+  ctx = CANVAS.getContext('2d', { willReadFrequently: false });
+  imgData = ctx.createImageData(WIDTH, HEIGHT);
+  pixels32 = new Uint32Array(imgData.data.buffer);
+
+  render(LATEST);
+
+  SLIDER.addEventListener('input', () => render(+SLIDER.value));
+  document.querySelectorAll('.buttons button[data-year]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      SLIDER.value = btn.dataset.year;
+      render(+btn.dataset.year);
+    });
+  });
+
+  PLAY_BTN.addEventListener('click', playPause);
+}
+
+function render(year) {
+  if (year === lastYear) return;
+  const cutoff = cumCount[year - EARLIEST] || 0;
+  if (lastYear !== null && year > lastYear) {
+    // Forward: paint only the newly-added trees onto the existing frame
+    const prevCutoff = cumCount[lastYear - EARLIEST] || 0;
+    for (let i = prevCutoff; i < cutoff; i++) {
+      pixels32[ys[i] * WIDTH + xs[i]] = DOT_COLOR;
+    }
+  } else {
+    // Backward or first render: full repaint
+    pixels32.fill(BG_COLOR);
+    for (let i = 0; i < cutoff; i++) {
+      pixels32[ys[i] * WIDTH + xs[i]] = DOT_COLOR;
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+  YEAR_LABEL.textContent = year;
+  COUNT_LABEL.textContent = cutoff.toLocaleString() + ' trees';
+  lastYear = year;
+}
+
+let playTimer = null;
+function playPause() {
+  if (playTimer) {
+    clearInterval(playTimer);
+    playTimer = null;
+    PLAY_BTN.textContent = '▶ Play';
+    return;
+  }
+  PLAY_BTN.textContent = '⏸ Pause';
+  let y = EARLIEST;
+  SLIDER.value = String(y);
+  render(y);
+  playTimer = setInterval(() => {
+    y += 1;
+    if (y > LATEST) {
+      clearInterval(playTimer);
+      playTimer = null;
+      PLAY_BTN.textContent = '▶ Play';
+      return;
+    }
+    SLIDER.value = String(y);
+    render(y);
+  }, 70);
+}
+
+init().catch(e => {
+  LOADING.textContent = 'Failed to load timeline data: ' + e.message;
+});
+</script>
+</body>
+</html>
