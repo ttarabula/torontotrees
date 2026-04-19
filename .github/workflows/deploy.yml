@@ -5,8 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    # Weekly rebuild — catches city-side data refreshes
-    - cron: "17 5 * * 1"
+    # Monthly rebuild on the 1st — Toronto's upstream dataset refreshes
+    # "as available" (often quarterly or longer), so monthly is plenty.
+    - cron: "17 5 1 * *"
 
 permissions:
   contents: read
