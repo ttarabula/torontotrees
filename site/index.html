@@ -525,6 +525,8 @@ function renderFacts(to) {
     ["Mature size", to.size],
     ["Growth", to.growth],
     to.wires !== undefined ? ["Under wires", to.wires ? "Yes" : "No"] : null,
+    to.location ? ["Best site", to.location] : null,
+    to.other ? ["Of note", to.other] : null,
     to.note ? ["Note", to.note] : null,
   ].filter(Boolean).filter(([, v]) => v);
   if (!rows.length) return "";
