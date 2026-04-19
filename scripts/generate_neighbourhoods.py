@@ -369,7 +369,7 @@ def nbhd_page_html(row, species_rows, big_row, ranks):
     stats.append(stat("Trees per km²", fmt_int(row["trees_per_km2"]), ranks["density_rank"], total))
     if row.get("canopy_pct") and row["canopy_pct"] == row["canopy_pct"]:
         stats.append(stat("Canopy coverage", fmt_pct(row["canopy_pct"]), ranks["canopy_rank"], total))
-    stats.append(stat("Species diversity (H)", f"{row['shannon_h']:.2f}", ranks["shannon_rank"], total))
+    stats.append(stat("Species variety", f"{row['shannon_h']:.2f}", ranks["shannon_rank"], total))
     if row.get("total_usd") and row["total_usd"] == row["total_usd"]:
         stats.append(stat("Annual canopy value", f"${fmt_int(row['total_usd'])}", None, None, "/yr"))
 
@@ -468,7 +468,7 @@ def build_index_page(df):
         <th data-sort="num">Trees <span class="arrow">↕</span></th>
         <th data-sort="num">per km² <span class="arrow">↕</span></th>
         <th data-sort="num">Canopy <span class="arrow">↕</span></th>
-        <th data-sort="num">Species H <span class="arrow">↕</span></th>
+        <th data-sort="num">Species variety <span class="arrow">↕</span></th>
       </tr>
     </thead>
     <tbody>
@@ -477,7 +477,7 @@ def build_index_page(df):
   </table>
 
   <p class="note">
-    H = Shannon diversity index (higher = more varied species mix; 3.5 is good, 4.2+ is excellent).
+    Species variety is the Shannon diversity index H (higher = more varied species mix; 3.5 is good, 4.2+ is excellent).
     Canopy % is 2018 tree cover of the whole neighbourhood (all trees, including parks and private).
     Click a column heading to sort.
   </p>
