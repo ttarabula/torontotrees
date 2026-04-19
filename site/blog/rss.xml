@@ -6,7 +6,14 @@
     <atom:link href="https://treeto.ca/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and visualizations built on Toronto's open street-tree data.</description>
     <language>en-CA</language>
-    <lastBuildDate>Sat, 18 Apr 2026 20:23:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2026 05:10:17 +0000</lastBuildDate>
+    <item>
+      <title>The narrow-street advantage — why Toronto&#x27;s old grid carries 4× the trees of its new condos</title>
+      <link>https://treeto.ca/blog/narrow-street-advantage/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/narrow-street-advantage/</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
+      <description>The densest 200m stretch of street trees in Toronto has forty. The sparsest has three. The difference isn</description>
+    </item>
     <item>
       <title>A tale of two Victorians — Cabbagetown vs. Trinity-Bellwoods</title>
       <link>https://treeto.ca/blog/two-victorians/</link>
@@ -15,11 +22,32 @@
       <description>Two old downtown Toronto neighbourhoods, same era, same rowhouse DNA, same gentrification arc. One has 45% canopy. The other has 20%. Here</description>
     </item>
     <item>
+      <title>Toronto&#x27;s veteran street trees — a hall of fame</title>
+      <link>https://treeto.ca/blog/veteran-trees/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/veteran-trees/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>The single largest specimen of each of Toronto</description>
+    </item>
+    <item>
+      <title>Toronto&#x27;s street trees are worth $20 million a year</title>
+      <link>https://treeto.ca/blog/value-of-the-canopy/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/value-of-the-canopy/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Applying published ecosystem-service equations to each of 686,000 Toronto street trees — totalling $20M/year in carbon, stormwater, air quality, and cooling benefits. And an 80× gap between neighbourhoods.</description>
+    </item>
+    <item>
       <title>The west-end cherry belt — where to see cherry blossoms in Toronto</title>
       <link>https://treeto.ca/blog/cherry-blossoms/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/cherry-blossoms/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
       <description>High Park is famous for cherry blossoms. But the data says Oakwood Village has more — and nine times as many cherries line the west-end blocks around St Clair.</description>
+    </item>
+    <item>
+      <title>Toronto&#x27;s heat islands aren&#x27;t where you&#x27;d expect</title>
+      <link>https://treeto.ca/blog/heat-islands/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/heat-islands/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>An impervious-minus-canopy heat proxy maps the city</description>
     </item>
     <item>
       <title>The honey locust — Toronto&#x27;s civic workhorse</title>
@@ -50,6 +78,13 @@
       <description>Seven tree species have exactly one specimen in all of Toronto</description>
     </item>
     <item>
+      <title>The ginkgo — Toronto&#x27;s 17,474 living fossils</title>
+      <link>https://treeto.ca/blog/ginkgo/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/ginkgo/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Ginkgo biloba is the sole survivor of an entire plant division that predates dinosaurs. Toronto is quietly planting tens of thousands of them, almost all under 15 years old.</description>
+    </item>
+    <item>
       <title>The black locust — Toronto&#x27;s 2,943 Robinia pseudoacacia</title>
       <link>https://treeto.ca/blog/black-locust/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/black-locust/</guid>
@@ -69,6 +104,13 @@
       <guid isPermaLink="true">https://treeto.ca/blog/canopy-equity/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
       <description>Four findings from an afternoon with Toronto</description>
+    </item>
+    <item>
+      <title>What the trees know</title>
+      <link>https://treeto.ca/blog/what-the-trees-know/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/what-the-trees-know/</guid>
+      <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
+      <description>Between the data and the product is the reason. A reflection on Toronto</description>
     </item>
   </channel>
 </rss>
