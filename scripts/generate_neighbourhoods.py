@@ -168,6 +168,8 @@ def page_head(title, desc, depth):
   main a {{ color: var(--accent-dark); }}
   main strong {{ color: #111; }}
   .stats {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .75rem; margin: 1.5rem 0; }}
+  .nbhd-map {{ margin: 1rem 0 1.5rem; }}
+  .nbhd-map img {{ width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); }}
   .stat {{ background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem; }}
   .stat .label {{ color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }}
   .stat .val {{ font-size: 1.3rem; font-weight: 600; margin-top: .2rem; font-variant-numeric: tabular-nums; }}
@@ -396,10 +398,15 @@ def nbhd_page_html(row, species_rows, big_row, ranks):
     cross.append(f'<a href="../">← All neighbourhoods</a>')
     cross_html = f'<div class="crosslinks">{"".join(cross)}</div>'
 
+    map_slug = slug(nb)
     body = f"""
   <p class="kicker">Neighbourhood · #{row['nbhd_code']}</p>
   <h1>{html.escape(nb)}</h1>
   <p class="subhead">{nia_chip}{fmt_int(row['tree_count'])} street trees · {row['area_km2']:.2f} km² · pop. {fmt_int(row['population_2021'])}</p>
+
+  <figure class="nbhd-map">
+    <img src="../../charts/nbhd/{map_slug}.png" alt="Map of {html.escape(nb)} showing the neighbourhood outlined in green with every city-owned street tree as a dark-green dot, plus a locator inset showing its position in Toronto." loading="lazy">
+  </figure>
 
   {stats_html}
 

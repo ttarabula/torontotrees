@@ -38,6 +38,8 @@
   main a { color: var(--accent-dark); }
   main strong { color: #111; }
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: .75rem; margin: 1.5rem 0; }
+  .nbhd-map { margin: 1rem 0 1.5rem; }
+  .nbhd-map img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); }
   .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem; }
   .stat .label { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
   .stat .val { font-size: 1.3rem; font-weight: 600; margin-top: .2rem; font-variant-numeric: tabular-nums; }
@@ -83,6 +85,10 @@
   <p class="kicker">Neighbourhood · #022</p>
   <h1>Humbermede</h1>
   <p class="subhead"><span class="chip warn">Neighbourhood Improvement Area</span> 2,833 street trees · 1.12 km² · pop. 16,955</p>
+
+  <figure class="nbhd-map">
+    <img src="../../charts/nbhd/humbermede.png" alt="Map of Humbermede showing the neighbourhood outlined in green with every city-owned street tree as a dark-green dot, plus a locator inset showing its position in Toronto." loading="lazy">
+  </figure>
 
   <div class="stats"><div class='stat'><div class='label' title="Total count of city-owned street trees in the neighbourhood. Does not include trees in parks, ravines, or on private property.">Street trees</div><div class='val'>2,833</div><div class='rank'>106th of 158</div></div><div class='stat'><div class='label' title="Street trees per square kilometre of neighbourhood area. A measure of how thick the boulevard canopy is.">Trees per km²</div><div class='val'>2,532</div><div class='rank'>144th of 158</div></div><div class='stat'><div class='label' title="Percentage of the neighbourhood&#x27;s total land area covered by tree crowns, from the City of Toronto&#x27;s 2018 LiDAR study. Includes street, park, ravine, and private-property trees.">Canopy coverage</div><div class='val'>19.4%</div><div class='rank'>110th of 158</div></div><div class='stat'><div class='label' title="Shannon diversity index H. Measures how evenly the trees are spread across species. 3.5 is good, 4.2+ is excellent. A pure monoculture would score 0.">Species variety</div><div class='val'>4.09</div><div class='rank'>81st of 158</div></div><div class='stat'><div class='label' title="Estimated dollar value per year of the ecosystem services (stormwater interception, air quality, carbon storage, energy savings) provided by the neighbourhood&#x27;s street trees, using the i-Tree Eco formula.">Annual canopy value</div><div class='val'>$55,160/yr</div></div></div>
 
