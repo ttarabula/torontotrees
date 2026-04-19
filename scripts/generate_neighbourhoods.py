@@ -247,8 +247,6 @@ def narrative(row, ranks):
         f"across <strong>{row['area_km2']:.2f} km²</strong> — "
         f"{fmt_int(row['trees_per_km2'])} per km²."
     )
-    if row.get("median_hh_income"):
-        first += f" Median household income here is <strong>${fmt_int(row['median_hh_income'])}</strong> ({ordinal(ir)} of {total})."
 
     # canopy context
     canopy_line = ""
@@ -371,8 +369,6 @@ def nbhd_page_html(row, species_rows, big_row, ranks):
     stats.append(stat("Trees per km²", fmt_int(row["trees_per_km2"]), ranks["density_rank"], total))
     if row.get("canopy_pct") and row["canopy_pct"] == row["canopy_pct"]:
         stats.append(stat("Canopy coverage", fmt_pct(row["canopy_pct"]), ranks["canopy_rank"], total))
-    if row.get("median_hh_income"):
-        stats.append(stat("Median household income", f"${fmt_int(row['median_hh_income'])}", ranks["income_rank"], total))
     stats.append(stat("Species diversity (H)", f"{row['shannon_h']:.2f}", ranks["shannon_rank"], total))
     if row.get("total_usd") and row["total_usd"] == row["total_usd"]:
         stats.append(stat("Annual canopy value", f"${fmt_int(row['total_usd'])}", None, None, "/yr"))
@@ -412,7 +408,7 @@ def nbhd_page_html(row, species_rows, big_row, ranks):
   <p class="note">
     Tree counts and species from the City of Toronto Street Tree dataset (city-owned trees in the
     road allowance only — not parks or private property). Canopy % and heat proxy derive from the
-    2018 land-cover raster. Income and population are 2021 census figures, joined by the
+    2018 land-cover raster. Population is from the 2021 census, joined by the
     158-neighbourhood model.
   </p>
 """
@@ -448,14 +444,12 @@ def build_index_page(df):
     for r in rows:
         sl = slug(r["nbhd_name"])
         canopy = f"{r['canopy_pct']:.1f}%" if r.get("canopy_pct") and r["canopy_pct"] == r["canopy_pct"] else "—"
-        income = f"${fmt_int(r['median_hh_income'])}" if r.get("median_hh_income") else "—"
         tbody.append(
             f"<tr>"
             f"<td><a href='{sl}/'>{html.escape(r['nbhd_name'])}</a></td>"
             f"<td class='num' data-v='{int(r['tree_count'])}'>{fmt_int(r['tree_count'])}</td>"
             f"<td class='num' data-v='{int(r['trees_per_km2'])}'>{fmt_int(r['trees_per_km2'])}</td>"
             f"<td class='num' data-v='{r.get('canopy_pct') or 0:.2f}'>{canopy}</td>"
-            f"<td class='num' data-v='{int(r.get('median_hh_income') or 0)}'>{income}</td>"
             f"<td class='num' data-v='{r['shannon_h']:.4f}'>{r['shannon_h']:.2f}</td>"
             f"</tr>"
         )
@@ -463,7 +457,7 @@ def build_index_page(df):
     body = f"""
   <p class="kicker">Neighbourhoods</p>
   <h1>Toronto's 158 neighbourhoods, by the trees</h1>
-  <p class="subhead">Every city-owned street tree, by neighbourhood: count, density, canopy coverage, household income, and species diversity.</p>
+  <p class="subhead">Every city-owned street tree, by neighbourhood: count, density, canopy coverage, and species diversity.</p>
 
   <div class="filter"><input id="q" type="text" placeholder="Filter — e.g. Rosedale, Trinity-Bellwoods…" autocomplete="off"></div>
 
@@ -474,7 +468,6 @@ def build_index_page(df):
         <th data-sort="num">Trees <span class="arrow">↕</span></th>
         <th data-sort="num">per km² <span class="arrow">↕</span></th>
         <th data-sort="num">Canopy <span class="arrow">↕</span></th>
-        <th data-sort="num">Income <span class="arrow">↕</span></th>
         <th data-sort="num">Species H <span class="arrow">↕</span></th>
       </tr>
     </thead>
@@ -485,7 +478,6 @@ def build_index_page(df):
 
   <p class="note">
     H = Shannon diversity index (higher = more varied species mix; 3.5 is good, 4.2+ is excellent).
-    Income is 2021 median household, from Statistics Canada via the City of Toronto profile.
     Canopy % is 2018 tree cover of the whole neighbourhood (all trees, including parks and private).
     Click a column heading to sort.
   </p>
