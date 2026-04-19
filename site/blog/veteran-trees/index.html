@@ -52,6 +52,32 @@
   .cta { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 2rem 0; text-align: center; }
   .cta a { display: inline-block; padding: .6rem 1.2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: .5rem; }
 
+  .sv-embed {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--bg);
+    padding: .6rem 0 .2rem;
+    margin: 1rem 0 0;
+  }
+  .sv-embed iframe {
+    width: 100%; height: 320px;
+    border: 1px solid var(--rule); border-radius: 8px;
+    background: #e5e0d5;
+  }
+  .sv-embed .sv-caption {
+    font-size: .85rem; color: var(--muted); margin-top: .3rem; text-align: center;
+  }
+  .sv-placeholder {
+    width: 100%; height: 220px; border-radius: 8px;
+    background: linear-gradient(180deg, #ede7d8 0%, #d9d4c7 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: .95rem; text-align: center; padding: 1rem;
+  }
+  article tr.viewable { cursor: pointer; }
+  article tr.viewable:hover { background: #f4efe3; }
+  article tr.viewable.active { background: #e7efe4; }
+  article tr.viewable td:first-child::before { content: "▸ "; color: var(--muted); font-size: .85em; }
+  article tr.viewable.active td:first-child::before { content: "▾ "; color: var(--accent-dark); }
+
   footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; }
   footer.site a { color: var(--muted); }
 
@@ -88,36 +114,42 @@
 
   <h2>The ranked list</h2>
 
-  <table>
+  <p class="sv-hint" style="color: var(--muted); font-size: .92rem; margin-top: -.5rem;">Click any row to peek at the tree in Street View.</p>
+
+  <div class="sv-embed" id="sv-embed">
+    <div class="sv-placeholder" id="sv-placeholder">Click any row below to load a Street View panorama at that tree.</div>
+  </div>
+
+  <table id="veterans-table">
     <thead>
       <tr><th>Species</th><th>DBH</th><th>Address</th><th>Where</th><th></th></tr>
     </thead>
     <tbody>
-      <tr><td>London plane <span class="bot">Platanus × acerifolia</span></td><td class="num">247 cm</td><td>16 Blaketon Rd</td><td>Islington</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.645178,-79.557335" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Red oak <span class="bot">Quercus rubra</span></td><td class="num">236 cm</td><td>25 Romac Dr</td><td>Highland Creek</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.786314,-79.170152" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Norway maple, Schwedler <span class="bot">Acer platanoides 'Schwedleri'</span></td><td class="num">231 cm</td><td>37 Blakley Ave</td><td>Rockcliffe-Smythe</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.672744,-79.481288" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Silver maple <span class="bot">Acer saccharinum</span></td><td class="num">221 cm</td><td>2 White Abbey Pk</td><td>Wexford/Maryvale</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.760085,-79.307382" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Littleleaf linden <span class="bot">Tilia cordata</span></td><td class="num">218 cm</td><td>1533 Jane St</td><td>Brookhaven-Amesbury</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.697384,-79.501190" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Red maple <span class="bot">Acer rubrum</span></td><td class="num">210 cm</td><td>100 Carson St</td><td>Alderwood</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.603265,-79.536037" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Honey locust <span class="bot">Gleditsia triacanthos</span></td><td class="num">203 cm</td><td>100 Carson St</td><td>Alderwood</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.603265,-79.536037" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Siberian elm <span class="bot">Ulmus pumila</span></td><td class="num">200 cm</td><td>17 Yonge Blvd</td><td>Lawrence Park North</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.734261,-79.405506" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>American elm <span class="bot">Ulmus americana</span></td><td class="num">190 cm</td><td>103 West Lodge Ave</td><td>Roncesvalles</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.644918,-79.435886" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Bur oak <span class="bot">Quercus macrocarpa</span></td><td class="num">183 cm</td><td>179 Spadina Rd</td><td>Annex</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.673504,-79.406266" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Paper birch <span class="bot">Betula papyrifera</span></td><td class="num">172 cm</td><td>33 Donino Ave</td><td>Bridle Path-Sunnybrook-York Mills</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.739056,-79.401944" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Austrian pine <span class="bot">Pinus nigra</span></td><td class="num">168 cm</td><td>16 High Point Rd</td><td>Bridle Path-Sunnybrook-York Mills</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.733797,-79.371523" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>American basswood <span class="bot">Tilia americana</span></td><td class="num">160 cm</td><td>12 Page Ave</td><td>Bayview Village</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.780336,-79.381622" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Japanese lilac <span class="bot">Syringa reticulata</span></td><td class="num">158 cm</td><td>10 Sandbourne Cres</td><td>Don Valley Village</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.789607,-79.345403" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Serviceberry <span class="bot">Amelanchier canadensis</span></td><td class="num">146 cm</td><td>266 Cornelius Pkwy</td><td>Downsview</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.725429,-79.476657" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Callery pear <span class="bot">Pyrus calleryana</span></td><td class="num">144 cm</td><td>96 Anthia Dr</td><td>Humber Summit</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.762451,-79.572725" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Sargent crabapple <span class="bot">Malus sargentii</span></td><td class="num">143 cm</td><td>10 Carnforth Rd</td><td>Victoria Village</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.741019,-79.314349" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Sugar maple <span class="bot">Acer saccharum</span></td><td class="num">130 cm</td><td>179 Edenbridge Dr</td><td>Edenbridge-Humber Valley</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.674784,-79.513855" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Tulip tree <span class="bot">Liriodendron tulipifera</span></td><td class="num">130 cm</td><td>5 Westgate Cres</td><td>Lansing-Westgate</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.744024,-79.430652" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Ginkgo <span class="bot">Ginkgo biloba</span></td><td class="num">123 cm</td><td>469 Melrose Ave</td><td>Bedford Park-Nortown</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.728821,-79.423828" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Freeman maple 'Autumn Blaze' <span class="bot">Acer × freemanii</span></td><td class="num">121 cm</td><td>995 Kipling Ave</td><td>Islington</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.643787,-79.535926" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Kentucky coffeetree <span class="bot">Gymnocladus dioicus</span></td><td class="num">118 cm</td><td>19 Tallon Rd</td><td>Willowridge-Martingrove-Richview</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.688700,-79.534938" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Colorado blue spruce <span class="bot">Picea pungens</span></td><td class="num">111 cm</td><td>221 Delhi Ave</td><td>Lansing-Westgate</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.740277,-79.432608" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>Hackberry <span class="bot">Celtis occidentalis</span></td><td class="num">100 cm</td><td>90 Summerhill Ave</td><td>Rosedale-Moore Park</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.684532,-79.388079" target="_blank" rel="noopener">Street View</a></td></tr>
-      <tr><td>White spruce <span class="bot">Picea glauca</span></td><td class="num">92 cm</td><td>26 Tregellis Rd</td><td>Lansing-Westgate</td><td><a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.745156,-79.424668" target="_blank" rel="noopener">Street View</a></td></tr>
+      <tr class="viewable" data-lat="43.645178" data-lon="-79.557335" data-h="177" data-label="London plane · 16 Blaketon Rd"><td>London plane <span class="bot">Platanus × acerifolia</span></td><td class="num">247 cm</td><td>16 Blaketon Rd</td><td>Islington</td></tr>
+      <tr class="viewable" data-lat="43.786314" data-lon="-79.170152" data-h="53" data-label="Red oak · 25 Romac Dr"><td>Red oak <span class="bot">Quercus rubra</span></td><td class="num">236 cm</td><td>25 Romac Dr</td><td>Highland Creek</td></tr>
+      <tr class="viewable" data-lat="43.672744" data-lon="-79.481288" data-h="66" data-label="Norway maple Schwedler · 37 Blakley Ave"><td>Norway maple, Schwedler <span class="bot">Acer platanoides 'Schwedleri'</span></td><td class="num">231 cm</td><td>37 Blakley Ave</td><td>Rockcliffe-Smythe</td></tr>
+      <tr class="viewable" data-lat="43.760085" data-lon="-79.307382" data-h="180" data-label="Silver maple · 2 White Abbey Pk"><td>Silver maple <span class="bot">Acer saccharinum</span></td><td class="num">221 cm</td><td>2 White Abbey Pk</td><td>Wexford/Maryvale</td></tr>
+      <tr class="viewable" data-lat="43.697384" data-lon="-79.501190" data-h="159" data-label="Littleleaf linden · 1533 Jane St"><td>Littleleaf linden <span class="bot">Tilia cordata</span></td><td class="num">218 cm</td><td>1533 Jane St</td><td>Brookhaven-Amesbury</td></tr>
+      <tr class="viewable" data-lat="43.603265" data-lon="-79.536037" data-h="180" data-label="Red maple · 100 Carson St"><td>Red maple <span class="bot">Acer rubrum</span></td><td class="num">210 cm</td><td>100 Carson St</td><td>Alderwood</td></tr>
+      <tr class="viewable" data-lat="43.603265" data-lon="-79.536037" data-h="180" data-label="Honey locust · 100 Carson St"><td>Honey locust <span class="bot">Gleditsia triacanthos</span></td><td class="num">203 cm</td><td>100 Carson St</td><td>Alderwood</td></tr>
+      <tr class="viewable" data-lat="43.734261" data-lon="-79.405506" data-h="195" data-label="Siberian elm · 17 Yonge Blvd"><td>Siberian elm <span class="bot">Ulmus pumila</span></td><td class="num">200 cm</td><td>17 Yonge Blvd</td><td>Lawrence Park North</td></tr>
+      <tr class="viewable" data-lat="43.644918" data-lon="-79.435886" data-h="90" data-label="American elm · 103 West Lodge Ave"><td>American elm <span class="bot">Ulmus americana</span></td><td class="num">190 cm</td><td>103 West Lodge Ave</td><td>Roncesvalles</td></tr>
+      <tr class="viewable" data-lat="43.673504" data-lon="-79.406266" data-h="70" data-label="Bur oak · 179 Spadina Rd"><td>Bur oak <span class="bot">Quercus macrocarpa</span></td><td class="num">183 cm</td><td>179 Spadina Rd</td><td>Annex</td></tr>
+      <tr class="viewable" data-lat="43.739056" data-lon="-79.401944" data-h="62" data-label="Paper birch · 33 Donino Ave"><td>Paper birch <span class="bot">Betula papyrifera</span></td><td class="num">172 cm</td><td>33 Donino Ave</td><td>Bridle Path-Sunnybrook-York Mills</td></tr>
+      <tr class="viewable" data-lat="43.733797" data-lon="-79.371523" data-h="90" data-label="Austrian pine · 16 High Point Rd"><td>Austrian pine <span class="bot">Pinus nigra</span></td><td class="num">168 cm</td><td>16 High Point Rd</td><td>Bridle Path-Sunnybrook-York Mills</td></tr>
+      <tr class="viewable" data-lat="43.780336" data-lon="-79.381622" data-h="225" data-label="American basswood · 12 Page Ave"><td>American basswood <span class="bot">Tilia americana</span></td><td class="num">160 cm</td><td>12 Page Ave</td><td>Bayview Village</td></tr>
+      <tr class="viewable" data-lat="43.789607" data-lon="-79.345403" data-h="144" data-label="Japanese lilac · 10 Sandbourne Cres"><td>Japanese lilac <span class="bot">Syringa reticulata</span></td><td class="num">158 cm</td><td>10 Sandbourne Cres</td><td>Don Valley Village</td></tr>
+      <tr class="viewable" data-lat="43.725429" data-lon="-79.476657" data-h="294" data-label="Serviceberry · 266 Cornelius Pkwy"><td>Serviceberry <span class="bot">Amelanchier canadensis</span></td><td class="num">146 cm</td><td>266 Cornelius Pkwy</td><td>Downsview</td></tr>
+      <tr class="viewable" data-lat="43.762451" data-lon="-79.572725" data-h="218" data-label="Callery pear · 96 Anthia Dr"><td>Callery pear <span class="bot">Pyrus calleryana</span></td><td class="num">144 cm</td><td>96 Anthia Dr</td><td>Humber Summit</td></tr>
+      <tr class="viewable" data-lat="43.741019" data-lon="-79.314349" data-h="150" data-label="Sargent crabapple · 10 Carnforth Rd"><td>Sargent crabapple <span class="bot">Malus sargentii</span></td><td class="num">143 cm</td><td>10 Carnforth Rd</td><td>Victoria Village</td></tr>
+      <tr class="viewable" data-lat="43.674784" data-lon="-79.513855" data-h="57" data-label="Sugar maple · 179 Edenbridge Dr"><td>Sugar maple <span class="bot">Acer saccharum</span></td><td class="num">130 cm</td><td>179 Edenbridge Dr</td><td>Edenbridge-Humber Valley</td></tr>
+      <tr class="viewable" data-lat="43.744024" data-lon="-79.430652" data-h="97" data-label="Tulip tree · 5 Westgate Cres"><td>Tulip tree <span class="bot">Liriodendron tulipifera</span></td><td class="num">130 cm</td><td>5 Westgate Cres</td><td>Lansing-Westgate</td></tr>
+      <tr class="viewable" data-lat="43.728821" data-lon="-79.423828" data-h="183" data-label="Ginkgo · 469 Melrose Ave"><td>Ginkgo <span class="bot">Ginkgo biloba</span></td><td class="num">123 cm</td><td>469 Melrose Ave</td><td>Bedford Park-Nortown</td></tr>
+      <tr class="viewable" data-lat="43.643787" data-lon="-79.535926" data-h="24" data-label="Freeman maple Autumn Blaze · 995 Kipling Ave"><td>Freeman maple 'Autumn Blaze' <span class="bot">Acer × freemanii</span></td><td class="num">121 cm</td><td>995 Kipling Ave</td><td>Islington</td></tr>
+      <tr class="viewable" data-lat="43.688700" data-lon="-79.534938" data-h="350" data-label="Kentucky coffeetree · 19 Tallon Rd"><td>Kentucky coffeetree <span class="bot">Gymnocladus dioicus</span></td><td class="num">118 cm</td><td>19 Tallon Rd</td><td>Willowridge-Martingrove-Richview</td></tr>
+      <tr class="viewable" data-lat="43.740277" data-lon="-79.432608" data-h="149" data-label="Colorado blue spruce · 221 Delhi Ave"><td>Colorado blue spruce <span class="bot">Picea pungens</span></td><td class="num">111 cm</td><td>221 Delhi Ave</td><td>Lansing-Westgate</td></tr>
+      <tr class="viewable" data-lat="43.684532" data-lon="-79.388079" data-h="301" data-label="Hackberry · 90 Summerhill Ave"><td>Hackberry <span class="bot">Celtis occidentalis</span></td><td class="num">100 cm</td><td>90 Summerhill Ave</td><td>Rosedale-Moore Park</td></tr>
+      <tr class="viewable" data-lat="43.745156" data-lon="-79.424668" data-h="245" data-label="White spruce · 26 Tregellis Rd"><td>White spruce <span class="bot">Picea glauca</span></td><td class="num">92 cm</td><td>26 Tregellis Rd</td><td>Lansing-Westgate</td></tr>
     </tbody>
   </table>
 
@@ -159,6 +191,42 @@
     Source: <a href="https://github.com/ttarabula/torontotrees">github.com/ttarabula/torontotrees</a>
   </p>
 </footer>
+
+<script>
+// To activate inline Street View, paste a Google Maps Embed API key here.
+// Restrict it to ttarabula.github.io in the Google Cloud console.
+// Without a key, row clicks fall back to opening Street View in a new tab.
+const GOOGLE_MAPS_KEY = "";
+
+const $embed = document.getElementById("sv-embed");
+let $activeRow = null;
+
+function showStreetView(lat, lon, h, label) {
+  if (!GOOGLE_MAPS_KEY) {
+    // Fallback: open in new tab
+    window.open(`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${lat},${lon}&heading=${h}`, "_blank", "noopener");
+    return;
+  }
+  const src = `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}`
+    + `&location=${lat},${lon}&heading=${h}&pitch=10&fov=90`;
+  $embed.innerHTML = `
+    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+      src="${src}"></iframe>
+    <div class="sv-caption">${label} — drag to look around</div>`;
+  $embed.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.querySelectorAll("tr.viewable").forEach(row => {
+  row.addEventListener("click", () => {
+    const lat = row.dataset.lat, lon = row.dataset.lon;
+    const h = row.dataset.h, label = row.dataset.label;
+    if ($activeRow) $activeRow.classList.remove("active");
+    row.classList.add("active");
+    $activeRow = row;
+    showStreetView(lat, lon, h, label);
+  });
+});
+</script>
 
 </body>
 </html>
