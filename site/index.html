@@ -145,6 +145,21 @@
 
   .error { color: #a00; }
   .note { font-size: .8rem; color: var(--muted); margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+
+  /* Standard site chrome — matches child pages */
+  header.site { border-bottom: 1px solid var(--border); padding: 1rem 1.25rem; background: var(--bg); margin-bottom: 1.5rem; }
+  header.site .inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; font-size: 1rem; }
+  header.site nav.mainnav { display: flex; gap: 1.1rem; font-size: .9rem; flex-wrap: wrap; }
+  header.site nav.mainnav a { color: #666; text-decoration: none; }
+  header.site nav.mainnav a:hover { color: var(--accent-dark); text-decoration: underline; }
+  @media (max-width: 520px) {
+    header.site nav.mainnav { font-size: .82rem; gap: .8rem; }
+  }
+  body { padding: 0 0 2rem; }
+  .wrap { padding: 0 1rem; }
+  footer.site { border-top: 1px solid var(--border); margin: 3rem auto 0; padding: 1.5rem 1.25rem; text-align: center; color: var(--muted); font-size: .82rem; max-width: 780px; }
+  footer.site a { color: var(--muted); }
   .actions {
     display: flex; gap: .5rem; flex-wrap: wrap; margin: -.25rem 0 1.5rem;
     font-size: .88rem;
@@ -190,6 +205,14 @@
 </style>
 </head>
 <body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="./">🌳 torontotrees</a>
+    <nav class="mainnav"><a href="blog/">Blog</a><a href="calendar/">Calendar</a><a href="walks/">Walks</a><a href="neighbourhoods/">Neighbourhoods</a><a href="about/">About</a></nav>
+  </div>
+</header>
+
 <div class="wrap">
   <p class="kicker">🌳 Toronto is a city in a forest. These are its trees.</p>
   <h1>What's the tree in front of your house?</h1>
@@ -203,23 +226,18 @@
   <div class="actions">
     <button type="button" id="btn-near">📍 Near me</button>
     <button type="button" id="btn-random">🎲 Surprise me</button>
-    <a class="btn-link" href="calendar/">🗓️ Tree calendar</a>
-    <a class="btn-link" href="walks/">🥾 Walking tours</a>
-    <a class="btn-link" href="neighbourhoods/">🏘️ Neighbourhoods</a>
     <a class="btn-link" href="timeline/">🎞️ Canopy timeline</a>
   </div>
 
   <div id="peaking" class="peaking" hidden></div>
 
   <div id="result"></div>
-
-  <p class="note">
-    <a href="blog/"><strong>Read the blog</strong></a> · <a href="about/">About</a> · <a href="blog/rss.xml">RSS</a> · <a href="https://github.com/ttarabula/torontotrees">GitHub</a><br>
-    Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, Open Government Licence — Toronto).
-    Covers <em>city-owned</em> trees on road allowances only — not private-property or park trees.
-    DBH = diameter at breast height (~1.3 m). Species info + images via Wikipedia.
-  </p>
 </div>
+
+<footer class="site">
+  Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, OGL-Toronto). Covers <em>city-owned</em> trees on road allowances only — not private-property or park trees.<br>
+  <a href="https://www.toronto.ca/services-payments/water-environment/trees/tree-planting/">Want one on your street? Ask the City →</a> · <a href="blog/rss.xml">RSS</a> · <a href="https://github.com/ttarabula/torontotrees">GitHub</a>
+</footer>
 
 <script>
 const SUGGEST_MAX = 8;
@@ -462,6 +480,16 @@ function escapeHtml(s) {
   }[c]));
 }
 
+// Mirror of scripts/generate_neighbourhoods.py::slug so species-panel
+// "Top neighbourhoods" links resolve to /neighbourhoods/<slug>/.
+function nbhdSlug(name) {
+  return String(name || "")
+    .toLowerCase()
+    .replace(/[.']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function nativeChip(native) {
   if (!native) return "";
   const n = native.toLowerCase();
@@ -696,7 +724,7 @@ async function doSpeciesLookup(slug, displayName, opts = {}) {
   ].filter(Boolean).join(" · ");
 
   const topNbhds = payload.top_nbhds.map(([n, c]) =>
-    `<tr><td>${escapeHtml(n)}</td><td class="num">${c.toLocaleString()}</td></tr>`
+    `<tr><td><a href="neighbourhoods/${nbhdSlug(n)}/">${escapeHtml(n)}</a></td><td class="num">${c.toLocaleString()}</td></tr>`
   ).join("");
 
   $result.innerHTML = `
