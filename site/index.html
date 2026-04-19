@@ -237,7 +237,24 @@
 <footer class="site">
   Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, OGL-Toronto). Covers <em>city-owned</em> trees on road allowances only — not private-property or park trees.<br>
   <a href="https://www.toronto.ca/services-payments/water-environment/trees/tree-planting/">Want one on your street? Ask the City →</a> · <a href="blog/rss.xml">RSS</a> · <a href="https://github.com/ttarabula/torontotrees">GitHub</a>
+  <div id="freshness" style="margin-top: .4rem; opacity: .75;"></div>
 </footer>
+<script>
+(async function freshness() {
+  try {
+    const r = await fetch("data/freshness.json", { cache: "no-store" });
+    const d = await r.json();
+    const $el = document.getElementById("freshness");
+    if (!$el) return;
+    const source = d.source_last_refreshed && d.source_last_refreshed !== "unknown" ? d.source_last_refreshed : null;
+    const built = d.site_built || null;
+    const parts = [];
+    if (source) parts.push(`Upstream data last refreshed ${source}`);
+    if (built) parts.push(`site rebuilt ${built}`);
+    if (parts.length) $el.textContent = parts.join(" · ");
+  } catch {}
+})();
+</script>
 
 <script>
 const SUGGEST_MAX = 8;

@@ -58,6 +58,12 @@ jobs:
       - name: Generate blog RSS feed
         run: uv run scripts/rss.py
 
+      - name: Fetch upstream CKAN freshness metadata
+        run: uv run scripts/freshness.py
+
+      - name: Generate sitemap.xml (last step — covers all emitted pages)
+        run: uv run scripts/sitemap.py
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
