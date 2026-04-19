@@ -147,8 +147,37 @@
     padding: .4rem .75rem; cursor: pointer; color: var(--accent-dark);
     font: inherit; font-size: .88rem;
   }
-  .actions button:hover { background: var(--hover); border-color: var(--accent); }
+  .actions button:hover, .actions a.btn-link:hover { background: var(--hover); border-color: var(--accent); }
   .actions button:disabled { opacity: 0.5; cursor: default; }
+  .actions a.btn-link {
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+    padding: .4rem .75rem; color: var(--accent-dark);
+    font-size: .88rem; text-decoration: none;
+  }
+
+  .peaking {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: .9rem 1.1rem; margin: 0 0 1.5rem; font-size: .95rem;
+  }
+  .peaking h4 {
+    margin: 0 0 .5rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--muted); font-weight: 600;
+  }
+  .peaking .item {
+    display: flex; align-items: baseline; gap: .5rem; padding: .2rem 0;
+    font-size: .93rem;
+  }
+  .peaking .item a { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  .peaking .item a:hover { text-decoration: underline; }
+  .peaking .item .note { color: var(--muted); font-size: .88rem; }
+  .peaking .item .badge {
+    display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0;
+  }
+  .peaking .item .badge.bloom { background: #c6256b; }
+  .peaking .item .badge.bloom.fragrant { background: linear-gradient(90deg, #c6256b 0%, #a260c4 100%); }
+  .peaking .item .badge.fall { background: #d2651d; }
+  .peaking .more { font-size: .85rem; margin-top: .4rem; color: var(--muted); }
+  .peaking .more a { color: var(--accent-dark); }
   details summary { cursor: pointer; color: var(--accent); padding: .25rem 0; }
   details[open] summary { margin-bottom: .5rem; }
 </style>
@@ -167,7 +196,10 @@
   <div class="actions">
     <button type="button" id="btn-near">📍 Near me</button>
     <button type="button" id="btn-random">🎲 Surprise me</button>
+    <a class="btn-link" href="calendar/">🗓️ Tree calendar</a>
   </div>
+
+  <div id="peaking" class="peaking" hidden></div>
 
   <div id="result"></div>
 
@@ -790,6 +822,77 @@ async function doRandomTree() {
 
 document.getElementById("btn-near").addEventListener("click", doNearMe);
 document.getElementById("btn-random").addEventListener("click", doRandomTree);
+
+// --- "What's peaking this week" homepage widget ---
+(async function peakingInit() {
+  let calendar;
+  try {
+    const r = await fetch("data/calendar.json");
+    calendar = await r.json();
+  } catch { return; }
+
+  function dayOfYear(m, d) {
+    const cum = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    return cum[m-1] + (d - 1);
+  }
+  const now = new Date();
+  const today = dayOfYear(now.getMonth()+1, now.getDate());
+
+  function overlaps(period) {
+    if (!period) return null;
+    const s = dayOfYear(period.start.m, period.start.d);
+    const e = dayOfYear(period.end.m, period.end.d);
+    if (today >= s && today <= e) return (today - s) / Math.max(1, e - s);
+    return null;
+  }
+
+  // Find species whose bloom or fall window overlaps today, scored by centrality
+  const picks = [];
+  for (const s of calendar) {
+    const bPos = overlaps(s.bloom);
+    const fPos = overlaps(s.fall);
+    if (bPos !== null) {
+      picks.push({ s, kind: "bloom", note: s.bloom.note, center: Math.abs(bPos - 0.5), fragrant: (s.tags||[]).includes("fragrant_bloom") });
+    }
+    if (fPos !== null) {
+      picks.push({ s, kind: "fall", note: s.fall.note, center: Math.abs(fPos - 0.5) });
+    }
+  }
+  if (!picks.length) return;
+
+  // Prioritize tagged "showy" species, then midpoint-closest, then abundance
+  picks.sort((a, b) => {
+    const tagRank = (p) => {
+      if (p.kind === "bloom" && (p.s.tags||[]).includes("showy_bloom")) return 0;
+      if (p.kind === "bloom" && p.fragrant) return 0;
+      if (p.kind === "fall" && (p.s.tags||[]).includes("showy_fall")) return 0;
+      return 1;
+    };
+    const ra = tagRank(a), rb = tagRank(b);
+    if (ra !== rb) return ra - rb;
+    if (a.center !== b.center) return a.center - b.center;
+    return b.s.n - a.s.n;
+  });
+
+  const top = picks.slice(0, 5);
+  const verb = { bloom: "flowering", fall: "turning colour" };
+  const $el = document.getElementById("peaking");
+  $el.hidden = false;
+  const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const monthStr = monthNames[now.getMonth()];
+  $el.innerHTML =
+    `<h4>Peaking right now in Toronto (${monthStr})</h4>` +
+    top.map(p => {
+      const badgeCls = p.kind === "bloom" ? (p.fragrant ? "badge bloom fragrant" : "badge bloom") : "badge fall";
+      const href = "#" + encodeURIComponent((p.s.common || "").toLowerCase());
+      return `<div class="item">
+        <span class="${badgeCls}"></span>
+        <a href="${href}">${escapeHtml(p.s.common)}</a>
+        <span class="note">— ${verb[p.kind]}${p.note ? ": " + escapeHtml(p.note) : ""}</span>
+      </div>`;
+    }).join("") +
+    `<div class="more"><a href="calendar/">See the full year →</a></div>`;
+})();
 </script>
 </body>
 </html>
