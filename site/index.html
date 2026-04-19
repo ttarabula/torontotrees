@@ -91,6 +91,15 @@
   .tree a { color: var(--accent-dark); }
   .tree .links { margin-top: .5rem; font-size: .88rem; }
   .tree .links a { margin-right: 1rem; }
+  .species-card { margin-bottom: 1rem; }
+  .species-card h3 { font-size: 1.25rem; }
+  .species-nbhd { width: 100%; border-collapse: collapse; font-size: .94rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+    margin-top: .5rem; }
+  .species-nbhd th, .species-nbhd td { padding: .45rem .75rem; text-align: left; border-bottom: 1px solid #f0f0f0; }
+  .species-nbhd tr:last-child td { border-bottom: 0; }
+  .species-nbhd th { background: #f3efe4; color: #4a3e1f; font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+  .species-nbhd td.num { font-variant-numeric: tabular-nums; text-align: right; }
   .map {
     height: 320px; border-radius: 10px;
     border: 1px solid var(--border); overflow: hidden;
@@ -135,9 +144,9 @@
   <p class="tag">Search 689,013 city-owned street trees by address.</p>
 
   <div class="cb">
-    <input id="q" type="text" placeholder="e.g. 100 Bloor St W  —  or just Wellesley St E for the whole street" autocomplete="off" spellcheck="false" inputmode="text">
+    <input id="q" type="text" placeholder="address, street, or species — e.g. 100 Bloor St W, Wellesley St E, Ginkgo" autocomplete="off" spellcheck="false" inputmode="text">
     <div id="suggest" class="suggest" role="listbox" hidden></div>
-    <div class="hint">Tip: skip the house number to see every tree on the street.</div>
+    <div class="hint">Tip: skip the house number to see a whole street, or type a species name for a city-wide map.</div>
   </div>
 
   <div id="result"></div>
@@ -157,26 +166,30 @@ const streetSlug = new Map();            // STREET -> slug
 const streetCache = new Map();           // slug -> payload
 let species = {};                        // genus-species -> { wiki_url, thumb, extract, display_common }
 let speciesTO = {};                      // genus-species -> city of toronto planting attributes
+let speciesIdx = [];                     // [{key, common, botanical, n, slug}] — for autocomplete
+const speciesCache = new Map();          // slug -> payload
 
 const $q = document.getElementById("q");
 const $sug = document.getElementById("suggest");
 const $result = document.getElementById("result");
 
 async function init() {
-  const [streetsResp, speciesResp, speciesTOResp] = await Promise.all([
+  const [streetsResp, speciesResp, speciesTOResp, speciesIdxResp] = await Promise.all([
     fetch("data/streets.json"),
     fetch("data/species.json"),
     fetch("data/species_toronto.json"),
+    fetch("data/species_index.json"),
   ]);
   streets = await streetsResp.json();
   for (const s of streets) streetSlug.set(s.street, s.slug);
   species = await speciesResp.json();
   speciesTO = await speciesTOResp.json();
+  speciesIdx = await speciesIdxResp.json();
   // Apply any permalink from the URL hash
   const fromHash = hashToQuery(location.hash);
   if (fromHash) {
     $q.value = fromHash;
-    doLookup(fromHash, { fromHash: true });
+    smartLookup(fromHash, { fromHash: true });
   } else {
     $q.focus();
   }
@@ -188,9 +201,21 @@ window.addEventListener("hashchange", () => {
   const q = hashToQuery(location.hash);
   if (q && q.toUpperCase() !== $q.value.toUpperCase()) {
     $q.value = q;
-    doLookup(q, { fromHash: true });
+    smartLookup(q, { fromHash: true });
   }
 });
+
+// Route a bare string to species- or address-lookup.
+function smartLookup(input, opts = {}) {
+  const qLow = input.toLowerCase().trim();
+  const hit = speciesIdx.find(s =>
+    s.common.toLowerCase() === qLow ||
+    s.botanical.toLowerCase() === qLow ||
+    s.key === qLow
+  );
+  if (hit) doSpeciesLookup(hit.slug, hit.common, opts);
+  else doLookup(input, opts);
+}
 
 function queryToHash(input) {
   // "100 Bloor St W" -> "#100-bloor-st-w"
@@ -227,6 +252,24 @@ function matchStreets(q) {
   return pref.concat(contains).slice(0, SUGGEST_MAX);
 }
 
+// --- Species matching --------------------------------------------------------
+// Match on common name, botanical name, or key. Species are not prefixed by
+// a house number (so only consider when num is absent).
+function matchSpecies(q) {
+  if (!q) return [];
+  const qLow = q.toLowerCase();
+  const pref = [];
+  const contains = [];
+  for (const s of speciesIdx) {
+    const common = s.common.toLowerCase();
+    const bot = s.botanical.toLowerCase();
+    if (common.startsWith(qLow) || bot.startsWith(qLow) || s.key.startsWith(qLow)) pref.push(s);
+    else if (common.includes(qLow) || bot.includes(qLow) || s.key.includes(qLow)) contains.push(s);
+    if (pref.length >= SUGGEST_MAX) break;
+  }
+  return pref.concat(contains).slice(0, SUGGEST_MAX);
+}
+
 // --- Suggestions -------------------------------------------------------------
 let sugItems = [];   // parallel to DOM items
 let sugIdx = -1;
@@ -235,7 +278,7 @@ function renderSuggest() {
   if (!sugItems.length) { $sug.hidden = true; $sug.innerHTML = ""; return; }
   $sug.innerHTML = sugItems.map((it, i) => `
     <div class="item ${i === sugIdx ? "sel" : ""}" data-i="${i}">
-      <span class="primary">${it.label}</span>
+      <span class="primary">${it.icon} ${it.label}</span>
       <span class="meta">${it.meta}</span>
     </div>
   `).join("");
@@ -250,12 +293,32 @@ function updateSuggestions() {
     renderSuggest();
     return;
   }
-  const matches = matchStreets(rest);
-  sugItems = matches.map(s => {
+  const streetMatches = matchStreets(rest);
+  const streetItems = streetMatches.map(s => {
     const label = num ? `${num} ${s.street}` : s.street;
     const meta = num ? `${s.n.toLocaleString()} on street` : `${s.n.toLocaleString()} trees`;
-    return { label, meta, street: s.street, num };
+    return { kind: "street", icon: "🏠", label, meta, street: s.street, num };
   });
+  // Species only when the user isn't disambiguating with a house number
+  const speciesItems = num ? [] : matchSpecies(rest.toLowerCase()).map(s => ({
+    kind: "species",
+    icon: "🌿",
+    label: `${s.common}`,
+    meta: `${s.n.toLocaleString()} · ${s.botanical}`,
+    slug: s.slug,
+    key: s.key,
+  }));
+  // Interleave: streets first when user types a street-like query, species
+  // first when the query matches a common species word. Simple rule: if
+  // the top species match is a prefix match and the top street is also a
+  // prefix match, show species first; otherwise show streets first.
+  const rlow = rest.toLowerCase();
+  const streetPrefix = streetItems[0] && streets[0] && streetItems[0].label.toLowerCase().startsWith(rlow);
+  const speciesPrefix = speciesItems[0] && speciesItems[0].label.toLowerCase().startsWith(rlow);
+  const ordered = (speciesPrefix && !streetPrefix)
+    ? [...speciesItems, ...streetItems]
+    : [...streetItems, ...speciesItems];
+  sugItems = ordered.slice(0, SUGGEST_MAX);
   sugIdx = -1;
   renderSuggest();
 }
@@ -265,7 +328,7 @@ $q.addEventListener("focus", updateSuggestions);
 
 $q.addEventListener("keydown", (e) => {
   if ($sug.hidden || !sugItems.length) {
-    if (e.key === "Enter") { e.preventDefault(); doLookup($q.value); }
+    if (e.key === "Enter") { e.preventDefault(); smartLookup($q.value); }
     return;
   }
   if (e.key === "ArrowDown") { e.preventDefault(); sugIdx = Math.min(sugIdx + 1, sugItems.length - 1); renderSuggest(); scrollSel(); }
@@ -299,7 +362,11 @@ function selectSuggestion(it) {
   if (!it) return;
   $q.value = it.label;
   $sug.hidden = true;
-  doLookup(it.label);
+  if (it.kind === "species") {
+    doSpeciesLookup(it.slug, it.label);
+  } else {
+    doLookup(it.label);
+  }
 }
 
 // --- Lookup + render ---------------------------------------------------------
@@ -501,6 +568,82 @@ function initMap(trees) {
   });
   const group = L.featureGroup(markers).addTo(_leafletMap);
   _leafletMap.fitBounds(group.getBounds().pad(0.3), { maxZoom: 19 });
+}
+
+// Species view: render map + info card + nbhd breakdown
+async function doSpeciesLookup(slug, displayName, opts = {}) {
+  const newHash = queryToHash(displayName);
+  if (!opts.fromHash && location.hash !== newHash) {
+    history.replaceState(null, "", newHash);
+  }
+  if (displayName) document.title = `${displayName} — torontotrees`;
+  $result.innerHTML = `<p class="tag">Loading ${escapeHtml(displayName)}…</p>`;
+
+  let payload;
+  try {
+    if (speciesCache.has(slug)) payload = speciesCache.get(slug);
+    else {
+      const r = await fetch(`data/species/${slug}.json`);
+      if (!r.ok) throw new Error("not found");
+      payload = await r.json();
+      speciesCache.set(slug, payload);
+    }
+  } catch {
+    $result.innerHTML = `<p class="error">Couldn't load data for ${escapeHtml(displayName)}.</p>`;
+    return;
+  }
+
+  const info = species[payload.key] || null;
+  const to = speciesTO[payload.key] || null;
+  const thumb = info?.thumb
+    ? `<img class="thumb" src="${escapeHtml(info.thumb)}" alt="" loading="lazy">`
+    : `<div class="thumb placeholder">🌳</div>`;
+  const extract = info?.extract ? `<div class="extract">${escapeHtml(info.extract)}</div>` : "";
+  const wikiLink = info?.wiki_url
+    ? `<a href="${escapeHtml(info.wiki_url)}" target="_blank" rel="noopener">Wikipedia</a>`
+    : "";
+  const inat = `<a href="https://www.inaturalist.org/search?q=${encodeURIComponent(payload.botanical || payload.common || "")}" target="_blank" rel="noopener">iNaturalist</a>`;
+  const nativeBadge = to?.native ? nativeChip(to.native) : "";
+
+  const dbhs = payload.trees.map(t => t[2]).filter(Number.isFinite).sort((a, b) => a - b);
+  const median = dbhs.length ? dbhs[Math.floor(dbhs.length / 2)] : null;
+  const maxDbh = dbhs.length ? dbhs[dbhs.length - 1] : null;
+
+  const factsHtml = renderFacts(to);
+  const statsLine = [
+    `<b>${payload.n.toLocaleString()}</b> in Toronto`,
+    median != null ? `median trunk ${median} cm` : null,
+    maxDbh != null ? `largest ${maxDbh} cm` : null,
+  ].filter(Boolean).join(" · ");
+
+  const topNbhds = payload.top_nbhds.map(([n, c]) =>
+    `<tr><td>${escapeHtml(n)}</td><td class="num">${c.toLocaleString()}</td></tr>`
+  ).join("");
+
+  $result.innerHTML = `
+    <div class="species-card tree">
+      ${thumb}
+      <div class="body">
+        <h3>${escapeHtml(payload.common)} ${nativeBadge}</h3>
+        <div class="bot">${escapeHtml(payload.botanical)}</div>
+        <div class="meta">${statsLine}</div>
+        ${factsHtml}
+        ${extract}
+        <div class="links">${[wikiLink, inat].filter(Boolean).join(" · ")}</div>
+      </div>
+    </div>
+    <div class="map" id="map"></div>
+    <div class="addr">Top neighbourhoods for ${escapeHtml(payload.common)}</div>
+    <table class="species-nbhd"><thead><tr><th>Neighbourhood</th><th>Trees</th></tr></thead>
+      <tbody>${topNbhds}</tbody></table>
+  `;
+
+  // Build markers from species JSON: trees is [[lat, lon, dbh], ...]
+  const markerData = payload.trees.map(([lat, lon, dbh]) => ({
+    lat, lon, dbh_cm: dbh,
+    common: payload.common, botanical: payload.botanical,
+  }));
+  initMap(markerData);
 }
 </script>
 </body>

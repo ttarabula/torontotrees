@@ -39,6 +39,9 @@ jobs:
       - name: Export per-street JSON for the site
         run: uv run scripts/export_site.py
 
+      - name: Export per-species JSON for the site
+        run: uv run scripts/export_species.py
+
       - name: Generate blog RSS feed
         run: uv run scripts/rss.py
 
