@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toronto's street trees are worth $20 million a year | torontotrees</title>
+<meta name="description" content="Applying published ecosystem-service equations to each of 686,000 Toronto street trees — totalling $20M/year in carbon, stormwater, air quality, and cooling benefits. And an 80× gap between neighbourhoods.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="Toronto's street trees are worth $20 million a year">
+<meta property="og:description" content="$20M/year in ecosystem services from 686k street trees. Bridle Path gets $40/resident/year. North Toronto gets 50 cents.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://ttarabula.github.io/torontotrees/charts/value_map.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; }
+  header.site .inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site .tag { color: var(--muted); font-size: .9rem; }
+
+  article { max-width: 740px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  article h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin: .25rem 0 .5rem; }
+  article .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  article h2 { font-size: 1.4rem; margin: 2.5rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  article p { margin: 0 0 1.1em; }
+  article a { color: var(--accent-dark); }
+  article strong { color: #111; }
+  article em { color: #333; }
+
+  .hero { max-width: 960px; margin: 1rem auto 2rem; padding: 0 1rem; }
+  .hero img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 8px; background: var(--card); }
+
+  figure { margin: 1.5rem 0; }
+  figure img { width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+  figcaption { color: var(--muted); font-size: .88rem; margin-top: .5rem; text-align: center; }
+
+  article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  article th, article td { padding: .55rem .75rem; text-align: left; border-bottom: 1px solid var(--border); }
+  article tr:last-child td { border-bottom: 0; }
+  article th { background: #f3efe4; color: #4a3e1f; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+  article td.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .9rem 1rem; text-align: center; }
+  .stat .n { font-size: 1.5rem; font-weight: 700; color: var(--accent-dark); line-height: 1; }
+  .stat .l { font-size: .82rem; color: var(--muted); margin-top: .3rem; letter-spacing: .02em; }
+
+  .callout { background: #e7efe4; border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0; font-size: 1rem; }
+
+  .cta { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 2rem 0; text-align: center; }
+  .cta a { display: inline-block; padding: .6rem 1.2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: .5rem; }
+
+  footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer.site a { color: var(--muted); }
+
+  @media (max-width: 520px) {
+    article { padding: 1.25rem 1rem 2rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../">🌳 torontotrees</a>
+    <span class="tag">Toronto's street-tree inventory</span>
+  </div>
+</header>
+
+<article>
+  <div class="subhead">April 2026 · putting a dollar sign on the canopy</div>
+  <h1>Toronto's street trees are worth $20 million a year — but not to everyone equally</h1>
+
+  <p>A mature street tree does a lot of work you never see. It sequesters carbon. It drops rainfall before it reaches the storm drain and the lake. It filters a measurable fraction of airborne pollutants out of the lungs that live nearby. It shades west-facing walls and lowers air-conditioning loads in summer. The urban-forestry community has spent three decades putting dollar values on each of these functions, through the U.S. Forest Service's <a href="https://www.itreetools.org/">i-Tree</a> suite of tools.</p>
+
+  <p>If you apply those valuation curves to every one of Toronto's 686,000 street trees (the ones with diameter data), summed across the city, the annual ecosystem-service value of what the city has growing between your sidewalk and the curb comes to <strong>about $20 million</strong>. Roughly <strong>$29 per tree per year</strong>, on average. Which doesn't sound like much — but there are a <em>lot</em> of trees.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">$20M</div><div class="l">Annual value, citywide</div></div>
+    <div class="stat"><div class="n">686k</div><div class="l">Trees with DBH data</div></div>
+    <div class="stat"><div class="n">$29</div><div class="l">Mean per tree / year</div></div>
+    <div class="stat"><div class="n">$0.50 – $40</div><div class="l">Per-resident range (nbhd)</div></div>
+  </div>
+
+  <p>The distribution across the city, though, is as uneven as every other part of Toronto's canopy story — actually more uneven.</p>
+</article>
+
+<div class="hero">
+  <img src="../../charts/value_map.png" alt="Choropleth map of Toronto showing estimated annual ecosystem-service value of street trees per resident by neighbourhood. Very dark green concentrations in Bridle Path, Kingsway South, Princess-Rosethorn; near-zero (pale yellow) in the downtown core, Yonge-Doris, and North Toronto.">
+</div>
+
+<article style="padding-top: 0;">
+
+  <h2>An 80× gap between residents</h2>
+
+  <p>The rich neighbourhood / poor neighbourhood story that shows up in tree density, canopy cover, and tree-count-per-capita also shows up here — but amplified. Because ecosystem-service value scales super-linearly with tree size, and size scales with age, wealthy older neighbourhoods with mature canopy deliver <em>much</em> more service per resident than younger or sparser ones.</p>
+
+  <table>
+    <thead><tr><th>Most value / resident</th><th>USD/yr</th><th>Least value / resident</th><th>USD/yr</th></tr></thead>
+    <tbody>
+      <tr><td>Bridle Path-Sunnybrook-York Mills</td><td class="num">$40.30</td><td>North Toronto</td><td class="num">$0.50</td></tr>
+      <tr><td>Kingsway South</td><td class="num">$32.80</td><td>Harbourfront-CityPlace</td><td class="num">$0.60</td></tr>
+      <tr><td>Princess-Rosethorn</td><td class="num">$27.00</td><td>Yonge-Doris</td><td class="num">$0.80</td></tr>
+      <tr><td>St. Andrew-Windfields</td><td class="num">$21.20</td><td>North St. James Town</td><td class="num">$0.80</td></tr>
+      <tr><td>Edenbridge-Humber Valley</td><td class="num">$20.40</td><td>Wellington Place</td><td class="num">$0.90</td></tr>
+      <tr><td>Lambton Baby Point</td><td class="num">$19.70</td><td>Yonge-Bay Corridor</td><td class="num">$1.00</td></tr>
+      <tr><td>Forest Hill South</td><td class="num">$18.40</td><td>Church-Wellesley</td><td class="num">$1.10</td></tr>
+      <tr><td>Lawrence Park South</td><td class="num">$18.30</td><td>Regent Park</td><td class="num">$1.10</td></tr>
+    </tbody>
+  </table>
+
+  <p>A resident of Bridle Path gets about <strong>80× more street-tree ecosystem service per year</strong> than a resident of North Toronto. Forty bucks to fifty cents. This isn't about the trees working harder in wealthy neighbourhoods — a tree is a tree — it's about how many of them exist, how big they are, and how many people each one has to "serve."</p>
+
+  <figure>
+    <img src="../../charts/value_vs_income.png" alt="Scatter plot of per-capita ecosystem-service value versus median household income. Points trend strongly upward. Bridle Path, Kingsway South, Princess-Rosethorn are labelled at the top-right. North Toronto, Yonge-Doris, Harbourfront-CityPlace labelled at the bottom-left.">
+    <figcaption>The correlation is r = 0.76 — the strongest income/tree relationship we've seen in any metric so far.</figcaption>
+  </figure>
+
+  <p>The previous equity posts looked at trees-per-capita (r = 0.67) and total canopy % (r = 0.50). Dollar value per capita lands higher than both because it compounds: wealthy neighbourhoods have more trees <em>and</em> older/larger trees <em>and</em> fewer people to divide them among.</p>
+
+  <p>By classification bucket:</p>
+
+  <ul>
+    <li><strong>Not-NIA / not-Emerging</strong>: average <strong>$8.97 per resident per year</strong></li>
+    <li><strong>Emerging</strong>: average <strong>$5.60</strong></li>
+    <li><strong>Neighbourhood Improvement Areas</strong>: average <strong>$4.90</strong></li>
+  </ul>
+
+  <p>NIA residents get roughly 55% of the ecosystem-service dollars non-NIA residents do, each year. Scale that across a lifetime and a household, and the gap is substantial.</p>
+
+  <div class="callout">
+    The quote that keeps coming back: <em>"Maps of trees are maps of race and wealth."</em> <a href="https://ici.radio-canada.ca/info/2022/07/ilots-chaleur-villes-inegalites-injustice-changements-climatiques/en">(Carly Ziter, via a CBC/Radio-Canada data analysis of 17 Canadian cities, 2022.)</a> Every way we've measured the canopy has ended up corroborating that sentence — with different numbers, sometimes bigger, sometimes smaller. Valuing it in dollars produces the biggest gap yet.
+  </div>
+
+  <h2>Which species do the most work</h2>
+
+  <figure>
+    <img src="../../charts/value_top_species.png" alt="Horizontal bar chart of the top 12 species by total annual ecosystem-service value. Norway maple leads at $3.36 million (69,347 trees). Silver maple and littleleaf linden both around $1.75-1.79 million. Red oak, honey locust, and lindens follow.">
+  </figure>
+
+  <p>The <a href="../every-tree/">Norway maple</a> tops this chart for the same reason it tops every other chart on this site: there are 69,000 of it. Its average contribution per tree is $48/year — slightly above the city-wide mean, because many Norway maples are 40–60 years old and have reached substantial size. The city no longer plants them, but as long as they're standing, they are collectively doing three-and-a-half million dollars of environmental work every year.</p>
+
+  <p>Silver maples and littleleaf lindens come next. Silver maple is particularly productive per tree ($90/yr average) because it grows <em>fast</em>: a 30-year-old silver maple is often bigger than a 30-year-old sugar maple, and the ecosystem-service formulas reward trunk size.</p>
+
+  <p>Red oak (fifth, $1.0M total from 23,700 trees) is an interesting case: it contributes less per tree on average than Norway maple ($42 vs. $48) despite being a generally larger-growing species, because Toronto's red oaks skew younger — there's been active oak planting in the last 20 years. In 40 more years, red oak might top this chart.</p>
+
+  <h2>Methodology, and what this number isn't</h2>
+
+  <p>The dollar estimate is built on a transparent per-tree model: for each tree, annual value ≈ <em>k</em> × DBH<sup>1.5</sup>, where <em>k</em> depends on the species group (large broadleaf, medium broadleaf, small broadleaf, conifer, other). The coefficients are calibrated against published i-Tree Streets results for US Midwest/Northeast community tree guides (McPherson et al.), where a 50-cm medium broadleaf produces on the order of $60/year in utility benefits. Small-crown species like crabapples get a much lower coefficient; oaks and lindens get a higher one. The total across Toronto comes out to ~$20M/year, in the same ballpark as the city's own 2018 i-Tree Eco study for the <em>street-tree subset</em> of the full urban forest.</p>
+
+  <p>Caveats worth stating up front:</p>
+
+  <ul>
+    <li><strong>This is a back-of-envelope estimate, not an i-Tree Eco replacement.</strong> The city's own studies use species-specific growth curves, pollutant-concentration grids, building footprints for energy calculations, and local climate data. Mine is a crude five-parameter model. Expect absolute numbers accurate to within a factor of ~2; expect <em>relative</em> comparisons between neighbourhoods and species to be considerably more robust.</li>
+    <li><strong>It's "utility value" only</strong> — CO₂ + stormwater + air quality + energy savings. It excludes the big, contentious category of <em>property-value effects</em>, which urban forestry studies sometimes quote as doubling the total but where attribution gets squishy.</li>
+    <li><strong>Street trees only.</strong> Toronto's full urban forest (private yards, parks, ravines, institutional grounds) is roughly 10–15× this tree count. The city's i-Tree Eco study estimates the full-forest total at roughly <strong>$80 million a year</strong>. Street trees are a slice.</li>
+    <li><strong>Carbon value used is the utility-discounted one</strong> (typically ~$50/tonne CO₂ in i-Tree defaults). At the current Canadian federal carbon price (~$80/t in 2026) or the social cost of carbon (~$230/t in the latest IMF work), the carbon component alone would be 1.5–5× higher, which would push the total meaningfully past $20M.</li>
+  </ul>
+
+  <p>The more uncertain the number, though, the more the <em>comparison</em> survives. The 80× gap between Bridle Path and North Toronto doesn't care what carbon is worth. It's a ratio. And the ratio holds regardless of calibration.</p>
+
+  <h2>What this is really measuring</h2>
+
+  <p>A skeptical reading of everything above is: "of course the rich neighbourhood with the ravines and the big backyards and the old sycamores produces more ecosystem services per resident than the condo core. The condo core has fewer trees and more people. You didn't need a formula to tell you that."</p>
+
+  <p>Which is fair. But the translation into dollars matters because dollars are how the city's own <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/ravines-natural-parklands/forestry/strategic-forest-management-plan/">Strategic Forest Management Plan</a> justifies tree-planting spending. If a $200 street-tree plant job produces $29/year of service over a 40-year life, that's a ~$1,000 return. The case for more planting is strong. The case for <em>where</em> more planting happens is, specifically, at the bottom of the per-capita chart. Half of the NIA neighbourhoods on the low end of that chart aren't short of <em>land</em> for trees (look at the boulevards of Flemingdon Park or Thorncliffe Park on a satellite photo — plenty of mowed grass that could hold a tree). They're short of planting and maintenance budget, and the case for that budget is, in dollar terms, measurable.</p>
+
+  <div class="cta">
+    <p style="margin: 0 0 .25rem"><strong>Check the value of the tree on your block.</strong></p>
+    <p style="margin: 0; color: var(--muted); font-size: .95rem">Search any address — tree card shows the DBH we use to compute the annual service value.</p>
+    <a href="../../">Look up an address →</a>
+  </div>
+
+</article>
+
+<footer class="site">
+  <p>
+    Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a>, <a href="https://open.toronto.ca/dataset/neighbourhood-profiles/">Neighbourhood Profiles 2021</a>. Ecosystem-service formulas calibrated from i-Tree Streets (USDA Forest Service).<br>
+    Source: <a href="https://github.com/ttarabula/torontotrees">github.com/ttarabula/torontotrees</a>
+  </p>
+</footer>
+
+</body>
+</html>
