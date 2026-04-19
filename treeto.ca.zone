@@ -1,0 +1,17 @@
+$ORIGIN treeto.ca.
+$TTL 3600
+
+; GitHub Pages — IPv4 apex records
+@   IN  A     185.199.108.153
+@   IN  A     185.199.109.153
+@   IN  A     185.199.110.153
+@   IN  A     185.199.111.153
+
+; GitHub Pages — IPv6 apex records (optional but recommended)
+@   IN  AAAA  2606:50c0:8000::153
+@   IN  AAAA  2606:50c0:8001::153
+@   IN  AAAA  2606:50c0:8002::153
+@   IN  AAAA  2606:50c0:8003::153
+
+; www subdomain → GitHub Pages user host
+www IN  CNAME ttarabula.github.io.
