@@ -6,13 +6,20 @@
     <atom:link href="https://treeto.ca/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and visualizations built on Toronto's open street-tree data.</description>
     <language>en-CA</language>
-    <lastBuildDate>Sun, 19 Apr 2026 05:10:17 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Apr 2026 05:20:14 +0000</lastBuildDate>
     <item>
       <title>The narrow-street advantage — why Toronto&#x27;s old grid carries 4× the trees of its new condos</title>
       <link>https://treeto.ca/blog/narrow-street-advantage/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/narrow-street-advantage/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
       <description>The densest 200m stretch of street trees in Toronto has forty. The sparsest has three. The difference isn</description>
+    </item>
+    <item>
+      <title>The ravines — the other half of Toronto&#x27;s canopy</title>
+      <link>https://treeto.ca/blog/the-ravines/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/the-ravines/</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
+      <description>689,013 city-owned street trees are on a map. An estimated 5 to 8 million more live in Toronto</description>
     </item>
     <item>
       <title>A tale of two Victorians — Cabbagetown vs. Trinity-Bellwoods</title>
