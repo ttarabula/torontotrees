@@ -1,0 +1,262 @@
+{
+  "notable": [
+    {
+      "_id": 427101,
+      "ADDRESS": 85,
+      "STREETNAME": "ST GEORGE ST TORONTO",
+      "SUFFIX": "None",
+      "common_raw": "Elm, English",
+      "botanical_raw": "Ulmus minor 'Atinia'",
+      "botanical_key": "ulmus minor 'atinia'",
+      "dbh_cm": 127,
+      "lat": 43.6637040300753,
+      "lon": -79.3979718010391,
+      "nbhd_name": "University",
+      "rk": 1
+    },
+    {
+      "_id": 688554,
+      "ADDRESS": 38,
+      "STREETNAME": "CENTRE ISLAND PK",
+      "SUFFIX": "None",
+      "common_raw": "Willow, laurel",
+      "botanical_raw": "Salix pentandra",
+      "botanical_key": "salix pentandra",
+      "dbh_cm": 120,
+      "lat": 43.6180324231408,
+      "lon": -79.3807945097422,
+      "nbhd_name": "St Lawrence-East Bayfront-The Islands",
+      "rk": 1
+    },
+    {
+      "_id": 466395,
+      "ADDRESS": 805,
+      "STREETNAME": "JANE ST",
+      "SUFFIX": "None",
+      "common_raw": "Willow, crack",
+      "botanical_raw": "Salix fragilis",
+      "botanical_key": "salix fragilis",
+      "dbh_cm": 102,
+      "lat": 43.6754491923985,
+      "lon": -79.4938700458378,
+      "nbhd_name": "Rockcliffe-Smythe",
+      "rk": 1
+    },
+    {
+      "_id": 296712,
+      "ADDRESS": 14,
+      "STREETNAME": "SYLVAN AVE TORONTO",
+      "SUFFIX": "None",
+      "common_raw": "Elm, Delaware",
+      "botanical_raw": "Ulmus americana 'Delaware'",
+      "botanical_key": "ulmus americana 'delaware'",
+      "dbh_cm": 101,
+      "lat": 43.6552317906404,
+      "lon": -79.4318558985386,
+      "nbhd_name": "Dufferin Grove",
+      "rk": 1
+    },
+    {
+      "_id": 63018,
+      "ADDRESS": 790,
+      "STREETNAME": "QUEEN ST W",
+      "SUFFIX": "None",
+      "common_raw": "Hickory",
+      "botanical_raw": "Carya",
+      "botanical_key": "carya",
+      "dbh_cm": 100,
+      "lat": 43.6475427112349,
+      "lon": -79.4145434479987,
+      "nbhd_name": "Trinity-Bellwoods",
+      "rk": 1
+    },
+    {
+      "_id": 688189,
+      "ADDRESS": 1873,
+      "STREETNAME": "BLOOR ST W",
+      "SUFFIX": "None",
+      "common_raw": "Poplar, silver",
+      "botanical_raw": "Populus alba 'nivea'",
+      "botanical_key": "populus alba 'nivea'",
+      "dbh_cm": 90,
+      "lat": 43.6535695616334,
+      "lon": -79.4640866825386,
+      "nbhd_name": "High Park-Swansea",
+      "rk": 1
+    },
+    {
+      "_id": 481555,
+      "ADDRESS": 212,
+      "STREETNAME": "CHURCHILL AVE NORTH YORK",
+      "SUFFIX": "None",
+      "common_raw": "Aspen, large tooth",
+      "botanical_raw": "Populus grandidentata",
+      "botanical_key": "populus grandidentata",
+      "dbh_cm": 90,
+      "lat": 43.7700042696745,
+      "lon": -79.4299480027738,
+      "nbhd_name": "Willowdale West",
+      "rk": 1
+    },
+    {
+      "_id": 591428,
+      "ADDRESS": 38,
+      "STREETNAME": "BELLEFONTAINE ST",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver pyramidal",
+      "botanical_raw": "Acer saccharinum 'Pyramidale'",
+      "botanical_key": "acer saccharinum 'pyramidale'",
+      "dbh_cm": 77,
+      "lat": 43.7988225056882,
+      "lon": -79.2909782726915,
+      "nbhd_name": "East L'Amoreaux",
+      "rk": 1
+    },
+    {
+      "_id": 29221,
+      "ADDRESS": 93,
+      "STREETNAME": "PERRY CRES",
+      "SUFFIX": "None",
+      "common_raw": "Hickory, shagbark",
+      "botanical_raw": "Carya ovata",
+      "botanical_key": "carya ovata",
+      "dbh_cm": 75,
+      "lat": 43.656769210813,
+      "lon": -79.5296994807103,
+      "nbhd_name": "Princess-Rosethorn",
+      "rk": 1
+    },
+    {
+      "_id": 321887,
+      "ADDRESS": 1879,
+      "STREETNAME": "BLOOR ST W",
+      "SUFFIX": "None",
+      "common_raw": "Sassafras",
+      "botanical_raw": "Sassafras albidum",
+      "botanical_key": "sassafras albidum",
+      "dbh_cm": 74,
+      "lat": 43.6528658918906,
+      "lon": -79.4664036663095,
+      "nbhd_name": "High Park-Swansea",
+      "rk": 1
+    },
+    {
+      "_id": 382497,
+      "ADDRESS": 50,
+      "STREETNAME": "LEGGETT AVE",
+      "SUFFIX": "None",
+      "common_raw": "Cherry, pin",
+      "botanical_raw": "Prunus pensylvanica",
+      "botanical_key": "prunus pensylvanica",
+      "dbh_cm": 70,
+      "lat": 43.6941328673453,
+      "lon": -79.5245880165305,
+      "nbhd_name": "Humber Heights-Westmount",
+      "rk": 1
+    },
+    {
+      "_id": 179586,
+      "ADDRESS": 123,
+      "STREETNAME": "CITATION DR",
+      "SUFFIX": "None",
+      "common_raw": "Almond, flowering",
+      "botanical_raw": "Prunus triloba",
+      "botanical_key": "prunus triloba",
+      "dbh_cm": 70,
+      "lat": 43.7753835953826,
+      "lon": -79.3767007932155,
+      "nbhd_name": "Bayview Village",
+      "rk": 1
+    },
+    {
+      "_id": 155191,
+      "ADDRESS": 14,
+      "STREETNAME": "EXETER ST",
+      "SUFFIX": "None",
+      "common_raw": "Butternut hybrid",
+      "botanical_raw": "Juglans cinerea x",
+      "botanical_key": "juglans cinerea x",
+      "dbh_cm": 69,
+      "lat": 43.6737767178085,
+      "lon": -79.4553339912983,
+      "nbhd_name": "Weston-Pelham Park",
+      "rk": 1
+    },
+    {
+      "_id": 501959,
+      "ADDRESS": 39,
+      "STREETNAME": "MAPLEVIEW AVE",
+      "SUFFIX": "None",
+      "common_raw": "Ash, green Patmore",
+      "botanical_raw": "Fraxinus pennsylvanica 'Patmore'",
+      "botanical_key": "fraxinus pennsylvanica 'patmore'",
+      "dbh_cm": 65,
+      "lat": 43.6590354018321,
+      "lon": -79.4802076149651,
+      "nbhd_name": "Runnymede-Bloor West Village",
+      "rk": 1
+    }
+  ],
+  "species": [
+    {
+      "common_raw": "Hickory",
+      "botanical_raw": "Carya",
+      "botanical_key": "carya",
+      "n": 49
+    },
+    {
+      "common_raw": "Ash, green Patmore",
+      "botanical_raw": "Fraxinus pennsylvanica 'Patmore'",
+      "botanical_key": "fraxinus pennsylvanica 'patmore'",
+      "n": 49
+    },
+    {
+      "common_raw": "Birch, Himalayan Jacquemonti",
+      "botanical_raw": "Betula utilis Jacquemonti",
+      "botanical_key": "betula utilis jacquemonti",
+      "n": 46
+    },
+    {
+      "common_raw": "Zelkova Halka",
+      "botanical_raw": "Zelkova serrata 'Halka'",
+      "botanical_key": "zelkova serrata 'halka'",
+      "n": 45
+    },
+    {
+      "common_raw": "Aspen, large tooth",
+      "botanical_raw": "Populus grandidentata",
+      "botanical_key": "populus grandidentata",
+      "n": 43
+    },
+    {
+      "common_raw": "Linden, silver",
+      "botanical_raw": "Tilia tomentosa",
+      "botanical_key": "tilia tomentosa",
+      "n": 43
+    },
+    {
+      "common_raw": "Peashrub, Siberian",
+      "botanical_raw": "Caragana arboresense",
+      "botanical_key": "caragana arboresense",
+      "n": 43
+    },
+    {
+      "common_raw": "Hickory, shagbark",
+      "botanical_raw": "Carya ovata",
+      "botanical_key": "carya ovata",
+      "n": 41
+    },
+    {
+      "common_raw": "Larch, European",
+      "botanical_raw": "Larix decidua",
+      "botanical_key": "larix decidua",
+      "n": 41
+    },
+    {
+      "common_raw": "Mountain ash, showy",
+      "botanical_raw": "Sorbus decora",
+      "botanical_key": "sorbus decora",
+      "n": 40
+    }
+  ]
+}

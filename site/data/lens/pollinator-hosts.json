@@ -1,0 +1,222 @@
+{
+  "notable": [
+    {
+      "_id": 653181,
+      "ADDRESS": 176,
+      "STREETNAME": "GRACEDALE BLVD",
+      "SUFFIX": "None",
+      "common_raw": "Oak, red",
+      "botanical_raw": "Quercus rubra",
+      "botanical_key": "quercus rubra",
+      "dbh_cm": 199,
+      "lat": 43.7513871921189,
+      "lon": -79.5635928988209,
+      "nbhd_name": "Humber Summit"
+    },
+    {
+      "_id": 146377,
+      "ADDRESS": 34,
+      "STREETNAME": "YORK VALLEY CRES",
+      "SUFFIX": "None",
+      "common_raw": "Willow, golden weeping",
+      "botanical_raw": "Salix x sepulcralis 'Chrysocoma'",
+      "botanical_key": "salix x sepulcralis 'chrysocoma'",
+      "dbh_cm": 199,
+      "lat": 43.7404583980579,
+      "lon": -79.3902138536366,
+      "nbhd_name": "Bridle Path-Sunnybrook-York Mills"
+    },
+    {
+      "_id": 669100,
+      "ADDRESS": 270,
+      "STREETNAME": "PLEASANT AVE",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 198,
+      "lat": 43.7901820053591,
+      "lon": -79.4323341741002,
+      "nbhd_name": "Newtonbrook West"
+    },
+    {
+      "_id": 96315,
+      "ADDRESS": 2,
+      "STREETNAME": "AVA CRES",
+      "SUFFIX": "None",
+      "common_raw": "Oak, black",
+      "botanical_raw": "Quercus velutina",
+      "botanical_key": "quercus velutina",
+      "dbh_cm": 196,
+      "lat": 43.6980645552149,
+      "lon": -79.4177667746599,
+      "nbhd_name": "Forest Hill South"
+    },
+    {
+      "_id": 204971,
+      "ADDRESS": 143,
+      "STREETNAME": "MACDONELL AVE",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 195,
+      "lat": 43.6446323664823,
+      "lon": -79.4394582091866,
+      "nbhd_name": "Roncesvalles"
+    },
+    {
+      "_id": 379359,
+      "ADDRESS": 184,
+      "STREETNAME": "PRINCE EDWARD DR S",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 193,
+      "lat": 43.6405718086197,
+      "lon": -79.5021487286777,
+      "nbhd_name": "Stonegate-Queensway"
+    },
+    {
+      "_id": 194833,
+      "ADDRESS": 1,
+      "STREETNAME": "PARK LANE CRCL",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 193,
+      "lat": 43.7369940195808,
+      "lon": -79.3772859643984,
+      "nbhd_name": "Bridle Path-Sunnybrook-York Mills"
+    },
+    {
+      "_id": 130630,
+      "ADDRESS": 23,
+      "STREETNAME": "LUNNESS RD",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 192,
+      "lat": 43.6034842186389,
+      "lon": -79.5446085435646,
+      "nbhd_name": "Alderwood"
+    },
+    {
+      "_id": 629700,
+      "ADDRESS": 191,
+      "STREETNAME": "YONGE BLVD",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 191,
+      "lat": 43.7407728715889,
+      "lon": -79.4144864788102,
+      "nbhd_name": "Bedford Park-Nortown"
+    },
+    {
+      "_id": 369013,
+      "ADDRESS": 40,
+      "STREETNAME": "CHATFIELD DR",
+      "SUFFIX": "None",
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "dbh_cm": 190,
+      "lat": 43.7442221666419,
+      "lon": -79.3551869339384,
+      "nbhd_name": "Banbury-Don Mills"
+    },
+    {
+      "_id": 21496,
+      "ADDRESS": 22,
+      "STREETNAME": "AVALON BLVD",
+      "SUFFIX": "None",
+      "common_raw": "Oak, red",
+      "botanical_raw": "Quercus rubra",
+      "botanical_key": "quercus rubra",
+      "dbh_cm": 190,
+      "lat": 43.6931076022577,
+      "lon": -79.2645349201715,
+      "nbhd_name": "Birchcliffe-Cliffside"
+    },
+    {
+      "_id": 36833,
+      "ADDRESS": 78,
+      "STREETNAME": "VALECREST DR",
+      "SUFFIX": "None",
+      "common_raw": "Oak, red",
+      "botanical_raw": "Quercus rubra",
+      "botanical_key": "quercus rubra",
+      "dbh_cm": 190,
+      "lat": 43.6748409924759,
+      "lon": -79.5191446603862,
+      "nbhd_name": "Edenbridge-Humber Valley"
+    }
+  ],
+  "species": [
+    {
+      "common_raw": "Oak, red",
+      "botanical_raw": "Quercus rubra",
+      "botanical_key": "quercus rubra",
+      "n": 23720
+    },
+    {
+      "common_raw": "Maple, silver",
+      "botanical_raw": "Acer saccharinum",
+      "botanical_key": "acer saccharinum",
+      "n": 19905
+    },
+    {
+      "common_raw": "Apple, Sargents",
+      "botanical_raw": "Malus sargentii",
+      "botanical_key": "malus sargentii",
+      "n": 16912
+    },
+    {
+      "common_raw": "Maple, sugar",
+      "botanical_raw": "Acer saccharum",
+      "botanical_key": "acer saccharum",
+      "n": 11328
+    },
+    {
+      "common_raw": "Birch, white",
+      "botanical_raw": "Betula papyrifera",
+      "botanical_key": "betula papyrifera",
+      "n": 8531
+    },
+    {
+      "common_raw": "Oak, bur",
+      "botanical_raw": "Quercus macrocarpa",
+      "botanical_key": "quercus macrocarpa",
+      "n": 7919
+    },
+    {
+      "common_raw": "Maple, red",
+      "botanical_raw": "Acer rubrum",
+      "botanical_key": "acer rubrum",
+      "n": 7687
+    },
+    {
+      "common_raw": "Maple, Manitoba",
+      "botanical_raw": "Acer negundo",
+      "botanical_key": "acer negundo",
+      "n": 6699
+    },
+    {
+      "common_raw": "Oak, swamp white",
+      "botanical_raw": "Quercus bicolor",
+      "botanical_key": "quercus bicolor",
+      "n": 6274
+    },
+    {
+      "common_raw": "Oak, white",
+      "botanical_raw": "Quercus alba",
+      "botanical_key": "quercus alba",
+      "n": 3807
+    }
+  ]
+}

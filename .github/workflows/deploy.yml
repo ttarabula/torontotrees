@@ -55,6 +55,9 @@ jobs:
       - name: Generate canopy-timeline binary
         run: uv run scripts/timeline_data.py
 
+      - name: Generate data lenses
+        run: uv run scripts/lenses.py
+
       - name: Generate narrow-street-advantage blog hero chart
         run: uv run scripts/narrow_street_chart.py
 

@@ -1,0 +1,222 @@
+{
+  "notable": [
+    {
+      "_id": 153908,
+      "ADDRESS": 179,
+      "STREETNAME": "YONGE BLVD",
+      "SUFFIX": "None",
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "dbh_cm": 187,
+      "lat": 43.7401653310504,
+      "lon": -79.4138348576655,
+      "nbhd_name": "Bedford Park-Nortown"
+    },
+    {
+      "_id": 145540,
+      "ADDRESS": 770,
+      "STREETNAME": "BRIAR HILL AVE",
+      "SUFFIX": "None",
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "dbh_cm": 180,
+      "lat": 43.7056832701882,
+      "lon": -79.4379401337469,
+      "nbhd_name": "Forest Hill North"
+    },
+    {
+      "_id": 207539,
+      "ADDRESS": 35,
+      "STREETNAME": "HEARST CRCL",
+      "SUFFIX": "None",
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "dbh_cm": 175,
+      "lat": 43.6980590317418,
+      "lon": -79.4976112157786,
+      "nbhd_name": "Brookhaven-Amesbury"
+    },
+    {
+      "_id": 229888,
+      "ADDRESS": 80,
+      "STREETNAME": "ANTHIA DR",
+      "SUFFIX": "None",
+      "common_raw": "Lilac",
+      "botanical_raw": "Syringa",
+      "botanical_key": "syringa",
+      "dbh_cm": 175,
+      "lat": 43.7630057283099,
+      "lon": -79.573183464238,
+      "nbhd_name": "Humber Summit"
+    },
+    {
+      "_id": 683060,
+      "ADDRESS": 10,
+      "STREETNAME": "SANDBOURNE CRES",
+      "SUFFIX": "None",
+      "common_raw": "Lilac, Japanese",
+      "botanical_raw": "Syringa reticulata",
+      "botanical_key": "syringa reticulata",
+      "dbh_cm": 158,
+      "lat": 43.789607347659,
+      "lon": -79.3454025266438,
+      "nbhd_name": "Don Valley Village"
+    },
+    {
+      "_id": 680233,
+      "ADDRESS": 332,
+      "STREETNAME": "JOICEY BLVD",
+      "SUFFIX": "None",
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "dbh_cm": 156,
+      "lat": 43.7349448851789,
+      "lon": -79.4288982546002,
+      "nbhd_name": "Bedford Park-Nortown"
+    },
+    {
+      "_id": 529885,
+      "ADDRESS": 54,
+      "STREETNAME": "SOUTHWELL DR",
+      "SUFFIX": "None",
+      "common_raw": "Cherry, choke",
+      "botanical_raw": "Prunus virginiana",
+      "botanical_key": "prunus virginiana",
+      "dbh_cm": 150,
+      "lat": 43.7484591638445,
+      "lon": -79.3584947166526,
+      "nbhd_name": "Banbury-Don Mills"
+    },
+    {
+      "_id": 526786,
+      "ADDRESS": 49,
+      "STREETNAME": "BLUE RIDGE RD",
+      "SUFFIX": "None",
+      "common_raw": "Horsechestnut, Ruby red",
+      "botanical_raw": "Aesculus x carnea 'Briotii'",
+      "botanical_key": "aesculus x carnea 'briotii'",
+      "dbh_cm": 148,
+      "lat": 43.7733998751214,
+      "lon": -79.3749127320311,
+      "nbhd_name": "Bayview Village"
+    },
+    {
+      "_id": 617804,
+      "ADDRESS": 266,
+      "STREETNAME": "CORNELIUS PKWY",
+      "SUFFIX": "None",
+      "common_raw": "Serviceberry",
+      "botanical_raw": "Amelanchier canadensis",
+      "botanical_key": "amelanchier canadensis",
+      "dbh_cm": 146,
+      "lat": 43.7254288787274,
+      "lon": -79.47665670977,
+      "nbhd_name": "Downsview"
+    },
+    {
+      "_id": 88767,
+      "ADDRESS": 45,
+      "STREETNAME": "STAG HILL DR",
+      "SUFFIX": "None",
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "dbh_cm": 146,
+      "lat": 43.7045815050198,
+      "lon": -79.3081160174314,
+      "nbhd_name": "O'Connor-Parkview"
+    },
+    {
+      "_id": 323237,
+      "ADDRESS": 12,
+      "STREETNAME": "DENEWOOD CRES",
+      "SUFFIX": "None",
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "dbh_cm": 146,
+      "lat": 43.7422885363108,
+      "lon": -79.3668702813599,
+      "nbhd_name": "Banbury-Don Mills"
+    },
+    {
+      "_id": 400360,
+      "ADDRESS": 11,
+      "STREETNAME": "CORYLUS CRT",
+      "SUFFIX": "None",
+      "common_raw": "Lilac, Japanese",
+      "botanical_raw": "Syringa reticulata",
+      "botanical_key": "syringa reticulata",
+      "dbh_cm": 145,
+      "lat": 43.7325046508887,
+      "lon": -79.6056744611957,
+      "nbhd_name": "West Humber-Clairville"
+    }
+  ],
+  "species": [
+    {
+      "common_raw": "Lilac, Japanese",
+      "botanical_raw": "Syringa reticulata",
+      "botanical_key": "syringa reticulata",
+      "n": 17589
+    },
+    {
+      "common_raw": "Apple, Sargents",
+      "botanical_raw": "Malus sargentii",
+      "botanical_key": "malus sargentii",
+      "n": 16912
+    },
+    {
+      "common_raw": "Serviceberry",
+      "botanical_raw": "Amelanchier canadensis",
+      "botanical_key": "amelanchier canadensis",
+      "n": 12068
+    },
+    {
+      "common_raw": "Tulip tree",
+      "botanical_raw": "Liriodendron tulipifera",
+      "botanical_key": "liriodendron tulipifera",
+      "n": 7741
+    },
+    {
+      "common_raw": "Catalpa, northern",
+      "botanical_raw": "Catalpa speciosa",
+      "botanical_key": "catalpa speciosa",
+      "n": 7508
+    },
+    {
+      "common_raw": "Horsechestnut",
+      "botanical_raw": "Aesculus hippocastanum",
+      "botanical_key": "aesculus hippocastanum",
+      "n": 2980
+    },
+    {
+      "common_raw": "Buckeye, Ohio",
+      "botanical_raw": "Aesculus glabra",
+      "botanical_key": "aesculus glabra",
+      "n": 2915
+    },
+    {
+      "common_raw": "Redbud",
+      "botanical_raw": "Cercis canadensis",
+      "botanical_key": "cercis canadensis",
+      "n": 2900
+    },
+    {
+      "common_raw": "Buckeye, yellow",
+      "botanical_raw": "Aesculus flava",
+      "botanical_key": "aesculus flava",
+      "n": 2725
+    },
+    {
+      "common_raw": "Magnolia, saucer",
+      "botanical_raw": "Magnolia x soulngeana (M. denudata x liliiflora)",
+      "botanical_key": "magnolia x soulngeana (m. denudata x liliiflora)",
+      "n": 2688
+    }
+  ]
+}
