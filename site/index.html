@@ -286,24 +286,86 @@ async function init() {
   speciesIdx = await speciesIdxResp.json();
   speciesLineage = await lineageResp.json();
   // Apply any permalink from the URL hash
-  const fromHash = hashToQuery(location.hash);
-  if (fromHash) {
-    $q.value = fromHash;
-    smartLookup(fromHash, { fromHash: true });
-  } else {
-    $q.focus();
-  }
+  await routeFromHash();
+  if (!location.hash || location.hash.length < 2) $q.focus();
 }
 init();
 
+// Hash router — `#@lat,lon` is a per-tree permalink, anything else is a search.
+async function routeFromHash() {
+  const h = location.hash;
+  if (h && h.startsWith("#@")) {
+    await loadTreeByLatLon(h.slice(2));
+    return;
+  }
+  const fromHash = hashToQuery(h);
+  if (fromHash) {
+    $q.value = fromHash;
+    smartLookup(fromHash, { fromHash: true });
+  }
+}
+
 // Support back/forward navigation
-window.addEventListener("hashchange", () => {
+window.addEventListener("hashchange", async () => {
+  if (location.hash.startsWith("#@")) {
+    await loadTreeByLatLon(location.hash.slice(2));
+    return;
+  }
   const q = hashToQuery(location.hash);
   if (q && q.toUpperCase() !== $q.value.toUpperCase()) {
     $q.value = q;
     smartLookup(q, { fromHash: true });
   }
 });
+
+// Permalink loader — find the tree closest to the given lat/lon (snapped to
+// the same near/ grid cell system as Near-me). Renders a single-tree card.
+async function loadTreeByLatLon(coordStr) {
+  const m = coordStr.match(/^(-?\d+\.?\d*),(-?\d+\.?\d*)$/);
+  if (!m) return;
+  const targetLat = parseFloat(m[1]);
+  const targetLon = parseFloat(m[2]);
+  if (!Number.isFinite(targetLat) || !Number.isFinite(targetLon)) return;
+  const ilat = Math.floor((targetLat - GRID.lat0) / GRID.dlat);
+  const ilon = Math.floor((targetLon - GRID.lon0) / GRID.dlon);
+  // Fetch the cell + 8 neighbours so border-of-cell lookups still find the right tree.
+  const cellPromises = [];
+  for (let dla = -1; dla <= 1; dla++) {
+    for (let dlo = -1; dlo <= 1; dlo++) {
+      cellPromises.push(
+        fetch(`data/near/${ilat+dla}_${ilon+dlo}.json`)
+          .then(r => r.ok ? r.json() : null)
+          .catch(() => null)
+      );
+    }
+  }
+  const cells = (await Promise.all(cellPromises)).filter(Boolean);
+  const candidates = cells.flatMap(c => c.trees);
+  if (!candidates.length) {
+    $result.innerHTML = `<p class="error">No tree found at <code>${escapeHtml(coordStr)}</code>. The link may point outside Toronto's coverage area.</p>`;
+    return;
+  }
+  // Find closest by flat-earth distance.
+  const latDeg2m = 111320;
+  const lonDeg2m = 111320 * Math.cos(targetLat * Math.PI / 180);
+  let closest = null, bestDist = Infinity;
+  for (const t of candidates) {
+    const dy = (t.lat - targetLat) * latDeg2m;
+    const dx = (t.lon - targetLon) * lonDeg2m;
+    const d = Math.hypot(dx, dy);
+    if (d < bestDist) { bestDist = d; closest = t; }
+  }
+  // 5m tolerance — beyond that we're probably looking at a stale link.
+  if (!closest || bestDist > 5) {
+    $result.innerHTML = `<p class="error">No tree found within 5 m of <code>${escapeHtml(coordStr)}</code>. The tree may have been removed since the link was shared.</p>`;
+    return;
+  }
+  const tree = { ...closest, _addr: `${closest.num} ${closest.street}` };
+  $result.innerHTML =
+    `<div class="addr">${escapeHtml(tree._addr)}<small>${escapeHtml(tree.common || "")}${tree.nbhd ? " · " + escapeHtml(tree.nbhd) : ""}</small></div>` +
+    renderTrees([tree]);
+  document.title = `${tree.common || "A Toronto tree"} on ${tree.street}`;
+}
 
 // Route a bare string to species- or address-lookup.
 function smartLookup(input, opts = {}) {
@@ -564,7 +626,8 @@ function renderTrees(trees) {
     const inat = `<a href="https://www.inaturalist.org/search?q=${encodeURIComponent(t.botanical || t.common || "")}" target="_blank" rel="noopener">iNaturalist</a>`;
     const svLink = `<a href="${svURL}" target="_blank" rel="noopener">Street View</a>`;
     const mapsLink = `<a href="${mapsURL}" target="_blank" rel="noopener">Map</a>`;
-    const linkParts = [svLink, wikiLink, inat, mapsLink].filter(Boolean);
+    const shareLink = `<a href="#" class="share-tree" data-lat="${t.lat}" data-lon="${t.lon}" data-common="${escapeHtml(t.common || "Tree")}">Share</a>`;
+    const linkParts = [svLink, wikiLink, inat, mapsLink, shareLink].filter(Boolean);
     return `<div class="tree">
       ${thumb}
       <div class="body">
@@ -890,6 +953,29 @@ async function doRandomTree() {
 
 document.getElementById("btn-near").addEventListener("click", doNearMe);
 document.getElementById("btn-random").addEventListener("click", doRandomTree);
+
+// Per-tree share — copy a permalink to this exact tree, falling back to the
+// system share sheet on mobile. Permalink format is #@lat,lon.
+$result.addEventListener("click", async (ev) => {
+  const a = ev.target.closest("a.share-tree");
+  if (!a) return;
+  ev.preventDefault();
+  const lat = parseFloat(a.dataset.lat).toFixed(5);
+  const lon = parseFloat(a.dataset.lon).toFixed(5);
+  const url = `${location.origin}${location.pathname}#@${lat},${lon}`;
+  const title = `${a.dataset.common} — torontotrees`;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); return; } catch {}
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    const orig = a.textContent;
+    a.textContent = "✓ Link copied";
+    setTimeout(() => { a.textContent = orig; }, 1800);
+  } catch {
+    window.prompt("Copy this link to share:", url);
+  }
+});
 
 // --- "What's peaking this week" homepage widget ---
 (async function peakingInit() {
