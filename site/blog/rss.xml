@@ -6,7 +6,14 @@
     <atom:link href="https://treeto.ca/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and visualizations built on Toronto's open street-tree data.</description>
     <language>en-CA</language>
-    <lastBuildDate>Tue, 28 Apr 2026 05:01:53 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 05:20:40 +0000</lastBuildDate>
+    <item>
+      <title>Three trees I can&#x27;t explain — anomalies in Toronto&#x27;s street-tree dataset</title>
+      <link>https://treeto.ca/blog/three-trees-i-cant-explain/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/three-trees-i-cant-explain/</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
+      <description>A 250-centimetre hawthorn that physically can</description>
+    </item>
     <item>
       <title>The Norway-maple paradox — Toronto&#x27;s most-planted tree is the one the city no longer plants</title>
       <link>https://treeto.ca/blog/norway-maple-paradox/</link>

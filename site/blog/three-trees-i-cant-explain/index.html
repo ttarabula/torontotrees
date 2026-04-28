@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Three trees I can't explain — anomalies in Toronto's street-tree dataset | torontotrees</title>
+<meta name="description" content="A 250-centimetre hawthorn that physically can't exist. 4,664 cherries the city can't tell apart. A single pawpaw on Macdonell Avenue. Three small mysteries from a 689,013-row dataset.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="Three trees I can't explain">
+<meta property="og:description" content="A 250-cm hawthorn, 4,664 cherries with no species, and a lonely pawpaw — three small mysteries in Toronto's street-tree data.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://treeto.ca/charts/dotmap_dark.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; }
+  header.site .inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home::before { content: "← "; opacity: 0.55; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site nav.mainnav { display: flex; gap: 1.1rem; font-size: .9rem; flex-wrap: wrap; }
+  header.site nav.mainnav a { color: #666; text-decoration: none; }
+  header.site nav.mainnav a:hover { color: var(--accent-dark); text-decoration: underline; }
+  @media (max-width: 520px) { header.site nav.mainnav { font-size: .82rem; gap: .8rem; } }
+
+  article { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  article h1 { font-size: clamp(1.8rem, 4.5vw, 2.5rem); line-height: 1.15; margin: .25rem 0 .5rem; }
+  article .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  article h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  article p { margin: 0 0 1.1em; }
+  article a { color: var(--accent-dark); }
+  article strong { color: #111; }
+  article em { color: #333; }
+  article code { background: #f1ece0; padding: 1px 6px; border-radius: 3px; font-size: .92em; }
+  article .anomaly { color: var(--accent-dark); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .25rem; }
+
+  footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer.site a { color: var(--muted); }
+
+  @media (max-width: 520px) { article { padding: 1.25rem 1rem 2rem; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../">🌳 torontotrees</a>
+    <nav class="mainnav"><a href="../../blog/">Blog</a><a href="../../calendar/">Calendar</a><a href="../../walks/">Walks</a><a href="../../neighbourhoods/">Neighbourhoods</a><a href="../../about/">About</a></nav>
+  </div>
+</header>
+
+<article>
+  <div class="subhead">May 2026 · data archaeology · 689,013 rows, three weird ones</div>
+  <h1>Three trees I can't explain</h1>
+
+  <p>Toronto's <a href="https://open.toronto.ca/dataset/street-tree-data/">street-tree dataset</a> has 689,013 rows. Most of them are exactly what you would expect — a Norway maple in front of a 1960s North York bungalow, a honey locust on a Liberty Village condo block, a young Kentucky coffeetree on a freshly-planted Bayview boulevard. Reasonable trees in reasonable places, recorded with reasonable accuracy.</p>
+
+  <p>But it's a 689,013-row dataset, and 689,013-row datasets always have a long tail of <em>what</em>. Anomalies. Typos. Trees that physically can't exist where the data says they exist. Categories that quietly contain ten percent of the city's cherry trees because nobody had time to identify them. Single specimens of species that aren't supposed to grow this far north and probably do anyway.</p>
+
+  <p>Here are three I keep coming back to.</p>
+
+  <h2>1. The 250-centimetre hawthorn at 44 Antioch Drive</h2>
+
+  <p class="anomaly">Anomaly: physically impossible</p>
+
+  <p>According to <a href="../../">treeto.ca</a>, the largest catalogued tree at 44 Antioch Drive in Eringate-Centennial-West Deane is a hawthorn (<em>Crataegus</em>) with a trunk diameter at breast height of <strong>250 centimetres</strong>. A trunk diameter of 250 cm is two and a half metres across. You could roll a refrigerator through it.</p>
+
+  <p>Hawthorns do not get this big. <em>Anywhere</em>. The largest documented hawthorn trunks in the world max out around 70 cm DBH, and those are veteran specimens in English hedgerows three centuries old. A typical mature city hawthorn — and Toronto plants them as small ornamentals — runs 15 to 30 cm. The 44 Antioch tree is, on the data's own terms, eight times the species's biological maximum.</p>
+
+  <p>The explanation is buried in the dataset's processing pipeline. The City of Toronto stores DBH as an integer in centimetres, and at some point in the inventory's history a value of <code>250</code> appears to have been used as either a cap or a default. Four trees in the dataset are exactly 250 cm — the hawthorn at Antioch, a corkscrew willow at 73 Leggett Ave (also implausible at 2.5 m), an unidentified "Oak" at 293 Chaplin Crescent (possible but very large), and a silver maple at 78 Burnhamthorpe (the only one of the four that's plausibly real). My data pipeline now caps DBH at 200 cm to drop these from leaderboards, but the raw value is still in the source.</p>
+
+  <p>I don't know what's actually at 44 Antioch. There <em>is</em> a hawthorn there, presumably. It is presumably 25 cm across. Someone in 2014 typed 250 instead of 25 in a city database and it has been there ever since.</p>
+
+  <h2>2. Four thousand six hundred cherries the city can't tell apart</h2>
+
+  <p class="anomaly">Anomaly: institutional ambiguity</p>
+
+  <p>If you query the dataset for trees with the botanical name <code>Prunus spp.</code> — the genus <em>Prunus</em>, the species deliberately left blank, "spp." being shorthand for "species, take your pick" — you get <strong>4,664 trees</strong>. That is a third of all the cherry, plum, and almond trees the City of Toronto plants on its streets. Two-thirds of all street trees in the genus <em>Prunus</em> are catalogued precisely; one-third are catalogued with botanical handwave.</p>
+
+  <p>Some of this is plausible. <em>Prunus</em> is a genus that hybridizes promiscuously and produces hundreds of cultivars; in the field, distinguishing a <em>Prunus serrulata</em> 'Kanzan' from a <em>Prunus subhirtella</em> 'Pendula' from a <em>Prunus × yedoensis</em> 'Akebono' requires looking at flowers, leaves, bark, and growth form together. An arborist measuring a leafless street cherry in November may not be able to tell which species it is, and choosing not to guess is the conscientious option.</p>
+
+  <p>But the geographic pattern is suspicious. The "Prunus spp." catch-all clusters in <a href="../../neighbourhoods/oakwood-village/">Oakwood Village</a> (174 of them), <a href="../../neighbourhoods/stonegate-queensway/">Stonegate-Queensway</a> (161), <a href="../../neighbourhoods/briar-hill-belgravia/">Briar Hill-Belgravia</a> (131), <a href="../../neighbourhoods/mimico-queensway/">Mimico-Queensway</a> (113). These are all neighbourhoods with substantial post-1990 boulevard plantings of ornamental cherries. Somewhere there is — or was — a contractor who planted these, and a city inspector who walked them, and an entry-form workflow that didn't make species identification mandatory.</p>
+
+  <p>So 4,664 of Toronto's street trees are essentially "some kind of cherry; figure it out yourself in April." There is something quietly wonderful about this. It also means every analysis we do on cherry-blossom timing, cherry-tree density, or cherry species diversity is missing one tree in three.</p>
+
+  <h2>3. Toronto's only pawpaw, on Macdonell Avenue</h2>
+
+  <p class="anomaly">Anomaly: real, marvellous, alone</p>
+
+  <p>The <a href="https://en.wikipedia.org/wiki/Asimina_triloba">pawpaw</a> (<em>Asimina triloba</em>) is the largest fruit native to Canada. It is a Carolinian-zone tree at the very northern edge of its range in southern Ontario, producing a custard-like tropical fruit that tastes, by reliable account, like a cross between mango, banana, and butterscotch. It does not transplant, doesn't ship, doesn't ripen off the tree, and isn't sold in grocery stores anywhere in Canada except a small ring of pick-your-own farms in Niagara. Most Torontonians have never seen one and most have never tasted the fruit.</p>
+
+  <p>Toronto has, in its street-tree inventory, exactly <strong>one</strong>.</p>
+
+  <p>It is at <strong>39 Macdonell Avenue</strong> in Roncesvalles. It has a trunk diameter of 6 cm — meaning it is young, recently planted, probably under fifteen years old. Whoever requested it from the city's <a href="https://www.toronto.ca/services-payments/water-environment/trees/tree-planting/">Request-a-Tree</a> program in the early 2010s either knew exactly what they were asking for or got astonishingly lucky. (The City's own current planting list does not include pawpaw.)</p>
+
+  <p>It is featured as Stop 4 on the <a href="../../walks/roncesvalles-rare-trees/">Roncesvalles rare-tree walk</a>. If you have never seen one, this is the easiest pawpaw in central Toronto to walk past.</p>
+
+  <p>I cannot explain how it got there. I love that it is there.</p>
+
+  <h2>What this teaches you about a public dataset</h2>
+
+  <p>The City of Toronto Street Tree Data is, on the whole, an extraordinary civic artefact. 689,013 trees catalogued, georeferenced to within metres, species-identified on most rows, freely downloadable, refreshed irregularly but kept current as the inventory grows. Treeto.ca exists at all because this data exists.</p>
+
+  <p>And it has typos. It has cap-truncation artefacts. It has 4,664 trees the city couldn't be bothered (or couldn't manage) to identify down to species. It has solitary specimens of trees that probably shouldn't have been planted in 2010 and definitely shouldn't have been planted before 1990. It is the work of thousands of inspectors and contractors and arborists across forty years of inventory campaigns, and it carries every fingerprint of the human process behind it.</p>
+
+  <p>The strangest entries are the ones I trust most.</p>
+
+  <p><a href="../">← All posts</a></p>
+
+</article>
+
+<footer class="site">
+  <p>
+    Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, OGL-Toronto). All three trees are real entries in the inventory as of the April 2026 snapshot — go look them up at <a href="../../">treeto.ca</a>.<br>
+    Full source: <a href="https://github.com/ttarabula/torontotrees">github.com/ttarabula/torontotrees</a>
+  </p>
+</footer>
+
+</body>
+</html>
