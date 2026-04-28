@@ -6,7 +6,7 @@
     <atom:link href="https://treeto.ca/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and visualizations built on Toronto's open street-tree data.</description>
     <language>en-CA</language>
-    <lastBuildDate>Tue, 28 Apr 2026 05:33:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 05:57:09 +0000</lastBuildDate>
     <item>
       <title>The caterpillar test — why a Toronto oak is worth a hundred ginkgos</title>
       <link>https://treeto.ca/blog/caterpillar-test/</link>
@@ -41,6 +41,13 @@
       <guid isPermaLink="true">https://treeto.ca/blog/norway-maple-paradox/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
       <description>99,931 Norway maples line Toronto</description>
+    </item>
+    <item>
+      <title>The lilac week — on a flower that becomes a person</title>
+      <link>https://treeto.ca/blog/the-lilac-week/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/the-lilac-week/</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
+      <description>Lilacs are the most reliably memory-tied flower in North American family folklore. The species your great-grandmother had in her yard was almost certainly Syringa vulgaris — and the reason there isn</description>
     </item>
     <item>
       <title>The narrow-street advantage — why Toronto&#x27;s old grid carries 4× the trees of its new condos</title>
