@@ -166,9 +166,9 @@ def main():
         fig.tight_layout(pad=0)
 
         fig.savefig(
-            OUT / f"{sl}.png",
+            OUT / f"{sl}.webp",
             facecolor=BG, bbox_inches="tight", pad_inches=0.05,
-            pil_kwargs={"optimize": True},
+            pil_kwargs={"quality": 78, "method": 6},
         )
         plt.close(fig)
 

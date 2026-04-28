@@ -405,7 +405,7 @@ def nbhd_page_html(row, species_rows, big_row, ranks):
   <p class="subhead">{nia_chip}{fmt_int(row['tree_count'])} street trees · {row['area_km2']:.2f} km² · pop. {fmt_int(row['population_2021'])}</p>
 
   <figure class="nbhd-map">
-    <img src="../../charts/nbhd/{map_slug}.png" alt="Map of {html.escape(nb)} showing the neighbourhood outlined in green with every city-owned street tree as a dark-green dot, plus a locator inset showing its position in Toronto." loading="lazy">
+    <img src="../../charts/nbhd/{map_slug}.webp" alt="Map of {html.escape(nb)} showing the neighbourhood outlined in green with every city-owned street tree as a dark-green dot, plus a locator inset showing its position in Toronto." loading="lazy">
   </figure>
 
   {stats_html}
