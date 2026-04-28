@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What Kyoto's monks know that Toronto's dataset doesn't | torontotrees</title>
+<meta name="description" content="Yasuyuki Aono's 1,200-year cherry-blossom record from Kyoto and Toronto's 689,013-row street-tree inventory are the same idea — watch a city's trees — taken to opposite extremes. One species, twelve centuries vs. 303 species, one snapshot.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌸</text></svg>">
+<meta property="og:title" content="What Kyoto's monks know that Toronto's dataset doesn't">
+<meta property="og:description" content="One species for 1,200 years vs. 689,013 trees in one snapshot. Two opposite ways to watch a city's canopy.">
+<meta property="og:type" content="article">
+<style>
+  :root {
+    --fg: #1a1a1a; --muted: #666;
+    --accent: #2b7a3d; --accent-dark: #1e5b2d;
+    --bg: #faf7f2; --card: #fff;
+    --border: #e2e2e2; --rule: #d9d4c7;
+    --sakura: #c6256b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; }
+  header.site .inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home::before { content: "← "; opacity: 0.55; }
+  header.site a.home:hover { text-decoration: underline; }
+  header.site nav.mainnav { display: flex; gap: 1.1rem; font-size: .9rem; flex-wrap: wrap; }
+  header.site nav.mainnav a { color: #666; text-decoration: none; }
+  header.site nav.mainnav a:hover { color: var(--accent-dark); text-decoration: underline; }
+  @media (max-width: 520px) { header.site nav.mainnav { font-size: .82rem; gap: .8rem; } }
+
+  article { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  article h1 { font-size: clamp(1.8rem, 4.5vw, 2.4rem); line-height: 1.2; margin: .25rem 0 .5rem; }
+  article .subhead { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  article h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  article p { margin: 0 0 1.1em; }
+  article a { color: var(--accent-dark); }
+  article strong { color: #111; }
+  article em { color: #333; }
+
+  article table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: .95rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  article th, article td { padding: .55rem .75rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  article tr:last-child td { border-bottom: 0; }
+  article th { background: #f3efe4; color: #4a3e1f; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+  article td.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+  .callout {
+    background: #fdf2e8; border-left: 4px solid var(--sakura);
+    padding: 1rem 1.25rem; border-radius: 0 6px 6px 0; margin: 1.5rem 0;
+    font-size: 1rem;
+  }
+  .callout strong { color: var(--sakura); }
+
+  footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer.site a { color: var(--muted); }
+
+  @media (max-width: 520px) { article { padding: 1.25rem 1rem 2rem; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../">🌳 torontotrees</a>
+    <nav class="mainnav"><a href="../../blog/">Blog</a><a href="../../calendar/">Calendar</a><a href="../../walks/">Walks</a><a href="../../neighbourhoods/">Neighbourhoods</a><a href="../../about/">About</a></nav>
+  </div>
+</header>
+
+<article>
+  <div class="subhead">May 2026 · on the two opposite ways to watch a city's canopy</div>
+  <h1>What Kyoto's monks know that Toronto's dataset doesn't</h1>
+
+  <p>Sometime around the year 812, a monk in the Heian capital — modern-day Kyoto — wrote down the date that the cherry trees in the imperial garden reached full bloom. He was almost certainly not thinking about science. Hanami, the cherry-blossom-viewing parties of the imperial court, were a calendar event the same way Christmas Eve is for us, and the date in any given year was social information: <em>peak bloom is now, the parties happen this week</em>. He recorded it, his successors kept recording it, and over the next twelve hundred years a continuous chain of court diarists, abbots, and provincial governors built up — without ever meaning to — what is almost certainly the longest unbroken phenological record on Earth.</p>
+
+  <p>The full reconstruction is the work of <strong>Yasuyuki Aono</strong>, an environmental scientist at Osaka Prefecture University, who has compiled bloom dates for Kyoto's cherries for every year (with a handful of gaps) from 812 AD through to today. What it shows is staggering. For most of that twelve-century stretch, peak bloom clusters in mid-April. Around 1800 the curve begins to drift earlier. The drift accelerates after 1900. In 2021 Kyoto's peak bloom hit <strong>March 26</strong> — three weeks ahead of the historical mean, the earliest in 1,200 years of records. The signal is clean, the trend is unambiguous, and the human archive happens to be the cleanest climate proxy we have for the last millennium.</p>
+
+  <p>I think about Aono's dataset a lot. It is, in a precise sense, the opposite of <a href="../../">treeto.ca</a>.</p>
+
+  <h2>One tree for a thousand years; six hundred thousand trees for one year</h2>
+
+  <p>Treeto.ca is built on the City of Toronto's <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a>: 689,013 individual trees, each with species, trunk size, lat/lon, neighbourhood, the works. Aono's record covers a single tree-type (sakura — primarily <em>Prunus jamasakura</em> and related cultivars), with a single observation each year (peak bloom date), in a single city. The two datasets answer overlapping questions, but from completely opposite directions.</p>
+
+  <table>
+    <thead>
+      <tr><th>Axis</th><th>Aono / Kyoto</th><th>Treeto / Toronto</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Time depth</td><td>1,214 years (812–2026)</td><td>One snapshot (current)</td></tr>
+      <tr><td>Number of trees</td><td>One species, many individual trees, observed continuously</td><td>689,013 trees, observed once</td></tr>
+      <tr><td>Number of species</td><td>1 (cherry)</td><td>303 distinct botanical keys</td></tr>
+      <tr><td>Observations per year</td><td>1 (peak bloom date)</td><td>0 (no temporal element at all)</td></tr>
+      <tr><td>Source</td><td>Court diaries, temple ledgers, hanami records</td><td>Municipal arborist inspections, GPS-tagged</td></tr>
+      <tr><td>What it can answer</td><td>"How has Kyoto's spring climate changed across centuries?"</td><td>"What's the tree in front of my house?"</td></tr>
+    </tbody>
+  </table>
+
+  <p>Each is the wrong tool for the other's question. You cannot use Aono to identify the Norway maple at 100 Bloor; you cannot use the Toronto inventory to detect a 6°F warming trend across the last two centuries. They are not the same kind of object, even though both are <em>"a record of trees in a city."</em></p>
+
+  <h2>The depth Toronto doesn't have</h2>
+
+  <p>The most obvious thing missing from the Toronto data is time. The Street Tree inventory is a single snapshot. Trunk diameter is recorded; planting date is not. Removal is silent — when the city takes out a tree, it disappears from the next inventory release with no record of it having existed. The <a href="../../timeline/">canopy timeline</a> on this site is built by <em>estimating</em> planting years from trunk diameter, which works for broad strokes (the post-EAB replanting wave is visible) but tells you nothing about specific trees, and shows nothing about trees that are no longer there.</p>
+
+  <p>Aono's record carries the opposite problem: enormous time depth, vanishingly thin spatial coverage. He can tell you what spring was like in Kyoto in 1187. He cannot tell you anything about the cherries planted on the Imperial Palace grounds last week, or anything about cities other than Kyoto, or anything about species other than sakura. Twelve centuries of resolution along one axis bought at the cost of zero resolution along every other.</p>
+
+  <p>If you are interested in what Toronto's spring looked like in 1187, you are out of luck for at least three reasons. The city did not exist. Even if the indigenous people who lived along the Humber were keeping such records, they were oral and they have not survived. And the species you would care about — sugar maple, red oak, white pine, paper birch — bloom inconspicuously and were not the social fact that cherry blossom is in Kyoto. There was nobody whose job was to write down the day a sugar maple flowered.</p>
+
+  <p>What Toronto has instead is a 689,013-row spreadsheet from the 2010s and 2020s that knows everything about every tree the city manages on the road allowance, right now, and absolutely nothing about a thousand years ago.</p>
+
+  <h2>The trees that bridge the gap, sort of</h2>
+
+  <p>Toronto does have a handful of catalogued trees that are pushing a century or more. The street-tree inventory's largest verified specimens are <a href="../../neighbourhoods/rosedale-moore-park/">a 200 cm white oak</a> at 91 Inglewood Drive in Rosedale, <a href="../../neighbourhoods/roncesvalles/">a 190 cm American elm</a> at 103 West Lodge Avenue in Roncesvalles (a Dutch-elm-disease survivor, somehow), and <a href="../../neighbourhoods/annex/">a 183 cm bur oak</a> at 179 Spadina Road in the Annex. White oak in southern Ontario takes 200–300 years to reach 200 cm DBH; bur oak similar. These trees are older than the city around them. The Spadina bur oak was certainly already mature when Spadina was a wagon track.</p>
+
+  <p>None of those trees has any temporal record attached. We don't know when they were planted, who planted them, what year their canopies fully closed, what their leaves looked like in 1924 or 1968, when the wych elm a block away died and they were the next-largest tree on the block. We know they're tall and old and they're there. That's it.</p>
+
+  <p>The Aono dataset is the opposite. Every entry in it is a single date — March 26 in 2021, April 14 in 1820, April 5 in 1480 — attached to a tree-type that is not specific in space and not specific in individual. The cherry that was photographed in 2021 is not the cherry that was inked into a court diary in 1480. The species is the same; the actual organism died and was replaced and died and was replaced over the centuries. What's continuous is <em>the institution that records the bloom date</em>, not the trees themselves.</p>
+
+  <h2>What civic data buys you</h2>
+
+  <p>Treeto.ca is a useful civic tool because the Toronto data is a useful civic dataset. You can find the species in front of your house, see what's planted in your neighbourhood, identify the inventory's typos, build a 158-neighbourhood ranking by canopy density. You can run an entire blog of <a href="../canopy-equity/">equity</a> and <a href="../narrow-street-advantage/">street-form</a> and <a href="../decade-of-standing-still/">EAB-recovery</a> analyses against it and have something useful to say.</p>
+
+  <p>What you can't do is detect a slow process. Toronto's climate is changing fast — Kyoto's six degrees of warming since 1850 is roughly Toronto's number too — and the Street Tree inventory is, by design, blind to that change. The trees getting planted in 2026 are the same species that were getting planted in 2010, even though the climate envelope they'll live in for the next eighty years is shifting beneath them. There is no twelve-century baseline against which to measure that drift, because there is no Toronto monk who in 1480 wrote down the day the maples turned, and there is no maple-watching civic tradition out of which a future Yasuyuki Aono could ever build a record.</p>
+
+  <div class="callout">
+    <strong>The closest Toronto comes</strong> is a different kind of long observation: the Royal Ontario Museum's herbarium and the University of Toronto's botanical photography archive go back about 130 years and carry herbarium sheets and dated photos of regional plants. Combined with the City's 2008 LiDAR canopy raster (one snapshot) and the 2018 LiDAR re-survey (another), you can roughly outline the last decade of canopy change. It is not 1,200 years. But it is not nothing either.
+  </div>
+
+  <h2>The argument for keeping records you don't yet need</h2>
+
+  <p>The thing I most want from the Toronto street-tree inventory is the thing it does not currently have: a date stamp. When was every tree planted? When does the city replace one? When does a row exit the dataset? If we started tracking those, even imperfectly, in 2026, then by 2200 we would have the start of a serious phenological record for the urban forest. It would not be 1,200 years. But it would be a beginning, and beginnings are mostly what Aono's dataset turned out to be — Heian court records that nobody at the time thought of as climate science, kept for nine hundred years before anybody knew what they would mean.</p>
+
+  <p>In the meantime, we have what we have. 689,013 trees catalogued in 2026. One pawpaw on Macdonell Avenue. A 200-year-old white oak in Rosedale. The Norway maples that were planted in 1965 and will, on the city's quietly patient retirement plan, be the last of their kind in 2065.</p>
+
+  <p>And, every year in late April, somewhere in Kyoto, a cherry tree blooms a little earlier than the cherry tree before it. And someone writes the date down.</p>
+
+  <p><a href="../">← All posts</a></p>
+
+</article>
+
+<footer class="site">
+  <p>
+    Aono's full Kyoto bloom record is at his Osaka Prefecture University page (Japanese; English summaries in the cited papers). Inspired by an April 2026 New York Times piece on his dataset.<br>
+    Toronto data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, OGL-Toronto). Veteran-tree counts from <a href="../veteran-trees/">torontotrees veteran-trees post</a>.
+  </p>
+</footer>
+
+</body>
+</html>
