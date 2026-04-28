@@ -1,0 +1,878 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//treeto.ca//Tree Bloom Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Toronto trees — all events
+X-WR-CALDESC:Every bloom and fall window on treeto.ca
+X-WR-TIMEZONE:America/Toronto
+BEGIN:VEVENT
+UID:85fe6d652e683dbb@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261106
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Norway Maple fall colour (Toronto)
+DESCRIPTION:Norway Maple — yellow, reliable if unspectacular, drops late\n\nAcer platanoides\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:335dfcbcee4657ad@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260605
+DTEND;VALUE=DATE:20260616
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Honey locust in bloom (Toronto)
+DESCRIPTION:Honey locust — inconspicuous green, easily missed\n\nGleditsia triacanthos\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:71fe8e4f9e014fba@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261106
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Honey locust fall colour (Toronto)
+DESCRIPTION:Honey locust — clear yellow, tiny leaves drop cleanly\n\nGleditsia triacanthos\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c98fed403f5b95c5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260618
+DTEND;VALUE=DATE:20260703
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Littleleaf Linden in bloom (Toronto)
+DESCRIPTION:Littleleaf Linden — small fragrant yellow, bees lose their minds\n\nTilia cordata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ddb0b9100e9c12d8@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Littleleaf Linden fall colour (Toronto)
+DESCRIPTION:Littleleaf Linden — pale yellow\n\nTilia cordata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:73a1e2ad1999a22b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261106
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Red Oak fall colour (Toronto)
+DESCRIPTION:Red Oak — deep red, holds leaves late\n\nQuercus rubra\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ce1b76bcf105ece5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260611
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Kentucky coffeetree in bloom (Toronto)
+DESCRIPTION:Kentucky coffeetree — greenish-white, inconspicuous\n\nGymnocladus dioicus\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a62ea580bce94457@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261031
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Kentucky coffeetree fall colour (Toronto)
+DESCRIPTION:Kentucky coffeetree — yellow, bipinnate leaves\n\nGymnocladus dioicus\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2ed1bc460f0a571c@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Freeman Autumn Blaze Maple fall colour (Toronto)
+DESCRIPTION:Freeman Autumn Blaze Maple — brilliant orange-red ('Autumn Blaze' cultivar)\n\nAcer x freemanii (A. rubrum x saccharinum)\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:373ba2b18ee8ff9a@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Silver Maple fall colour (Toronto)
+DESCRIPTION:Silver Maple — pale yellow, fast turn\n\nAcer saccharinum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ce1937604c956550@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260605
+DTEND;VALUE=DATE:20260621
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Lilac in bloom (Toronto)
+DESCRIPTION:Japanese Lilac — creamy white panicles, privet-honey fragrance\n\nSyringa reticulata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6fc50932ed953d4c@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261111
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Ginkgo fall colour (Toronto)
+DESCRIPTION:Ginkgo — bright gold, famous overnight synchronous drop\n\nginkgo biloba\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c21a9f0548db27e6@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260513
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Sargents Apple in bloom (Toronto)
+DESCRIPTION:Sargents Apple — white, profuse, small red fruit persists into winter\n\nMalus sargentii\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2bcd0b665e1c92d9@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Hackberry fall colour (Toronto)
+DESCRIPTION:Hackberry — yellow\n\nCeltis occidentalis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7a630a97731af7d9@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Sugar Maple fall colour (Toronto)
+DESCRIPTION:Sugar Maple — orange to scarlet, the iconic Canadian autumn tree\n\nAcer saccharum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:56a65e3f6db2871f@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260422
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Serviceberry in bloom (Toronto)
+DESCRIPTION:Serviceberry — white, among the earliest deciduous bloomers\n\nAmelanchier canadensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7a70f23b94d23a09@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Serviceberry fall colour (Toronto)
+DESCRIPTION:Serviceberry — orange-red\n\nAmelanchier canadensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:31c60fd24c26d35b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260422
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Pear Chanticleer in bloom (Toronto)
+DESCRIPTION:Pear Chanticleer — white, profuse, briefly unpleasant smell\n\nPyrus calleryana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:73b3544e1b420cfd@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261111
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Pear Chanticleer fall colour (Toronto)
+DESCRIPTION:Pear Chanticleer — burgundy-purple\n\nPyrus calleryana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c051c39d0b7d6c50@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Siberian Elm fall colour (Toronto)
+DESCRIPTION:Siberian Elm — yellow\n\nUlmus pumila\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:269448214d5b08bd@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260615
+DTEND;VALUE=DATE:20260701
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Redmond Basswood in bloom (Toronto)
+DESCRIPTION:Redmond Basswood — fragrant pale-yellow, like cordata but bigger leaves\n\nTilia americana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:97404de107f1023f@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Redmond Basswood fall colour (Toronto)
+DESCRIPTION:Redmond Basswood — pale yellow\n\nTilia americana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6f43fa039af39fe5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260615
+DTEND;VALUE=DATE:20260701
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Linden in bloom (Toronto)
+DESCRIPTION:Linden — fragrant pale-yellow\n\nTilia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:72f78c2c1e372d3d@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Linden fall colour (Toronto)
+DESCRIPTION:Linden — pale yellow\n\nTilia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:43c37ab800e07a80@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261106
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 London Planetree fall colour (Toronto)
+DESCRIPTION:London Planetree — yellow-brown, slow shed\n\nPlatanus x acerifolia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:272a75dfe6cd1f7c@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 American Valley Forge Elm fall colour (Toronto)
+DESCRIPTION:American Valley Forge Elm — golden yellow, Dutch-elm survivors\n\nUlmus americana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:89c74d8b4aad9b3e@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 White Birch fall colour (Toronto)
+DESCRIPTION:White Birch — clear yellow against white bark\n\nBetula papyrifera\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:5ab517d352fdff7a@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261031
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Bur Oak fall colour (Toronto)
+DESCRIPTION:Bur Oak — gold-brown, long-lived tree\n\nQuercus macrocarpa\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e092da0755920805@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Red Maple fall colour (Toronto)
+DESCRIPTION:Red Maple — deep red, often earliest of the maples\n\nAcer rubrum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dc714ab59322f549@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260616
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Tulip tree in bloom (Toronto)
+DESCRIPTION:Tulip tree — green-orange tulip-shaped, high in the canopy\n\nLiriodendron tulipifera\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:23812df2d3373da6@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Tulip tree fall colour (Toronto)
+DESCRIPTION:Tulip tree — golden yellow\n\nLiriodendron tulipifera\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1b92f94652fa9e9b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260605
+DTEND;VALUE=DATE:20260621
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Northern Catalpa in bloom (Toronto)
+DESCRIPTION:Northern Catalpa — large white panicles, purple-throat\n\nCatalpa speciosa\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2a70b06f2ad14f51@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Northern Catalpa fall colour (Toronto)
+DESCRIPTION:Northern Catalpa — yellow\n\nCatalpa speciosa\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:855dd792b27a2579@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20261006
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Manitoba Maple fall colour (Toronto)
+DESCRIPTION:Manitoba Maple — yellow, early shed\n\nAcer negundo\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:24b100fb926a7aae@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261106
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Swamp White Oak fall colour (Toronto)
+DESCRIPTION:Swamp White Oak — yellow-brown, swamp-edge species\n\nQuercus bicolor\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a0e2b1fb4303ce99@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261011
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Green Ash fall colour (Toronto)
+DESCRIPTION:Green Ash — yellow, mostly EAB-killed\n\nFraxinus pennsylvanica\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:08095458681673df@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 White Weeping Mulberry fall colour (Toronto)
+DESCRIPTION:White Weeping Mulberry — yellow, edible berries earlier\n\nMorus alba\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:052da4db1a8df3cd@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260420
+DTEND;VALUE=DATE:20260516
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Cherry in bloom (Toronto)
+DESCRIPTION:Cherry — white-to-pink cherry/plum blossoms\n\nPrunus spp.\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:88b624da5b97c50b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Cherry fall colour (Toronto)
+DESCRIPTION:Cherry — red-orange\n\nPrunus spp.\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dc7f45333be3c99a@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20261011
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Amur Maple fall colour (Toronto)
+DESCRIPTION:Amur Maple — red-yellow-orange at once\n\nAcer tataricum subsp. ginnala\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c5d9d13050678c29@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Accolade Elm fall colour (Toronto)
+DESCRIPTION:Accolade Elm — yellow ('Accolade' resistant cultivar)\n\nUlmus davidiana 'japonica Morton\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fd7599ad61f73829@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Elm fall colour (Toronto)
+DESCRIPTION:Elm — yellow\n\nUlmus\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2a7c918844af68c2@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261116
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 English Oak fall colour (Toronto)
+DESCRIPTION:English Oak — russet-brown, late, European species\n\nQuercus robur\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4765689ea5bbc0b5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261116
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 European Beech fall colour (Toronto)
+DESCRIPTION:European Beech — copper-bronze, leaves held into winter (marcescent)\n\nFagus sylvatica\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c51375635fae6fc9@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261111
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 White Oak fall colour (Toronto)
+DESCRIPTION:White Oak — wine-red to russet, often marcescent\n\nQuercus alba\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d6acb0dee4074f81@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260512
+DTEND;VALUE=DATE:20260526
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Horsechestnut in bloom (Toronto)
+DESCRIPTION:Horsechestnut — large white panicles, red-throat\n\nAesculus hippocastanum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:83a7f6f17c1a06ac@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Horsechestnut fall colour (Toronto)
+DESCRIPTION:Horsechestnut — yellow-brown, often scorched\n\nAesculus hippocastanum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7b0f1f1bc26a5f98@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Hedge Maple fall colour (Toronto)
+DESCRIPTION:Hedge Maple — yellow-orange, small European maple\n\nAcer campestre\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:24c7079fd15ba72d@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261102
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Japanese Maple fall colour (Toronto)
+DESCRIPTION:Japanese Maple — red-purple, late and long-held\n\nAcer palmatum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6eefe424e0e62a32@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Birch fall colour (Toronto)
+DESCRIPTION:Birch — yellow\n\nBetula\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:06b7b362be06b62e@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260528
+DTEND;VALUE=DATE:20260611
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Black locust in bloom (Toronto)
+DESCRIPTION:Black locust — white racemes, intensely honey-scented\n\nRobinia pseudoacacia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ccbf08627ca66a08@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Black locust fall colour (Toronto)
+DESCRIPTION:Black locust — yellow\n\nRobinia pseudoacacia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:888ae5a66c43d0b2@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260510
+DTEND;VALUE=DATE:20260523
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Ohio Buckeye in bloom (Toronto)
+DESCRIPTION:Ohio Buckeye — cream-yellow panicles\n\nAesculus glabra\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:80ceeb3c5050f60f@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260920
+DTEND;VALUE=DATE:20261011
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Ohio Buckeye fall colour (Toronto)
+DESCRIPTION:Ohio Buckeye — orange\n\nAesculus glabra\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:edec4f59cf1a3f22@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260513
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Redbud in bloom (Toronto)
+DESCRIPTION:Redbud — magenta-pink, clinging to bare branches\n\nCercis canadensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:46019a810e1a3bee@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Redbud fall colour (Toronto)
+DESCRIPTION:Redbud — yellow\n\nCercis canadensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:9cdfeca109722420@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260510
+DTEND;VALUE=DATE:20260526
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Choke Shubert Cherry in bloom (Toronto)
+DESCRIPTION:Choke Shubert Cherry — white racemes, mildly fragrant\n\nPrunus virginiana Shubert\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dfe84ed5d785da3e@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260529
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Yellow Buckeye in bloom (Toronto)
+DESCRIPTION:Yellow Buckeye — yellow panicles\n\nAesculus flava\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:971af68e42ffc31e@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Yellow Buckeye fall colour (Toronto)
+DESCRIPTION:Yellow Buckeye — orange-yellow\n\nAesculus flava\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2deabe5df7f24b51@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Black Maple fall colour (Toronto)
+DESCRIPTION:Black Maple — yellow to orange, sugar-maple cousin\n\nAcer nigrum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dc7bd71690d7dbe0@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260420
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Saucer Magnolia in bloom (Toronto)
+DESCRIPTION:Saucer Magnolia — large pink-white saucers, frost-risk\n\nMagnolia x soulngeana (M. denudata x liliiflora)\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:8a857ec57abad4cf@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260410
+DTEND;VALUE=DATE:20260423
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Katsura in bloom (Toronto)
+DESCRIPTION:Japanese Katsura — inconspicuous tiny red\n\nCercidiphyllum japonicum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a3c6b291f549c4ef@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Japanese Katsura fall colour (Toronto)
+DESCRIPTION:Japanese Katsura — orange-peach-pink, leaves smell like caramel\n\nCercidiphyllum japonicum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:857c0ddcdfa45fa4@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260531
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Ruby Red Horsechestnut in bloom (Toronto)
+DESCRIPTION:Ruby Red Horsechestnut — red-pink panicles, 'Briotii'\n\nAesculus x carnea\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:3a4e883310475e70@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261001
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Maple fall colour (Toronto)
+DESCRIPTION:Maple — yellow to red\n\nAcer\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a27fb9f548d65138@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261011
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 White Ash fall colour (Toronto)
+DESCRIPTION:White Ash — purple to yellow, rare post-EAB\n\nFraxinus americana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:14ae9bf23a09ac24@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261111
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Pin Oak fall colour (Toronto)
+DESCRIPTION:Pin Oak — deep red, holds leaves through winter (marcescent)\n\nQuercus palustris\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:69304b9b2b4ba4e8@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Ironwood fall colour (Toronto)
+DESCRIPTION:Ironwood — yellow, hop-like seed clusters\n\nOstrya virginiana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:540ce9bd64402bde@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260601
+DTEND;VALUE=DATE:20260616
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Kentucky Yellowwood in bloom (Toronto)
+DESCRIPTION:Kentucky Yellowwood — white pea-family racemes, fragrant, intermittent years\n\nCladrastis kentukea\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:7e109ff286b8da9d@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261026
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Kentucky Yellowwood fall colour (Toronto)
+DESCRIPTION:Kentucky Yellowwood — golden yellow\n\nCladrastis kentukea\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f69ed68a607e0739@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260511
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Cherry in bloom (Toronto)
+DESCRIPTION:Japanese Cherry — pink-white cherry blossom, iconic\n\nPrunus serrulata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:12759312d9d8c0d5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261021
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Japanese Cherry fall colour (Toronto)
+DESCRIPTION:Japanese Cherry — bronze-red\n\nPrunus serrulata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f561f97aa9e769a1@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260410
+DTEND;VALUE=DATE:20260423
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Peach in bloom (Toronto)
+DESCRIPTION:Peach — deep pink peach blossom\n\nPrunus persica\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:571a9bdc6cce9e23@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260405
+DTEND;VALUE=DATE:20260421
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Apricot in bloom (Toronto)
+DESCRIPTION:Apricot — white-pink apricot blossom, very early\n\nPrunus armeniaca\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4d325b428e807757@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260415
+DTEND;VALUE=DATE:20260501
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Weeping Higan Cherry in bloom (Toronto)
+DESCRIPTION:Weeping Higan Cherry — pale pink, weeping form\n\nPrunus subhirtella Pink Cloud'\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:74375464fde8c0ea@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260418
+DTEND;VALUE=DATE:20260501
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Sargent Cherry in bloom (Toronto)
+DESCRIPTION:Sargent Cherry — pale pink, very early, flat-topped crown\n\nPrunus sargentii\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d9d20b44c6261b23@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20261016
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Sargent Cherry fall colour (Toronto)
+DESCRIPTION:Sargent Cherry — scarlet\n\nPrunus sargentii\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4e294ff004a77c5b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260425
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Yoshino Cherry in bloom (Toronto)
+DESCRIPTION:Japanese Yoshino Cherry — white-pink, the Tidal Basin cherry\n\nPrunus x yedoensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bdf1120cfa735e67@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261116
+RRULE:FREQ=YEARLY
+SUMMARY:🍁 Bald cypress fall colour (Toronto)
+DESCRIPTION:Bald cypress — coppery orange, deciduous conifer\n\nTaxodium distichum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

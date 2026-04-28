@@ -1,0 +1,218 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//treeto.ca//Tree Bloom Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Toronto showy blooms
+X-WR-CALDESC:Magnolia, redbud, catalpa, horsechestnut, etc.
+X-WR-TIMEZONE:America/Toronto
+BEGIN:VEVENT
+UID:ce1937604c956550@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260605
+DTEND;VALUE=DATE:20260621
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Lilac in bloom (Toronto)
+DESCRIPTION:Japanese Lilac — creamy white panicles, privet-honey fragrance\n\nSyringa reticulata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:c21a9f0548db27e6@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260513
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Sargents Apple in bloom (Toronto)
+DESCRIPTION:Sargents Apple — white, profuse, small red fruit persists into winter\n\nMalus sargentii\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:56a65e3f6db2871f@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260422
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Serviceberry in bloom (Toronto)
+DESCRIPTION:Serviceberry — white, among the earliest deciduous bloomers\n\nAmelanchier canadensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:31c60fd24c26d35b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260422
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Pear Chanticleer in bloom (Toronto)
+DESCRIPTION:Pear Chanticleer — white, profuse, briefly unpleasant smell\n\nPyrus calleryana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dc714ab59322f549@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260616
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Tulip tree in bloom (Toronto)
+DESCRIPTION:Tulip tree — green-orange tulip-shaped, high in the canopy\n\nLiriodendron tulipifera\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:1b92f94652fa9e9b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260605
+DTEND;VALUE=DATE:20260621
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Northern Catalpa in bloom (Toronto)
+DESCRIPTION:Northern Catalpa — large white panicles, purple-throat\n\nCatalpa speciosa\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:d6acb0dee4074f81@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260512
+DTEND;VALUE=DATE:20260526
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Horsechestnut in bloom (Toronto)
+DESCRIPTION:Horsechestnut — large white panicles, red-throat\n\nAesculus hippocastanum\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:888ae5a66c43d0b2@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260510
+DTEND;VALUE=DATE:20260523
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Ohio Buckeye in bloom (Toronto)
+DESCRIPTION:Ohio Buckeye — cream-yellow panicles\n\nAesculus glabra\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:edec4f59cf1a3f22@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260513
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Redbud in bloom (Toronto)
+DESCRIPTION:Redbud — magenta-pink, clinging to bare branches\n\nCercis canadensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:9cdfeca109722420@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260510
+DTEND;VALUE=DATE:20260526
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Choke Shubert Cherry in bloom (Toronto)
+DESCRIPTION:Choke Shubert Cherry — white racemes, mildly fragrant\n\nPrunus virginiana Shubert\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dfe84ed5d785da3e@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260529
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Yellow Buckeye in bloom (Toronto)
+DESCRIPTION:Yellow Buckeye — yellow panicles\n\nAesculus flava\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dc7bd71690d7dbe0@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260420
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Saucer Magnolia in bloom (Toronto)
+DESCRIPTION:Saucer Magnolia — large pink-white saucers, frost-risk\n\nMagnolia x soulngeana (M. denudata x liliiflora)\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:857c0ddcdfa45fa4@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260515
+DTEND;VALUE=DATE:20260531
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Ruby Red Horsechestnut in bloom (Toronto)
+DESCRIPTION:Ruby Red Horsechestnut — red-pink panicles, 'Briotii'\n\nAesculus x carnea\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f69ed68a607e0739@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260511
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Cherry in bloom (Toronto)
+DESCRIPTION:Japanese Cherry — pink-white cherry blossom, iconic\n\nPrunus serrulata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:f561f97aa9e769a1@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260410
+DTEND;VALUE=DATE:20260423
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Peach in bloom (Toronto)
+DESCRIPTION:Peach — deep pink peach blossom\n\nPrunus persica\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:571a9bdc6cce9e23@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260405
+DTEND;VALUE=DATE:20260421
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Apricot in bloom (Toronto)
+DESCRIPTION:Apricot — white-pink apricot blossom, very early\n\nPrunus armeniaca\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4d325b428e807757@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260415
+DTEND;VALUE=DATE:20260501
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Weeping Higan Cherry in bloom (Toronto)
+DESCRIPTION:Weeping Higan Cherry — pale pink, weeping form\n\nPrunus subhirtella Pink Cloud'\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:74375464fde8c0ea@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260418
+DTEND;VALUE=DATE:20260501
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Sargent Cherry in bloom (Toronto)
+DESCRIPTION:Sargent Cherry — pale pink, very early, flat-topped crown\n\nPrunus sargentii\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:4e294ff004a77c5b@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260425
+DTEND;VALUE=DATE:20260506
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Japanese Yoshino Cherry in bloom (Toronto)
+DESCRIPTION:Japanese Yoshino Cherry — white-pink, the Tidal Basin cherry\n\nPrunus x yedoensis\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

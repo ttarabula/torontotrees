@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//treeto.ca//Tree Bloom Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Toronto fragrant trees
+X-WR-CALDESC:Linden, basswood, black locust, yellowwood, lilac
+X-WR-TIMEZONE:America/Toronto
+BEGIN:VEVENT
+UID:c98fed403f5b95c5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260618
+DTEND;VALUE=DATE:20260703
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Littleleaf Linden in bloom (Toronto)
+DESCRIPTION:Littleleaf Linden — small fragrant yellow, bees lose their minds\n\nTilia cordata\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:269448214d5b08bd@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260615
+DTEND;VALUE=DATE:20260701
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Redmond Basswood in bloom (Toronto)
+DESCRIPTION:Redmond Basswood — fragrant pale-yellow, like cordata but bigger leaves\n\nTilia americana\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:6f43fa039af39fe5@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260615
+DTEND;VALUE=DATE:20260701
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Linden in bloom (Toronto)
+DESCRIPTION:Linden — fragrant pale-yellow\n\nTilia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:06b7b362be06b62e@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260528
+DTEND;VALUE=DATE:20260611
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Black locust in bloom (Toronto)
+DESCRIPTION:Black locust — white racemes, intensely honey-scented\n\nRobinia pseudoacacia\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:540ce9bd64402bde@treeto.ca
+DTSTAMP:20260428T050700Z
+DTSTART;VALUE=DATE:20260601
+DTEND;VALUE=DATE:20260616
+RRULE:FREQ=YEARLY
+SUMMARY:🌸 Kentucky Yellowwood in bloom (Toronto)
+DESCRIPTION:Kentucky Yellowwood — white pea-family racemes, fragrant, intermittent years\n\nCladrastis kentukea\n\nFrom treeto.ca · estimated window for typical Toronto phenology.
+URL:https://treeto.ca/calendar/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
