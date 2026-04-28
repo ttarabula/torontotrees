@@ -58,6 +58,9 @@ jobs:
       - name: Generate data lenses
         run: uv run scripts/lenses.py
 
+      - name: Generate per-species pages and OG cards
+        run: uv run scripts/species_pages.py
+
       - name: Generate narrow-street-advantage blog hero chart
         run: uv run scripts/narrow_street_chart.py
 
