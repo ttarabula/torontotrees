@@ -236,7 +236,7 @@
 
 <footer class="site">
   Data: <a href="https://open.toronto.ca/dataset/street-tree-data/">Street Tree Data</a> (City of Toronto, OGL-Toronto). Covers <em>city-owned</em> trees on road allowances only — not private-property or park trees.<br>
-  <a href="https://www.toronto.ca/services-payments/water-environment/trees/tree-planting/">Want one on your street? Ask the City →</a> · <a href="blog/rss.xml">RSS</a> · <a href="https://github.com/ttarabula/torontotrees">GitHub</a>
+  <a href="https://www.toronto.ca/services-payments/water-environment/trees/tree-planting/">Want one on your street? Ask the City →</a> · <a href="feeds/">📅 Subscribe to bloom feeds</a> · <a href="blog/rss.xml">RSS</a> · <a href="https://github.com/ttarabula/torontotrees">GitHub</a>
   <div id="freshness" style="margin-top: .4rem; opacity: .75;"></div>
 </footer>
 <script>
@@ -1044,7 +1044,7 @@ $result.addEventListener("click", async (ev) => {
         <span class="note">— ${verb[p.kind]}${p.note ? ": " + escapeHtml(p.note) : ""}</span>
       </div>`;
     }).join("") +
-    `<div class="more"><a href="calendar/">See the full year →</a></div>`;
+    `<div class="more"><a href="calendar/">See the full year →</a> · <a href="feeds/">Subscribe to bloom alerts →</a></div>`;
 
   // Show only when the user hasn't searched for anything yet. A URL hash
   // means a specific query is incoming — skip showing the widget at all.
