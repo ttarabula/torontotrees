@@ -61,6 +61,9 @@ jobs:
       - name: Generate per-species pages and OG cards
         run: uv run scripts/species_pages.py
 
+      - name: Generate Treedle daily-puzzle dataset
+        run: uv run scripts/treedle_data.py
+
       - name: Generate narrow-street-advantage blog hero chart
         run: uv run scripts/narrow_street_chart.py
 

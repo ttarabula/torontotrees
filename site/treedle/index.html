@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Treedle — guess today's Toronto tree | torontotrees</title>
+<meta name="description" content="Each day, one real Toronto street tree. Six guesses to identify the species. Wordle, but for the urban forest. Free, no login, no ads.">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='54'>🌳</text></svg>">
+<meta property="og:title" content="Treedle — guess today's Toronto tree">
+<meta property="og:description" content="A daily Toronto-tree species game. Six guesses. New tree every day.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --fg:#1a1a1a; --muted:#666;
+    --accent:#2b7a3d; --accent-dark:#1e5b2d;
+    --bg:#faf7f2; --card:#fff;
+    --border:#e2e2e2; --rule:#d9d4c7;
+    --correct:#4caf50; --close:#daa520; --wrong:#c43c3c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+  }
+  header.site { border-bottom: 1px solid var(--rule); padding: 1rem 1.25rem; }
+  header.site .inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; }
+  header.site a.home { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+  header.site a.home::before { content: "← "; opacity: 0.55; }
+  header.site nav.mainnav { display: flex; gap: 1.1rem; font-size: .9rem; flex-wrap: wrap; }
+  header.site nav.mainnav a { color: #666; text-decoration: none; }
+  header.site nav.mainnav a:hover { color: var(--accent-dark); text-decoration: underline; }
+  main { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: .5rem; flex-wrap: wrap; }
+  .head h1 { font-size: 1.7rem; margin: 0; }
+  .head .streak { color: var(--muted); font-size: .9rem; }
+  .head .streak strong { color: var(--accent-dark); }
+  .sub { color: var(--muted); margin: 0 0 1rem; font-size: .96rem; }
+
+  .pano { aspect-ratio: 16 / 10; background: #0b0d10; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 1rem; position: relative; }
+  .pano iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .pano .fallback { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #c8c0af; gap: .5rem; font-size: .95rem; padding: 1rem; text-align: center; }
+  .pano .fallback a { color: #4caf50; }
+
+  .hints { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; margin: .5rem 0 1rem; font-size: .94rem; }
+  .hints .hint { padding: .15rem 0; }
+  .hints .hint .label { color: var(--muted); display: inline-block; min-width: 7rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
+  .hints .hint .v { color: #111; font-weight: 600; }
+
+  .guesses { margin: 1rem 0; }
+  .guess-row { display: flex; gap: .55rem; align-items: center; padding: .55rem .75rem; border: 1px solid var(--border); border-radius: 6px; margin-bottom: .35rem; background: var(--card); font-size: .96rem; }
+  .guess-row.correct { background: #e8f5e9; border-color: var(--correct); }
+  .guess-row.close { background: #fff8e1; border-color: var(--close); }
+  .guess-row.wrong { background: #fbe9e9; border-color: var(--wrong); }
+  .guess-row .marker { font-size: 1.1rem; }
+  .guess-row .label { flex: 1; }
+  .guess-row .label .bot { color: var(--muted); font-style: italic; font-size: .88em; }
+  .guess-row .feedback { color: var(--muted); font-size: .85rem; }
+
+  .input-row { position: relative; margin: 1rem 0; }
+  .input-row input { width: 100%; padding: .7rem 1rem; font-size: 1.04rem; border: 1px solid #ccc; border-radius: 8px; background: var(--card); }
+  .input-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  .suggest { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: var(--card); border: 1px solid var(--border); border-radius: 8px; max-height: 280px; overflow: auto; z-index: 50; box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+  .suggest[hidden] { display: none; }
+  .suggest .item { padding: .5rem .85rem; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
+  .suggest .item:last-child { border-bottom: 0; }
+  .suggest .item:hover, .suggest .item.sel { background: #eef3ed; }
+  .suggest .item .bot { color: var(--muted); font-style: italic; font-size: .88em; }
+
+  .submit-row { display: flex; gap: .5rem; }
+  .submit-row button { background: var(--accent); color: white; padding: .7rem 1.2rem; border: 0; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+  .submit-row button:disabled { opacity: .45; cursor: default; }
+  .submit-row button.secondary { background: var(--card); color: var(--accent-dark); border: 1px solid var(--border); }
+
+  .result { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0; text-align: center; }
+  .result.win { background: #e8f5e9; border-color: var(--correct); }
+  .result.lose { background: #fbe9e9; border-color: var(--wrong); }
+  .result h2 { margin: 0 0 .4rem; font-size: 1.2rem; }
+  .result .answer { font-size: 1.1rem; margin: .35rem 0; }
+  .result .answer em { color: var(--muted); font-size: .9em; }
+  .result .actions { display: flex; gap: .5rem; justify-content: center; margin-top: .8rem; flex-wrap: wrap; }
+  .result .actions button, .result .actions a {
+    padding: .5rem 1rem; border-radius: 6px; font-size: .92rem; font-weight: 600;
+    text-decoration: none; cursor: pointer; border: 0;
+  }
+  .result .actions button { background: var(--accent); color: white; }
+  .result .actions .secondary { background: var(--card); color: var(--accent-dark); border: 1px solid var(--border); }
+  .result .next { color: var(--muted); font-size: .85rem; margin-top: .5rem; }
+
+  .how { background: #f3efe4; border-left: 4px solid var(--accent); padding: .9rem 1.1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; font-size: .94rem; }
+  .how summary { cursor: pointer; font-weight: 600; color: var(--accent-dark); }
+  .how[open] summary { margin-bottom: .55rem; }
+  .how ul { margin: .3rem 0; padding-left: 1.3rem; }
+
+  footer.site { border-top: 1px solid var(--rule); padding: 1.5rem 1.25rem 3rem; text-align: center; color: var(--muted); font-size: .85rem; max-width: 720px; margin: 2rem auto 0; }
+  footer.site a { color: var(--muted); }
+
+  @media (max-width: 520px) { main { padding: 1rem 1rem 2rem; } .head h1 { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../">🌳 torontotrees</a>
+    <nav class="mainnav">
+      <a href="../blog/">Blog</a>
+      <a href="../calendar/">Calendar</a>
+      <a href="../walks/">Walks</a>
+      <a href="../species/">Species</a>
+      <a href="../about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="head">
+    <h1>🌳 Treedle <span id="day-num" style="color: var(--muted); font-weight: normal; font-size: .9em;"></span></h1>
+    <div class="streak">streak: <strong id="streak">0</strong> · played: <strong id="plays">0</strong></div>
+  </div>
+  <p class="sub">Guess the species of today's Toronto street tree. Six tries. New tree every day.</p>
+
+  <details class="how">
+    <summary>How it works</summary>
+    <ul>
+      <li>The Street View panorama below shows one real catalogued city-owned tree somewhere in Toronto.</li>
+      <li>Pick a species from the autocomplete and submit. Six guesses total.</li>
+      <li>After each wrong guess: you'll see whether you got the <strong>genus</strong> right (yellow) or wrong (red), plus one new hint — neighbourhood, then DBH, then bloom timing, then the genus's first letter.</li>
+      <li>Streak resets if you miss a day or fail to guess.</li>
+      <li>Same tree for everyone, same day. Compare scores with friends.</li>
+    </ul>
+  </details>
+
+  <div class="pano" id="pano">
+    <div class="fallback">Loading the panorama…</div>
+  </div>
+
+  <div class="hints" id="hints" hidden></div>
+
+  <div class="guesses" id="guesses"></div>
+
+  <div id="play-area">
+    <div class="input-row">
+      <input id="q" type="text" placeholder="Type a species — e.g., red oak, ginkgo, honey locust" autocomplete="off" spellcheck="false">
+      <div id="suggest" class="suggest" role="listbox" hidden></div>
+    </div>
+    <div class="submit-row">
+      <button id="submit-guess" disabled>Guess</button>
+      <button id="give-up" class="secondary">Give up</button>
+    </div>
+  </div>
+
+  <div id="result-area"></div>
+
+  <p style="margin-top: 2rem; color: var(--muted); font-size: .88rem; text-align: center;">
+    Image data © Google. Tree data: <a href="https://open.toronto.ca/dataset/street-tree-data/">City of Toronto</a>.
+  </p>
+</main>
+
+<footer class="site">
+  Treedle is a free, ad-free daily puzzle from <a href="../">treeto.ca</a>. Source on <a href="https://github.com/ttarabula/torontotrees">GitHub</a>.
+</footer>
+
+<script>
+const GMAPS_KEY = "AIzaSyC2HG6dkZmwRox2dL8yPCtMIfPdnBX6kOo";
+const LAUNCH = Date.UTC(2026, 4, 1);   // May 1, 2026 — day 0
+const MAX_GUESSES = 6;
+const STORAGE_KEY = "treedle.state.v1";
+
+let data = null;
+let puzzle = null;
+let answer = null;       // { key, common, botanical, genus }
+let state = null;        // { guesses: [], finished: bool, won: bool, day }
+
+const $pano = document.getElementById("pano");
+const $hints = document.getElementById("hints");
+const $guesses = document.getElementById("guesses");
+const $q = document.getElementById("q");
+const $sug = document.getElementById("suggest");
+const $submit = document.getElementById("submit-guess");
+const $giveup = document.getElementById("give-up");
+const $result = document.getElementById("result-area");
+const $playArea = document.getElementById("play-area");
+const $dayNum = document.getElementById("day-num");
+const $streak = document.getElementById("streak");
+const $plays = document.getElementById("plays");
+
+function todayDay() {
+  const now = new Date();
+  // Use local-Toronto date (UTC-ish) for the puzzle key
+  return Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - LAUNCH) / 86400000);
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch { return null; }
+}
+
+function saveState(s) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {}
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function renderPano() {
+  const url = `https://www.google.com/maps/embed/v1/streetview?key=${GMAPS_KEY}&location=${puzzle.lat},${puzzle.lon}&heading=180&pitch=10&fov=70`;
+  $pano.innerHTML = `<iframe src="${url}" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; gyroscope" loading="lazy"></iframe>`;
+}
+
+function hintFor(n) {
+  // Reveal one hint per wrong guess made
+  const hints = [
+    { label: "Neighbourhood", v: puzzle.nbhd },
+    { label: "Trunk diameter", v: `${puzzle.dbh} cm DBH` },
+    { label: "Bloom", v: bloomHint(answer.key) },
+    { label: "Genus starts with", v: answer.genus[0].toUpperCase() },
+    { label: "Genus", v: answer.genus.charAt(0).toUpperCase() + answer.genus.slice(1) },
+  ];
+  return hints.slice(0, Math.min(n, hints.length));
+}
+
+function bloomHint(key) {
+  const cal = data._calendar;
+  if (!cal) return "unknown";
+  const sp = cal.find(s => s.key === key);
+  if (!sp) return "unknown";
+  if (sp.bloom) {
+    const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${m[sp.bloom.start.m-1]} ${sp.bloom.start.d} – ${m[sp.bloom.end.m-1]} ${sp.bloom.end.d}`;
+  }
+  return "doesn't bloom showily";
+}
+
+function renderHints() {
+  const wrongs = state.guesses.filter(g => g.key !== answer.key).length;
+  if (wrongs === 0) { $hints.hidden = true; return; }
+  const hs = hintFor(wrongs);
+  $hints.hidden = false;
+  $hints.innerHTML = hs.map(h => `<div class="hint"><span class="label">${escapeHtml(h.label)}:</span> <span class="v">${escapeHtml(h.v)}</span></div>`).join("");
+}
+
+function renderGuesses() {
+  $guesses.innerHTML = state.guesses.map(g => {
+    const a = data.answers.find(x => x.key === g.key);
+    if (!a) return "";
+    let cls, marker, fb;
+    if (g.key === answer.key) {
+      cls = "correct"; marker = "✅"; fb = "Exact match — well done.";
+    } else if (a.genus === answer.genus) {
+      cls = "close"; marker = "🟨"; fb = `Right genus, wrong species.`;
+    } else {
+      cls = "wrong"; marker = "🟥"; fb = "Different genus.";
+    }
+    return `<div class="guess-row ${cls}">
+      <span class="marker">${marker}</span>
+      <div class="label">${escapeHtml(a.common)} <span class="bot">${escapeHtml(a.botanical)}</span></div>
+      <span class="feedback">${escapeHtml(fb)}</span>
+    </div>`;
+  }).join("");
+}
+
+function shareGrid() {
+  const lines = state.guesses.map(g => {
+    if (g.key === answer.key) return "🟩";
+    const a = data.answers.find(x => x.key === g.key);
+    return a && a.genus === answer.genus ? "🟨" : "🟥";
+  });
+  // Pad to MAX_GUESSES rows for failed games
+  while (lines.length < state.guesses.length) lines.push("⬛");
+  const score = state.won ? `${state.guesses.length}/${MAX_GUESSES}` : `X/${MAX_GUESSES}`;
+  return `Treedle #${state.day} ${score}\n${lines.join("")}\ntreeto.ca/treedle/`;
+}
+
+function updateStats(won) {
+  const stats = JSON.parse(localStorage.getItem("treedle.stats.v1") || '{"streak":0,"plays":0,"wins":0,"lastDay":null}');
+  stats.plays++;
+  if (won) {
+    stats.wins++;
+    if (stats.lastDay === state.day - 1) stats.streak++;
+    else stats.streak = 1;
+  } else {
+    stats.streak = 0;
+  }
+  stats.lastDay = state.day;
+  localStorage.setItem("treedle.stats.v1", JSON.stringify(stats));
+  renderStats();
+}
+
+function renderStats() {
+  const stats = JSON.parse(localStorage.getItem("treedle.stats.v1") || '{"streak":0,"plays":0,"wins":0}');
+  $streak.textContent = stats.streak;
+  $plays.textContent = stats.plays;
+}
+
+function finish(won) {
+  state.finished = true;
+  state.won = won;
+  saveState(state);
+  updateStats(won);
+  showResult();
+  $playArea.hidden = true;
+}
+
+function showResult() {
+  const grid = shareGrid();
+  const cls = state.won ? "win" : "lose";
+  const h2 = state.won ? "🎉 Got it!" : "Out of guesses.";
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0, 0, 0, 0);
+  const msToTomorrow = tomorrow - new Date();
+  const hrs = Math.floor(msToTomorrow / 3600000);
+  const mins = Math.floor((msToTomorrow % 3600000) / 60000);
+
+  $result.innerHTML = `
+    <div class="result ${cls}">
+      <h2>${h2}</h2>
+      <p class="answer"><strong>${escapeHtml(answer.common)}</strong> · <em>${escapeHtml(answer.botanical)}</em></p>
+      <p style="color: var(--muted); font-size: .92rem;">at ${escapeHtml(puzzle.addr)} · ${escapeHtml(puzzle.nbhd)}</p>
+      <pre style="font-family: ui-monospace, monospace; margin: .8rem auto; font-size: 1rem; line-height: 1.3;">${grid}</pre>
+      <div class="actions">
+        <button id="copy-share">📋 Copy result</button>
+        <a class="secondary" href="../#@${puzzle.lat.toFixed(5)},${puzzle.lon.toFixed(5)}">See this tree →</a>
+      </div>
+      <p class="next">Next Treedle in ${hrs}h ${mins}m</p>
+    </div>
+  `;
+  document.getElementById("copy-share").addEventListener("click", async (ev) => {
+    try {
+      await navigator.clipboard.writeText(grid);
+      ev.target.textContent = "✓ Copied";
+    } catch {
+      window.prompt("Copy this:", grid);
+    }
+  });
+}
+
+function submitGuess(key) {
+  const a = data.answers.find(x => x.key === key);
+  if (!a) return;
+  state.guesses.push({ key, t: Date.now() });
+  saveState(state);
+  renderGuesses();
+  renderHints();
+  if (key === answer.key) {
+    finish(true);
+  } else if (state.guesses.length >= MAX_GUESSES) {
+    finish(false);
+  }
+  $q.value = "";
+  $sug.hidden = true;
+  $submit.disabled = true;
+}
+
+// --- Autocomplete ---
+let suggestSel = -1;
+function refreshSuggest() {
+  const q = $q.value.toLowerCase().trim();
+  if (!q) { $sug.hidden = true; return; }
+  const guessed = new Set(state.guesses.map(g => g.key));
+  const matches = data.answers
+    .filter(a => !guessed.has(a.key))
+    .filter(a => a.common.toLowerCase().includes(q) || a.botanical.toLowerCase().includes(q) || a.key.includes(q))
+    .slice(0, 8);
+  if (!matches.length) { $sug.hidden = true; return; }
+  suggestSel = -1;
+  $sug.innerHTML = matches.map((a, i) =>
+    `<div class="item" data-key="${escapeHtml(a.key)}">${escapeHtml(a.common)} <span class="bot">${escapeHtml(a.botanical)}</span></div>`
+  ).join("");
+  $sug.hidden = false;
+  $sug.querySelectorAll(".item").forEach(el => {
+    el.addEventListener("click", () => {
+      $q.value = el.querySelector("*:first-child")?.textContent || "";
+      // Pick the key
+      submitGuess(el.dataset.key);
+    });
+  });
+}
+
+$q.addEventListener("input", () => {
+  refreshSuggest();
+  $submit.disabled = !data.answers.some(a => a.common.toLowerCase() === $q.value.toLowerCase().trim() || a.botanical.toLowerCase() === $q.value.toLowerCase().trim());
+});
+$q.addEventListener("keydown", (e) => {
+  const items = $sug.querySelectorAll(".item");
+  if (e.key === "ArrowDown" && items.length) {
+    e.preventDefault();
+    suggestSel = (suggestSel + 1) % items.length;
+    items.forEach((el, i) => el.classList.toggle("sel", i === suggestSel));
+  } else if (e.key === "ArrowUp" && items.length) {
+    e.preventDefault();
+    suggestSel = (suggestSel - 1 + items.length) % items.length;
+    items.forEach((el, i) => el.classList.toggle("sel", i === suggestSel));
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if (suggestSel >= 0 && items[suggestSel]) {
+      submitGuess(items[suggestSel].dataset.key);
+    } else {
+      const q = $q.value.toLowerCase().trim();
+      const exact = data.answers.find(a => a.common.toLowerCase() === q || a.botanical.toLowerCase() === q || a.key === q);
+      if (exact) submitGuess(exact.key);
+    }
+  } else if (e.key === "Escape") {
+    $sug.hidden = true;
+  }
+});
+$submit.addEventListener("click", () => {
+  const q = $q.value.toLowerCase().trim();
+  const exact = data.answers.find(a => a.common.toLowerCase() === q || a.botanical.toLowerCase() === q || a.key === q);
+  if (exact) submitGuess(exact.key);
+});
+$giveup.addEventListener("click", () => {
+  if (confirm("Give up on today's tree?")) finish(false);
+});
+
+// Hide suggest on outside click
+document.addEventListener("click", (ev) => {
+  if (!ev.target.closest(".input-row")) $sug.hidden = true;
+});
+
+async function init() {
+  // Load both treedle puzzle data and the calendar for bloom hints
+  const [t, c] = await Promise.all([
+    fetch("../data/treedle.json").then(r => r.json()),
+    fetch("../data/calendar.json").then(r => r.json()).catch(() => null),
+  ]);
+  data = t;
+  data._calendar = c;
+
+  const day = todayDay();
+  const idx = ((day % data.puzzles.length) + data.puzzles.length) % data.puzzles.length;
+  puzzle = data.puzzles[idx];
+  answer = data.answers.find(a => a.key === puzzle.k);
+  if (!answer) {
+    // Fallback if puzzle answer key isn't in answer pool (shouldn't happen)
+    $pano.innerHTML = `<div class="fallback">Today's puzzle is offline. Try again tomorrow.</div>`;
+    return;
+  }
+
+  $dayNum.textContent = `· #${day}`;
+
+  // Load or create state
+  const stored = loadState();
+  if (stored && stored.day === day) {
+    state = stored;
+  } else {
+    state = { day, guesses: [], finished: false, won: false };
+    saveState(state);
+  }
+  renderPano();
+  renderGuesses();
+  renderHints();
+  renderStats();
+  if (state.finished) {
+    $playArea.hidden = true;
+    showResult();
+  }
+  $q.focus();
+}
+init().catch(err => {
+  $pano.innerHTML = `<div class="fallback">Couldn't load today's puzzle: ${err.message}</div>`;
+});
+</script>
+
+</body>
+</html>
