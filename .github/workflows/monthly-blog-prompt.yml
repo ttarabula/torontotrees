@@ -16,6 +16,11 @@ permissions:
   contents: read
   issues: write
 
+env:
+  # See deploy.yml — opt in to Node 24 for all JS actions before the
+  # June 2026 deprecation forces it.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   open-issue:
     runs-on: ubuntu-latest

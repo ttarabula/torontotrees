@@ -18,6 +18,13 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  # Opt in to Node 24 for all JS actions. Node 20 is being removed from
+  # GitHub Actions runners (deprecation: 2026-06-02; full removal: 2026-09-16).
+  # The action versions we pin (checkout@v4, setup-uv@v4, upload-pages@v3,
+  # deploy-pages@v4) work cleanly under Node 24.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   build:
     runs-on: ubuntu-latest
