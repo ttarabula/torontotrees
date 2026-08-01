@@ -4,6 +4,11 @@ name: Monthly blog post prompt
 # that month's blog post. Even months = species spotlight, odd months =
 # miscellaneous post, per Tyler's spec.
 #
+# The issue is assigned to the repo owner. Without an assignee, a bot-opened
+# issue is invisible at the "Participating and @mentions" watch level — issues
+# #1-#4 (May-Aug 2026) were all opened this way and never notified anyone.
+# Assignment notifies at every watch level.
+#
 # Manual trigger also available via the Actions UI (workflow_dispatch).
 
 on:
@@ -42,4 +47,5 @@ jobs:
           gh issue create \
             --repo "$GITHUB_REPOSITORY" \
             --title "$title" \
-            --body-file /tmp/body.txt
+            --body-file /tmp/body.txt \
+            --assignee "$GITHUB_REPOSITORY_OWNER"
