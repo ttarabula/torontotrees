@@ -6,7 +6,14 @@
     <atom:link href="https://treeto.ca/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and visualizations built on Toronto's open street-tree data.</description>
     <language>en-CA</language>
-    <lastBuildDate>Mon, 11 May 2026 12:59:40 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 14:14:51 +0000</lastBuildDate>
+    <item>
+      <title>The 61-centimetre line — what Toronto&#x27;s new tree bylaw actually selects for</title>
+      <link>https://treeto.ca/blog/the-61-centimetre-line/</link>
+      <guid isPermaLink="true">https://treeto.ca/blog/the-61-centimetre-line/</guid>
+      <pubDate>Tue, 01 Sep 2026 12:00:00 +0000</pubDate>
+      <description>On September 1, 2026, Toronto starts protecting private trees over 61 cm across as &quot;distinctive.&quot; Run that same line across the 689,013 city-owned street trees and it selects two things the bylaw never mentions: species the city regrets planting, and streets laid out before the car.</description>
+    </item>
     <item>
       <title>Tree bingo — three printable cards for a Toronto walk</title>
       <link>https://treeto.ca/blog/tree-bingo/</link>
@@ -19,70 +26,70 @@
       <link>https://treeto.ca/blog/caterpillar-test/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/caterpillar-test/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>Doug Tallamy</description>
+      <description>Doug Tallamy&#x27;s research applied to Toronto: how many native insect species each genus on the city&#x27;s planting list actually supports. Oaks support 534 species. Ginkgos support 3. The ecological gap between street trees you can&#x27;t see by looking at them.</description>
     </item>
     <item>
       <title>Three trees I can&#x27;t explain — anomalies in Toronto&#x27;s street-tree dataset</title>
       <link>https://treeto.ca/blog/three-trees-i-cant-explain/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/three-trees-i-cant-explain/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>A 250-centimetre hawthorn that physically can</description>
+      <description>A 250-centimetre hawthorn that physically can&#x27;t exist. 4,664 cherries the city can&#x27;t tell apart. A single pawpaw on Macdonell Avenue. Three small mysteries from a 689,013-row dataset.</description>
     </item>
     <item>
       <title>What Kyoto&#x27;s monks know that Toronto&#x27;s dataset doesn&#x27;t</title>
       <link>https://treeto.ca/blog/kyoto-and-toronto/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/kyoto-and-toronto/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>Yasuyuki Aono</description>
+      <description>Yasuyuki Aono&#x27;s 1,200-year cherry-blossom record from Kyoto and Toronto&#x27;s 689,013-row street-tree inventory are the same idea — watch a city&#x27;s trees — taken to opposite extremes. One species, twelve centuries vs. 303 species, one snapshot.</description>
     </item>
     <item>
       <title>The densest 100 metres — Arlington Avenue and the city&#x27;s most-treed block</title>
       <link>https://treeto.ca/blog/densest-100-metres/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/densest-100-metres/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>Toronto</description>
+      <description>Toronto&#x27;s most tree-dense residential 100-metre cell is on Arlington Avenue between Winnett and Rushton, in Humewood-Cedarvale. 128 trees in a single block, 34 of them red oaks. A short walking tour of one block, and what it tells us about the city&#x27;s quiet ecological turnaround.</description>
     </item>
     <item>
       <title>The Norway-maple paradox — Toronto&#x27;s most-planted tree is the one the city no longer plants</title>
       <link>https://treeto.ca/blog/norway-maple-paradox/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/norway-maple-paradox/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>99,931 Norway maples line Toronto</description>
+      <description>99,931 Norway maples line Toronto&#x27;s streets — 14.5% of the entire street-tree canopy and 26% of the mature trees. But under 2% of new saplings are Norway maples. The most successful planting program in Toronto history is now a 50-year passive removal.</description>
     </item>
     <item>
       <title>The lilac week — on a flower that becomes a person</title>
       <link>https://treeto.ca/blog/the-lilac-week/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/the-lilac-week/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>Lilacs are the most reliably memory-tied flower in North American family folklore. The species your great-grandmother had in her yard was almost certainly Syringa vulgaris — and the reason there isn</description>
+      <description>Lilacs are the most reliably memory-tied flower in North American family folklore. The species your great-grandmother had in her yard was almost certainly Syringa vulgaris — and the reason there isn&#x27;t one on Toronto&#x27;s streets is structural, not horticultural.</description>
     </item>
     <item>
       <title>The narrow-street advantage — why Toronto&#x27;s old grid carries 4× the trees of its new condos</title>
       <link>https://treeto.ca/blog/narrow-street-advantage/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/narrow-street-advantage/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>The densest 200m stretch of street trees in Toronto has forty. The sparsest has three. The difference isn</description>
+      <description>The densest 200m stretch of street trees in Toronto has forty. The sparsest has three. The difference isn&#x27;t income, care, or policy — it&#x27;s whether the street was laid down before or after the car.</description>
     </item>
     <item>
       <title>The ravines — the other half of Toronto&#x27;s canopy</title>
       <link>https://treeto.ca/blog/the-ravines/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/the-ravines/</guid>
       <pubDate>Fri, 01 May 2026 12:00:00 +0000</pubDate>
-      <description>689,013 city-owned street trees are on a map. An estimated 5 to 8 million more live in Toronto</description>
+      <description>689,013 city-owned street trees are on a map. An estimated 5 to 8 million more live in Toronto&#x27;s 11,000 hectares of ravine, 17% of the city&#x27;s land area. This post is about the canopy that doesn&#x27;t appear on treeto.ca — and why.</description>
     </item>
     <item>
       <title>A tale of two Victorians — Cabbagetown vs. Trinity-Bellwoods</title>
       <link>https://treeto.ca/blog/two-victorians/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/two-victorians/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Two old downtown Toronto neighbourhoods, same era, same rowhouse DNA, same gentrification arc. One has 45% canopy. The other has 20%. Here</description>
+      <description>Two old downtown Toronto neighbourhoods, same era, same rowhouse DNA, same gentrification arc. One has 45% canopy. The other has 20%. Here&#x27;s what separated them.</description>
     </item>
     <item>
       <title>Toronto&#x27;s veteran street trees — a hall of fame</title>
       <link>https://treeto.ca/blog/veteran-trees/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/veteran-trees/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>The single largest specimen of each of Toronto</description>
+      <description>The single largest specimen of each of Toronto&#x27;s 25 most common street-tree species — a 247-cm London plane, a 236-cm red oak, a 190-cm Dutch-elm-disease survivor, and 22 more. Each with a Street View link.</description>
     </item>
     <item>
       <title>Toronto&#x27;s street trees are worth $20 million a year</title>
@@ -103,21 +110,21 @@
       <link>https://treeto.ca/blog/heat-islands/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/heat-islands/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>An impervious-minus-canopy heat proxy maps the city</description>
+      <description>An impervious-minus-canopy heat proxy maps the city&#x27;s hottest and coolest neighbourhoods. The hottest are the financial-district condo core — not the income-vulnerable neighbourhoods the equity narrative predicts.</description>
     </item>
     <item>
       <title>The honey locust — Toronto&#x27;s civic workhorse</title>
       <link>https://treeto.ca/blog/honey-locust/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/honey-locust/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Gleditsia triacanthos is Toronto</description>
+      <description>Gleditsia triacanthos is Toronto&#x27;s #2 tree by count and its #1 choice for new plantings today. 60,000 of them, mostly thornless-seedless cultivars engineered specifically for city life. And a new monoculture risk.</description>
     </item>
     <item>
       <title>Beyond the curb — Toronto&#x27;s actual canopy</title>
       <link>https://treeto.ca/blog/beyond-the-curb/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/beyond-the-curb/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Toronto</description>
+      <description>Toronto&#x27;s 2018 LiDAR land-cover data shows 25.9% canopy cover citywide. And it reveals that the inequity gap for street trees is three times larger than the gap for total canopy — meaning the city itself is the gap.</description>
     </item>
     <item>
       <title>Every street tree in Toronto, as a dot</title>
@@ -131,7 +138,7 @@
       <link>https://treeto.ca/blog/rare-trees/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/rare-trees/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Seven tree species have exactly one specimen in all of Toronto</description>
+      <description>Seven tree species have exactly one specimen in all of Toronto&#x27;s city-owned street-tree inventory. Here&#x27;s where to find them (with addresses).</description>
     </item>
     <item>
       <title>The ginkgo — Toronto&#x27;s 17,474 living fossils</title>
@@ -145,28 +152,28 @@
       <link>https://treeto.ca/blog/black-locust/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/black-locust/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Black locust is one of Toronto</description>
+      <description>Black locust is one of Toronto&#x27;s most under-sung street trees: 2,943 of them, honey-scented flowers in early June, rot-proof wood, and a 182-cm specimen in Don Mills that&#x27;s probably older than most of us.</description>
     </item>
     <item>
       <title>A decade of standing still — how Toronto&#x27;s canopy survived the ash catastrophe</title>
       <link>https://treeto.ca/blog/decade-of-standing-still/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/decade-of-standing-still/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Between 2008 and 2018, Toronto lost an estimated 80,000 mature ash trees to emerald ash borer. Over the same decade, citywide canopy cover went from 25.84% to 25.89%. Here</description>
+      <description>Between 2008 and 2018, Toronto lost an estimated 80,000 mature ash trees to emerald ash borer. Over the same decade, citywide canopy cover went from 25.84% to 25.89%. Here&#x27;s who paid the bill and who got the gain.</description>
     </item>
     <item>
       <title>Toronto&#x27;s canopy is unequally shared — torontotrees</title>
       <link>https://treeto.ca/blog/canopy-equity/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/canopy-equity/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Four findings from an afternoon with Toronto</description>
+      <description>Four findings from an afternoon with Toronto&#x27;s 689,013 street trees: income vs. canopy, the Norway maple that city no longer plants, and downtown&#x27;s honey-locust monoculture.</description>
     </item>
     <item>
       <title>What the trees know</title>
       <link>https://treeto.ca/blog/what-the-trees-know/</link>
       <guid isPermaLink="true">https://treeto.ca/blog/what-the-trees-know/</guid>
       <pubDate>Wed, 01 Apr 2026 12:00:00 +0000</pubDate>
-      <description>Between the data and the product is the reason. A reflection on Toronto</description>
+      <description>Between the data and the product is the reason. A reflection on Toronto&#x27;s oldest street trees, what they&#x27;ve outlived, and the quieter kind of infrastructure they represent.</description>
     </item>
   </channel>
 </rss>

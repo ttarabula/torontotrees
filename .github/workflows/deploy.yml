@@ -74,6 +74,9 @@ jobs:
       - name: Generate narrow-street-advantage blog hero chart
         run: uv run scripts/narrow_street_chart.py
 
+      - name: Generate 61-centimetre-line blog hero chart
+        run: uv run scripts/distinctive_chart.py
+
       - name: Generate blog RSS feed
         run: uv run scripts/rss.py
 
