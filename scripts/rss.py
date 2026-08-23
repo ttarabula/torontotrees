@@ -26,12 +26,16 @@ def parse_post(index_html: Path):
     slug = index_html.parent.name
     html_text = index_html.read_text()
     title_m = re.search(r"<title>(.*?)</title>", html_text, re.DOTALL)
-    desc_m = re.search(r'<meta[^>]*name=["\']description["\'][^>]*content=["\'](.*?)["\']', html_text)
+    # Backreference the opening quote so an apostrophe inside a double-quoted
+    # attribute doesn't end the match early ("Toronto's" used to truncate the
+    # description to "Toronto").
+    desc_m = re.search(
+        r'<meta[^>]*name=["\']description["\'][^>]*content=(["\'])(.*?)\1', html_text)
     subhead_m = re.search(r'<div class="subhead">([^<]+)', html_text)
 
     title = title_m.group(1).strip() if title_m else slug
     title = re.sub(r"\s*\|\s*torontotrees\s*$", "", title)
-    description = html.unescape(desc_m.group(1).strip()) if desc_m else ""
+    description = html.unescape(desc_m.group(2).strip()) if desc_m else ""
 
     pub_date = None
     if subhead_m:
